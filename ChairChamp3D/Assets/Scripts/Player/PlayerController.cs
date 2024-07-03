@@ -69,11 +69,11 @@ public class PlayerController : MonoBehaviour
         if (movement != Vector3.zero)
         {
             // Calculate the target angle in degrees, -90 is adjusted to align with sprite facing up
-            float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90;
+            float targetAngle = Mathf.Atan2(movement.z, movement.x) * Mathf.Rad2Deg - 90;
 
             // Get the current rotation and the target rotation
             Quaternion currentRotation = transform.rotation;
-            Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+            Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
 
             // Rotate towards the target rotation at the specified rotation speed
             transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);

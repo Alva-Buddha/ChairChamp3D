@@ -53,9 +53,9 @@ public class InputManager : MonoBehaviour
     /// <param name="context">Input action callback context to be read for movement</param>
     public void ReadMovementInput(InputAction.CallbackContext context)
     {
-        Vector2 inputVector = context.ReadValue<Vector2>();
+        Vector3 inputVector = context.ReadValue<Vector3>();
         horizontalMoveAxis = inputVector.x;
-        verticalMoveAxis = inputVector.y;
+        verticalMoveAxis = inputVector.z;
     }
 
     [Header("Target Around input")]
@@ -68,7 +68,7 @@ public class InputManager : MonoBehaviour
     /// <param name="context">Input action callback context meant to be read for targeting</param>
     public void ReadMousePositionInput(InputAction.CallbackContext context)
     {
-        Vector2 inputVector = context.ReadValue<Vector2>();
+        Vector3 inputVector = context.ReadValue<Vector3>();
         if (Mathf.Abs(inputVector.x) > 1 && Mathf.Abs(inputVector.y) > 1)
         {
             horizontalTargetAxis = inputVector.x;

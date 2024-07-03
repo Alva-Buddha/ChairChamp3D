@@ -48,9 +48,9 @@ public class PlayerController : MonoBehaviour
     private void HandleInput()
     {
         // Find the position that the player should target
-        Vector2 targetPosition = new Vector2(inputManager.horizontalTargetAxis, inputManager.verticalTargetAxis);
+        Vector2 targetPosition = new Vector3(inputManager.horizontalTargetAxis, 0, inputManager.verticalTargetAxis);
         // Get movement input from the inputManager
-        Vector3 movementVector = new Vector3(inputManager.horizontalMoveAxis, inputManager.verticalMoveAxis, 0);
+        Vector3 movementVector = new Vector3(inputManager.horizontalMoveAxis, 0, inputManager.verticalMoveAxis);
         // Move the player
         MovePlayer(movementVector);
         //TargetPoint(targetPosition);

@@ -1,0 +1,7 @@
+newmtl Picasso 4
+Kd 0.761 0.392 0.251
+d 1.000
+newmtl Picasso 8
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Radial_Gradient_Texture.jpg

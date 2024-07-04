@@ -1,0 +1,98 @@
+newmtl Beyond the Clouds 1
+Kd 0.459 0.459 0.459
+d 1.000
+newmtl Beyond the Clouds 2
+Kd 0.459 0.459 0.459
+d 1.000
+newmtl Beyond the Clouds 3
+Kd 0.459 0.459 0.459
+d 1.000
+newmtl Abstract 1
+Kd 0.937 0.937 0.937
+d 1.000
+newmtl Beyond the Clouds 4
+Kd 0.459 0.459 0.459
+d 1.000
+newmtl Material 2
+Kd 0.800 0.800 0.800
+d 1.000
+newmtl Simply Delicious
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture.jpg
+newmtl Grass 6
+Kd 0.000 0.620 0.055
+d 1.000
+newmtl Mars 4
+Kd 0.502 0.541 1.000
+d 1.000
+newmtl Clear Day 4
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_1.jpg
+newmtl Clear Day 5
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_2.jpg
+newmtl Bazaar 2
+Kd 0.000 0.012 0.129
+d 1.000
+newmtl Clear Day 6
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_3.jpg
+newmtl Clear Day 7
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_4.jpg
+newmtl Bazaar 3
+Kd 0.000 0.012 0.129
+d 1.000
+newmtl Clear Day 2
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_5.jpg
+newmtl Clear Day 3
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_6.jpg
+newmtl Bazaar 1
+Kd 0.000 0.012 0.129
+d 1.000
+newmtl Clear Day 1
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_7.jpg
+newmtl Clear Day
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_8.jpg
+newmtl Bazaar
+Kd 0.000 0.012 0.129
+d 1.000
+newmtl Beyond the Clouds
+Kd 0.459 0.459 0.459
+d 1.000
+newmtl Beyond the Clouds 5
+Kd 0.459 0.459 0.459
+d 1.000
+newmtl Beyond the Clouds 6
+Kd 0.459 0.459 0.459
+d 1.000
+newmtl Abstract
+Kd 0.937 0.937 0.937
+d 1.000
+newmtl Beyond the Clouds 7
+Kd 0.459 0.459 0.459
+d 1.000
+newmtl Simply Delicious 1
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_9.jpg
+newmtl Grass 1
+Kd 0.000 0.620 0.055
+d 1.000
+newmtl Simply Delicious 2
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_10.jpg

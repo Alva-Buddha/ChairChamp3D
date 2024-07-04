@@ -1,0 +1,7 @@
+newmtl Grass
+Kd 0.000 0.620 0.055
+d 1.000
+newmtl Simply Delicious
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture.jpg

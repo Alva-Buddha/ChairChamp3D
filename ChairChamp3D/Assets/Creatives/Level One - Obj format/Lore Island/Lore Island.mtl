@@ -1,0 +1,37 @@
+newmtl Placebo
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Radial_Gradient_Texture.jpg
+newmtl Placebo 1
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Radial_Gradient_Texture_1.jpg
+newmtl Grass 8
+Kd 0.000 0.620 0.055
+d 1.000
+newmtl Simply Delicious 2
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture.jpg
+newmtl Grass 7
+Kd 0.000 0.620 0.055
+d 1.000
+newmtl Simply Delicious 1
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd Linear_Gradient_Texture_1.jpg
+newmtl Milano 3
+Kd 0.937 0.937 0.937
+d 1.000
+newmtl Milano 2
+Kd 0.937 0.937 0.937
+d 1.000
+newmtl Milano 1
+Kd 0.937 0.937 0.937
+d 1.000
+newmtl Milano
+Kd 0.937 0.937 0.937
+d 1.000
+newmtl Milano 4
+Kd 0.937 0.937 0.937
+d 1.000

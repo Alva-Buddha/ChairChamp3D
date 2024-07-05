@@ -23,25 +23,28 @@ public class ChairState : MonoBehaviour
     /// Function to check collision with NPC or player, and change occupied flag and sprite color based on layer of colliding object
     /// </summary>
     /// <param name="collision">The collider that the chair is colliding with</param>
-    private void OnTriggerEnter2D(Collider2D collision)
-    { 
+    private void OnTriggerEnter(Collider collision)
+    {
+        Color currentColor = GetComponent<MeshRenderer>().material.color;
+
+
         if (!isOccupied)
         {
-            //check if the object colliding with the chair is an NPC
+            // Check if the object colliding with the chair is an NPC
             if (LayerMask.LayerToName(collision.gameObject.layer) == "NPC")
             {
-                //set the chair to occupied
+                // Set the chair to occupied
                 isOccupied = true;
-                //change the sprite color to red
-                GetComponent<SpriteRenderer>().color = Color.red;
+                // Change the material color to red
+                GetComponent<MeshRenderer>().material.color = new Color(Color.red.r, Color.red.g, Color.red.b, currentColor.a);
             }
-            //check if the object colliding with the chair is the player
+            // Check if the object colliding with the chair is the player
             else if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")
             {
-                //set the chair to occupied
+                // Set the chair to occupied
                 isOccupied = true;
-                //change the sprite color to blue
-                GetComponent<SpriteRenderer>().color = Color.green;
+                // Change the material color to green
+                GetComponent<MeshRenderer>().material.color = new Color(Color.green.r, Color.green.g, Color.green.b, currentColor.a);
             }
         }
     }

@@ -71,22 +71,26 @@ public class SeekEmptyChair : MonoBehaviour
     /// <param name="target">The chair to move towards</param>
     private void MoveTowards(GameObject target)
     {
-        if (!reachedChair)
+        if (!reachedChair && !target.GetComponent<ChairState>().isOccupied)
         {
-            //get direction to target
+            // Get direction to target
             Vector3 direction = target.transform.position - transform.position;
-            //get angle to rotate towards target
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            //rotate towards target
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), rotationSpeed * Time.deltaTime);
-            //move towards target
-            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
-            //check if NPC has reached the chair
+            direction.y = 0; // Ignore the y component for rotation
+
+            // Rotate towards target
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            // Move towards target
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+
+            // Check if NPC has reached the chair
             if (Vector3.Distance(transform.position, target.transform.position) < stoppingDistance)
             {
-                //set reachedChair to true
+                // Set reachedChair to true
                 reachedChair = true;
             }
         }
     }
+
 }

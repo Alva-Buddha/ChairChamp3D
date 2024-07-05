@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;// Static instance of GameManager which allows it to be accessed by any other script
     public int score;  // Variable used to track the player's score
-    public int unoccupiedChairs = 2; // Variable used to track the number of unoccupied chairs
+    public int unoccupiedChairs; // Variable used to track the number of unoccupied chairs
     public int playerChairs;
     public int npcChairs;
 

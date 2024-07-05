@@ -1,0 +1,330 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.22f1 (887be4894c44) revision 8944612'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'en' Physical Memory: 32711 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+C:/Users/ARTIS/Desktop/Unity Projects/Jams/ChairChamp3D/ChairChamp3D
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+59209
+Successfully changed project path to: C:/Users/ARTIS/Desktop/Unity Projects/Jams/ChairChamp3D/ChairChamp3D
+C:/Users/ARTIS/Desktop/Unity Projects/Jams/ChairChamp3D/ChairChamp3D
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [22324] Host "[IP] 192.168.1.12 [Port] 0 [Flags] 2 [Guid] 3331885665 [EditorId] 3331885665 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-A33MQCU) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [22324] Host "[IP] 192.168.1.12 [Port] 0 [Flags] 2 [Guid] 3331885665 [EditorId] 3331885665 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-A33MQCU) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 12.33 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.22f1 (887be4894c44)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/ARTIS/Desktop/Unity Projects/Jams/ChairChamp3D/ChairChamp3D/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2070 SUPER (ID=0x1e84)
+    Vendor:   NVIDIA
+    VRAM:     7989 MB
+    Driver:   31.0.15.5244
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56740
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.016428 seconds.
+- Loaded All Assemblies, in  0.382 seconds
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.293 seconds
+Domain Reload Profiling: 673ms
+	BeginReloadAssembly (111ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (70ms)
+	LoadAllAssembliesAndSetupDomain (150ms)
+		LoadAssemblies (109ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (148ms)
+			TypeCache.Refresh (146ms)
+				TypeCache.ScanAssembly (132ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (293ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (231ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (13ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (162ms)
+			ProcessInitializeOnLoadMethodAttributes (47ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.688 seconds
+Refreshing native plugins compatible for Editor in 4.28 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.646 seconds
+Domain Reload Profiling: 1330ms
+	BeginReloadAssembly (161ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (27ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (431ms)
+		LoadAssemblies (336ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (188ms)
+			TypeCache.Refresh (166ms)
+				TypeCache.ScanAssembly (151ms)
+			ScanForSourceGeneratedMonoScriptInfo (15ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (647ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (489ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (69ms)
+			ProcessInitializeOnLoadAttributes (377ms)
+			ProcessInitializeOnLoadMethodAttributes (19ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 4.06 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3478 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 39 unused Assets / (58.1 KB). Loaded Objects now: 3953.
+Memory consumption went from 138.3 MB to 138.3 MB.
+Total: 3.991800 ms (FindLiveObjects: 0.514300 ms CreateObjectMapping: 0.103000 ms MarkObjects: 3.076600 ms  DeleteObjects: 0.294300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 62511.056758 seconds.
+  path: Assets/Creatives/Level One - Obj format/Lore Island/Lore Island.jpg
+  artifactKey: Guid(facdaacf3e04fe743834f8301dc1d464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/Lore Island/Lore Island.jpg using Guid(facdaacf3e04fe743834f8301dc1d464) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bb1dbf1d97050d1436aac77276fa405') in 0.111490 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Creatives/Level One - Obj format/Lore Island/Lore Island - Linear_Gradient_Texture_1.jpg
+  artifactKey: Guid(742b7f5d9433d5e49bc186bb812def97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/Lore Island/Lore Island - Linear_Gradient_Texture_1.jpg using Guid(742b7f5d9433d5e49bc186bb812def97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84dacf84a4721765e9d522e61d656691') in 0.008679 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Creatives/Level One - Obj format/Lore Island/Lore Island.obj
+  artifactKey: Guid(aa29be516998500438103f7cdb8ec038) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/Lore Island/Lore Island.obj using Guid(aa29be516998500438103f7cdb8ec038) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a4b9ca298bc1dd0fa372f67109dabe5') in 0.194019 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 58
+========================================================================
+Received Import Request.
+  Time since last request: 2.969394 seconds.
+  path: Assets/Creatives/Level One - Obj format/Main Island/Main Island - Linear_Gradient_Texture.jpg
+  artifactKey: Guid(a752172419a259042be8e7abc871c05b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/Main Island/Main Island - Linear_Gradient_Texture.jpg using Guid(a752172419a259042be8e7abc871c05b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9955b23d95a99a5bffd50bae7f436665') in 0.007084 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 7411.467088 seconds.
+  path: Assets/Creatives/LevelOneAssets/DJ Island/Mini DJ Island.fbx
+  artifactKey: Guid(f70d8b60bc30d5f49a111b23faaf3522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/LevelOneAssets/DJ Island/Mini DJ Island.fbx using Guid(f70d8b60bc30d5f49a111b23faaf3522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68db696341fd057b65244bc4d3b21251') in 0.178644 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 106
+========================================================================
+Received Import Request.
+  Time since last request: 17.047870 seconds.
+  path: Assets/Creatives/LevelOneAssets/Props/Speaker.fbx
+  artifactKey: Guid(45175d76d2cbefe4396d80bf87da8764) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/LevelOneAssets/Props/Speaker.fbx using Guid(45175d76d2cbefe4396d80bf87da8764) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecc207bf3dd9e89383091490e59d49bc') in 0.045697 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Creatives/LevelOneAssets/Props/Treasure Island Chest.fbx
+  artifactKey: Guid(2c9edafe2b144a948b63953b80185181) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/LevelOneAssets/Props/Treasure Island Chest.fbx using Guid(2c9edafe2b144a948b63953b80185181) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e28f809f4b4d8d1fa78e7541c935ac68') in 0.036260 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 16
+========================================================================
+Received Import Request.
+  Time since last request: 166.972486 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture.jpg
+  artifactKey: Guid(50eac55a2e1c30744ab7a04372dcb145) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture.jpg using Guid(50eac55a2e1c30744ab7a04372dcb145) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee044633fe57826e90185d7a4def533b') in 0.006446 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_1.jpg
+  artifactKey: Guid(6b6092f46732dfb48af6eb61aa913721) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_1.jpg using Guid(6b6092f46732dfb48af6eb61aa913721) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1b07e89876ab740443706f729d123e5') in 0.006080 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_2.jpg
+  artifactKey: Guid(c904d2cd3b0bb8441800ef698291b106) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_2.jpg using Guid(c904d2cd3b0bb8441800ef698291b106) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3f18fa47e2a07662dfe0904816960a8') in 0.005680 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_3.jpg
+  artifactKey: Guid(619d7dd451140584dabac3679916eb7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_3.jpg using Guid(619d7dd451140584dabac3679916eb7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cee2b945a322943270bd425397b58b99') in 0.005378 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_4.jpg
+  artifactKey: Guid(6b4e1b0499f378d4485a4e53d445cfa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_4.jpg using Guid(6b4e1b0499f378d4485a4e53d445cfa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3a5fcd32adca90e12f69469e130d687') in 0.004994 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.001242 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_5.jpg
+  artifactKey: Guid(90ff0ac052276974d98be38c18acdd72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_5.jpg using Guid(90ff0ac052276974d98be38c18acdd72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da3a86d886eb64883aaa2ec148aeffc8') in 0.005823 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000744 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_6.jpg
+  artifactKey: Guid(4b0fb992615cc2e44b73fb52cecda2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_6.jpg using Guid(4b0fb992615cc2e44b73fb52cecda2b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0cca12c50f05a10b777cd0b8385f3f1') in 0.005489 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000498 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_7.jpg
+  artifactKey: Guid(3a75271e55ccc4f47b403ec5b0001c69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_7.jpg using Guid(3a75271e55ccc4f47b403ec5b0001c69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76e0b430c7cde07a382b83ec73927abb') in 0.005953 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_8.jpg
+  artifactKey: Guid(7f844c95efdf05e4ea5bae1135b46031) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_8.jpg using Guid(7f844c95efdf05e4ea5bae1135b46031) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0f629498927bc19e5f6e315a1aa11bb') in 0.005497 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_9.jpg
+  artifactKey: Guid(def96dd1b6f604545aafe2d3ed3a2b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_9.jpg using Guid(def96dd1b6f604545aafe2d3ed3a2b45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2751fe9873b34d417b138ff75ab6e7e9') in 0.005916 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_10.jpg
+  artifactKey: Guid(b38f3b7e8e7c8594d853691eea6ee48a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creatives/Level One - Obj format/DJ Island/DJ Island - Linear_Gradient_Texture_10.jpg using Guid(b38f3b7e8e7c8594d853691eea6ee48a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d87b46b25e972715b21869a34586d0b') in 0.006305 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2

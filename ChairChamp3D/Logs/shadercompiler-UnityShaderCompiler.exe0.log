@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 Base path: 'D:/Unity/2022.3.22f1/Editor/Data', plugins path 'D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines'
 =======
@@ -7,5 +8,9 @@ Base path: 'F:/Unity Installs/2022.3.22f1/Editor/Data', plugins path 'F:/Unity I
 =======
 Base path: 'D:/Unity/2022.3.22f1/Editor/Data', plugins path 'D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines'
 >>>>>>> Stashed changes
+=======
+Base path: 'D:/Unity/2022.3.22f1/Editor/Data', plugins path 'D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines'
+>>>>>>> Stashed changes
 Cmd: initializeCompiler
 
+Cmd: shutdown

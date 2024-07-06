@@ -21,6 +21,14 @@ public class SeekEmptyChair : MonoBehaviour
     //get array of chair objects in scene
     GameObject[] chairs = null;
 
+    [Header("Debugging")]
+    [Tooltip("Forward ray visibility")]
+    public bool showRay = false;
+    [Tooltip("Forward ray scaling")]
+    public float rayScale = 2;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +41,16 @@ public class SeekEmptyChair : MonoBehaviour
         if (!reachedChair)
         {
             //Find closest unoccupied chair
-            GameObject closestChair = FindClosestChair();
-            //Seek closest chair
-            MoveTowards(closestChair);
-        }    
+            closestChair = FindClosestChair();
+        }
+        //Seek closest chair
+        MoveTowards(closestChair);
+
+        if (showRay)
+        {
+            // Draw a ray forward from the player object in the Scene view
+            Debug.DrawRay(transform.position, transform.forward * rayScale, Color.black);
+        }
     }
 
     /// <summary>
@@ -61,6 +75,8 @@ public class SeekEmptyChair : MonoBehaviour
                 closestDistance = distance;
             }
         }
+
+        //Debug.Log("Closest Chair: " + closestChair.name);
         //return closest chair
         return closestChair;
     }
@@ -71,24 +87,34 @@ public class SeekEmptyChair : MonoBehaviour
     /// <param name="target">The chair to move towards</param>
     private void MoveTowards(GameObject target)
     {
-        if (!reachedChair && !target.GetComponent<ChairState>().isOccupied)
+
+        //Debug.Log("Moving towards: " + target.name);
+
+        // Get direction to target
+        Vector3 direction = target.transform.position - transform.position;
+        direction.y = 0; // Ignore the y component for rotation
+
+        // Rotate towards target
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, target.transform.position) > stoppingDistance)
         {
-            // Get direction to target
-            Vector3 direction = target.transform.position - transform.position;
-            direction.y = 0; // Ignore the y component for rotation
-
-            // Rotate towards target
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
             // Move towards target
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+        }
+    }
 
-            // Check if NPC has reached the chair
-            if (Vector3.Distance(transform.position, target.transform.position) < stoppingDistance)
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (LayerMask.LayerToName(collision.gameObject.layer) == "Chair")
+        { 
+            if (!reachedChair)
             {
-                // Set reachedChair to true
+                // Set the chair to occupied
                 reachedChair = true;
+                closestChair = collision.gameObject;
             }
         }
     }

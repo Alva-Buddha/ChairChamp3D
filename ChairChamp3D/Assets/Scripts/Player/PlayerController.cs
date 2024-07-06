@@ -10,8 +10,18 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The speed at which the player rotates in asteroids movement mode")]
     public float rotationSpeed = 60f;
 
+    [Header("Debugging")]
+    [Tooltip("Forward ray visibility")]
+    public bool showRay = false;
+    [Tooltip("Forward ray scaling")]
+    public float rayScale = 2;  
+
     //The InputManager to read input from
     private InputManager inputManager;
+
+    //The object's rigidbody
+    private Rigidbody rb;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +50,13 @@ public class PlayerController : MonoBehaviour
     {
         // Collect input and move the player accordingly
         HandleInput();
+
+        if(showRay)
+        {
+            // Draw a ray forward from the player object in the Scene view
+            Debug.DrawRay(transform.position, transform.forward * rayScale, Color.black);
+        }
+
     }
 
     /// <summary>
@@ -68,8 +85,11 @@ public class PlayerController : MonoBehaviour
         // Rotate the player to face the direction of movement
         if (movement != Vector3.zero)
         {
-            // Calculate the target angle in degrees, -90 is adjusted to align with sprite facing up
-            float targetAngle = Mathf.Atan2(movement.z, movement.x) * Mathf.Rad2Deg - 90;
+            // Calculate the target angle in degrees
+            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
+
+            //Log to see target angle z+ is 0 degrees and x+ is +90 degrees
+            //Debug.Log("Target Angle: " + targetAngle);
 
             // Get the current rotation and the target rotation
             Quaternion currentRotation = transform.rotation;

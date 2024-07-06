@@ -1,5 +1,6 @@
 Using pre-set license
 Built from '2022.3/staging' branch; Version is '2022.3.22f1 (887be4894c44) revision 8944612'; Using compiler version '192829333'; Build Type 'Release'
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 OS: 'Windows 11  (10.0.22631) 64bit CoreSingleLanguage' Language: 'en' Physical Memory: 16221 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
@@ -13,12 +14,20 @@ BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, I
 COMMAND LINE ARGUMENTS:
 F:\Unity Installs\2022.3.22f1\Editor\Unity.exe
 >>>>>>> main
+=======
+OS: 'Windows 11  (10.0.22631) 64bit CoreSingleLanguage' Language: 'en' Physical Memory: 16221 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\Unity\2022.3.22f1\Editor\Unity.exe
+>>>>>>> Stashed changes
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 D:/GameDev/GameJams/ChairChamp3D/ChairChamp3D
 -logFile
@@ -36,6 +45,15 @@ Logs/AssetImportWorker0.log
 Successfully changed project path to: F:/Unity Game Projects/ChairChamp3D/ChairChamp3D
 F:/Unity Game Projects/ChairChamp3D/ChairChamp3D
 >>>>>>> main
+=======
+D:/GameDev/GameJams/ChairChamp3D/ChairChamp3D
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52370
+Successfully changed project path to: D:/GameDev/GameJams/ChairChamp3D/ChairChamp3D
+D:/GameDev/GameJams/ChairChamp3D/ChairChamp3D
+>>>>>>> Stashed changes
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -67,6 +85,7 @@ F:/Unity Game Projects/ChairChamp3D/ChairChamp3D
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 Player connection [35540] Host "[IP] 192.168.29.247 [Port] 0 [Flags] 2 [Guid] 3581849175 [EditorId] 3581849175 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-D63CLO89) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
@@ -117,38 +136,62 @@ Domain Reload Profiling: 1585ms
 	BeginReloadAssembly (154ms)
 =======
 Player connection [30000] Host "[IP] 192.168.1.186 [Port] 0 [Flags] 2 [Guid] 2240933716 [EditorId] 2240933716 [Version] 1048832 [Id] WindowsEditor(7,PAT-PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+=======
+Player connection [21148] Host "[IP] 192.168.29.247 [Port] 0 [Flags] 2 [Guid] 2747058403 [EditorId] 2747058403 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-D63CLO89) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+>>>>>>> Stashed changes
 
-Player connection [30000] Host "[IP] 192.168.1.186 [Port] 0 [Flags] 2 [Guid] 2240933716 [EditorId] 2240933716 [Version] 1048832 [Id] WindowsEditor(7,PAT-PC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [21148] Host "[IP] 192.168.29.247 [Port] 0 [Flags] 2 [Guid] 2747058403 [EditorId] 2747058403 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-D63CLO89) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-[Physics::Module] Initialized MultithreadedJobDispatcher with 23 workers.
-Refreshing native plugins compatible for Editor in 3.69 ms, found 3 plugins.
+[Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
+Refreshing native plugins compatible for Editor in 12.85 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.22f1 (887be4894c44)
-[Subsystems] Discovering subsystems at path F:/Unity Installs/2022.3.22f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path F:/Unity Game Projects/ChairChamp3D/ChairChamp3D/Assets
+[Subsystems] Discovering subsystems at path D:/Unity/2022.3.22f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/GameDev/GameJams/ChairChamp3D/ChairChamp3D/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 4080 SUPER (ID=0x2702)
+    Renderer: NVIDIA GeForce GTX 1650 Ti (ID=0x1f95)
     Vendor:   NVIDIA
-    VRAM:     16047 MB
-    Driver:   32.0.15.5599
+    VRAM:     3935 MB
+    Driver:   31.0.15.5186
 Initialize mono
-Mono path[0] = 'F:/Unity Installs/2022.3.22f1/Editor/Data/Managed'
-Mono path[1] = 'F:/Unity Installs/2022.3.22f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'F:/Unity Installs/2022.3.22f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56848
+Mono path[0] = 'D:/Unity/2022.3.22f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/2022.3.22f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Unity/2022.3.22f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56660
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: F:/Unity Installs/2022.3.22f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001844 seconds.
-- Loaded All Assemblies, in  0.344 seconds
+Register platform support module: D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Register platform support module: D:/Unity/2022.3.22f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.026854 seconds.
+- Loaded All Assemblies, in  0.455 seconds
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 485 ms
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
 Mono: successfully reloaded assembly
+<<<<<<< Updated upstream
 - Finished resetting the current domain, in  0.200 seconds
 Domain Reload Profiling: 545ms
 	BeginReloadAssembly (129ms)
 >>>>>>> main
+=======
+- Finished resetting the current domain, in  0.894 seconds
+Domain Reload Profiling: 1345ms
+	BeginReloadAssembly (130ms)
+>>>>>>> Stashed changes
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
@@ -179,28 +222,33 @@ Domain Reload Profiling: 545ms
 			ProcessInitializeOnLoadMethodAttributes (61ms)
 =======
 	RebuildCommonClasses (38ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (36ms)
-	LoadAllAssembliesAndSetupDomain (133ms)
-		LoadAssemblies (128ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (88ms)
+	LoadAllAssembliesAndSetupDomain (183ms)
+		LoadAssemblies (129ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (130ms)
-			TypeCache.Refresh (129ms)
-				TypeCache.ScanAssembly (102ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
+		AnalyzeDomain (177ms)
+			TypeCache.Refresh (175ms)
+				TypeCache.ScanAssembly (156ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (201ms)
+	FinalizeReload (895ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (157ms)
+		SetupLoadedEditorAssemblies (819ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (5ms)
+			InitializePlatformSupportModulesInManaged (642ms)
 			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
+<<<<<<< Updated upstream
 			ProcessInitializeOnLoadAttributes (112ms)
 			ProcessInitializeOnLoadMethodAttributes (34ms)
 >>>>>>> main
+=======
+			ProcessInitializeOnLoadAttributes (125ms)
+			ProcessInitializeOnLoadMethodAttributes (45ms)
+>>>>>>> Stashed changes
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -208,6 +256,7 @@ Domain Reload Profiling: 545ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 - Loaded All Assemblies, in  1.044 seconds
 Refreshing native plugins compatible for Editor in 7.18 ms, found 3 plugins.
@@ -223,11 +272,23 @@ Native extension for WebGL target not found
 Refreshing native plugins compatible for Editor in 1.54 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 >>>>>>> main
+=======
+- Loaded All Assemblies, in  1.043 seconds
+Refreshing native plugins compatible for Editor in 9.69 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+>>>>>>> Stashed changes
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 - Finished resetting the current domain, in  0.902 seconds
 Domain Reload Profiling: 1934ms
@@ -781,10 +842,16 @@ Domain Reload Profiling: 1960ms
 Domain Reload Profiling: 1194ms
 	BeginReloadAssembly (143ms)
 >>>>>>> main
+=======
+- Finished resetting the current domain, in  0.753 seconds
+Domain Reload Profiling: 1784ms
+	BeginReloadAssembly (224ms)
+>>>>>>> Stashed changes
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
+		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 		CreateAndSetChildDomain (41ms)
 	RebuildCommonClasses (33ms)
@@ -1407,38 +1474,50 @@ AssetImportParameters requested are different than current active one (requested
 	initialDomainReloadingComplete (45ms)
 	LoadAllAssembliesAndSetupDomain (389ms)
 		LoadAssemblies (293ms)
+=======
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (63ms)
+	LoadAllAssembliesAndSetupDomain (677ms)
+		LoadAssemblies (517ms)
+>>>>>>> Stashed changes
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (175ms)
-			TypeCache.Refresh (153ms)
-				TypeCache.ScanAssembly (138ms)
-			ScanForSourceGeneratedMonoScriptInfo (16ms)
-			ResolveRequiredComponents (4ms)
-	FinalizeReload (555ms)
+		AnalyzeDomain (295ms)
+			TypeCache.Refresh (265ms)
+				TypeCache.ScanAssembly (241ms)
+			ScanForSourceGeneratedMonoScriptInfo (23ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (754ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (449ms)
+		SetupLoadedEditorAssemblies (577ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (2ms)
+			InitializePlatformSupportModulesInManaged (64ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (35ms)
-			ProcessInitializeOnLoadAttributes (388ms)
+			BeforeProcessingInitializeOnLoad (85ms)
+			ProcessInitializeOnLoadAttributes (384ms)
 			ProcessInitializeOnLoadMethodAttributes (20ms)
-			AfterProcessingInitializeOnLoad (2ms)
+			AfterProcessingInitializeOnLoad (18ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (5ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.62 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 6.67 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3492 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 39 unused Assets / (57.8 KB). Loaded Objects now: 3967.
-Memory consumption went from 143.0 MB to 143.0 MB.
-Total: 4.632300 ms (FindLiveObjects: 0.473100 ms CreateObjectMapping: 0.106200 ms MarkObjects: 3.904600 ms  DeleteObjects: 0.147000 ms)
+Unloading 3493 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 39 unused Assets / (57.8 KB). Loaded Objects now: 3971.
+Memory consumption went from 147.6 MB to 147.5 MB.
+Total: 3.191200 ms (FindLiveObjects: 0.340700 ms CreateObjectMapping: 0.396800 ms MarkObjects: 2.343900 ms  DeleteObjects: 0.108400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+<<<<<<< Updated upstream
 >>>>>>> main
+=======
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+>>>>>>> Stashed changes
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
@@ -1537,12 +1616,13 @@ Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 =======
 Received Import Request.
-  Time since last request: 56634.391354 seconds.
-  path: Assets/Scripts/Managers/GameManager.cs
-  artifactKey: Guid(2416b355bf17aad4892bcea3b11e49cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Managers/GameManager.cs using Guid(2416b355bf17aad4892bcea3b11e49cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89c7b9fdfa7a5c2fb4237f53e60ba83e') in 0.002923 seconds
+  Time since last request: 1477571.597423 seconds.
+  path: Assets/Scripts/Managers/InputManager.cs
+  artifactKey: Guid(9284cc971b87c5c4683d6924e13f593a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Managers/InputManager.cs using Guid(9284cc971b87c5c4683d6924e13f593a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3680fac00578a6f7f9cb76f95b8376e') in 0.002350 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
+<<<<<<< Updated upstream
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
@@ -6276,3 +6356,5 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+=======
+>>>>>>> Stashed changes

@@ -7,9 +7,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;// Static instance of GameManager which allows it to be accessed by any other script
     public int score;  // Variable used to track the player's score
-    public int unoccupiedChairs = 2; // Variable used to track the number of unoccupied chairs
-    public int playerChairs;
-    public int npcChairs;
+    public int unoccupiedChairs; // Variable used to track the number of unoccupied chairs
+    public int playerChairs; // Variable used to track the number of chairs the player has acquired
+    public int npcChairs; // Variable used to track the number of chairs the NPCs have acquired
+    public float roundStartTimerFrom = 10.0f; // Music will stop at a certain time between the From and the To variables
+    public float roundStartTimerTo = 20.0f; // Music will stop at a certain time between the From and the To variables
+
+    private AudioSource musicSource; // Variable used to track the music object for before the round starts
 
     void Awake()
     {
@@ -37,6 +41,16 @@ public class GameManager : MonoBehaviour
     {
         // Set unoccupiedChairs to the number of "Chair" prefabs in the scene
         unoccupiedChairs = GameObject.FindGameObjectsWithTag("Chair").Length;
+        musicSource = Camera.main.GetComponent<AudioSource>();
+        StartCoroutine(PlayAndStopMusic());
+    }
+
+    //Plays music when the game starts, then stops it at a semi-random time range
+    IEnumerator PlayAndStopMusic()
+    {
+        musicSource.Play();
+        yield return new WaitForSeconds(Random.Range(roundStartTimerFrom, roundStartTimerTo));
+        musicSource.Stop();
     }
 
     // Update is called once per frame

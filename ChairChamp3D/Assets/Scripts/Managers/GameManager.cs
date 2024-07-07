@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     public float roundStartTimerFrom = 10.0f; // Music will stop at a certain time between the From and the To variables
     public float roundStartTimerTo = 20.0f; // Music will stop at a certain time between the From and the To variables
 
+    public bool musicPlaying = false; // Variable used to track if the music is playing
+
+    public GameObject chairSpawner = null; // Variable used to track the chair spawner object
+
     private AudioSource musicSource; // Variable used to track the music object for before the round starts
 
     void Awake()
@@ -32,6 +36,8 @@ public class GameManager : MonoBehaviour
         // Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
+        chairSpawner = GameObject.Find("ChairSpawner"); // Find the chair spawner object in the scene
+
         // Ensure the game is not paused when the scene starts
         ResumeGame();
     }
@@ -39,8 +45,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Set unoccupiedChairs to the number of "Chair" prefabs in the scene
         unoccupiedChairs = GameObject.FindGameObjectsWithTag("Chair").Length;
+        // Set unoccupiedChairs to the number of "Chair" prefabs in the scene
+        if (unoccupiedChairs == 0 || chairSpawner != null)
+        {
+            unoccupiedChairs = chairSpawner.GetComponent<ChairSpawner>().numberOfChairs;
+        }
         musicSource = Camera.main.GetComponent<AudioSource>();
         StartCoroutine(PlayAndStopMusic());
     }
@@ -49,8 +59,10 @@ public class GameManager : MonoBehaviour
     IEnumerator PlayAndStopMusic()
     {
         musicSource.Play();
+        musicPlaying = true;
         yield return new WaitForSeconds(Random.Range(roundStartTimerFrom, roundStartTimerTo));
         musicSource.Stop();
+        musicPlaying = false;
     }
 
     // Update is called once per frame

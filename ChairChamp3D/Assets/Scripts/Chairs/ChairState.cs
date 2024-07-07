@@ -30,7 +30,7 @@ public class ChairState : MonoBehaviour
     /// Function to check collision with NPC or player, and change occupied flag and sprite color based on layer of colliding object
     /// </summary>
     /// <param name="collision">The collider that the chair is colliding with</param>
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (!isOccupied)
         {
@@ -39,8 +39,9 @@ public class ChairState : MonoBehaviour
             {
                 //set the chair to occupied
                 isOccupied = true;
-                //change the sprite color to red
-                GetComponent<SpriteRenderer>().color = Color.red;
+                //tell the colliding NPC's SeekEmptyChair script that it has reached the chair
+                collision.gameObject.GetComponent<SeekEmptyChair>().reachedChair = true;
+
                 //Decrease the unoccupied chairs variable in the GameManager script
                 gameManager.unoccupiedChairs--;
                 gameManager.npcChairs++;
@@ -50,8 +51,9 @@ public class ChairState : MonoBehaviour
             {
                 //set the chair to occupied
                 isOccupied = true;
-                //change the sprite color to blue
-                GetComponent<SpriteRenderer>().color = Color.green;
+                //tell the player controller that it has reached the chair
+                collision.gameObject.GetComponent<PlayerController>().reachedChair = true;
+
                 //Increase the global score variable in the GameManager script
                 gameManager.score++;
                 //Decrease the unoccupied chairs variable in the GameManager script

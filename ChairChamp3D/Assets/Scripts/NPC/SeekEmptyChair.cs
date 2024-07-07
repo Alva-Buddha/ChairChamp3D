@@ -16,6 +16,12 @@ public class SeekEmptyChair : MonoBehaviour
     [Tooltip("Boolean to check if the NPC has reached the chair")]
     public bool reachedChair = false;
 
+    [Tooltip("Rotation speed when music is playing")]
+    public float musicRotationSpeed = 30f;
+
+    //The GameManager to read music state from
+    private GameManager gameManager;
+
     private GameObject closestChair = null;
 
     //get array of chair objects in scene
@@ -33,19 +39,29 @@ public class SeekEmptyChair : MonoBehaviour
     void Start()
     {
         chairs = GameObject.FindGameObjectsWithTag("Chair");
+        gameManager = GameManager.Instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!reachedChair)
+        if (gameManager.musicPlaying)
         {
-            //Find closest unoccupied chair
-            closestChair = FindClosestChair();
+            //rotate around origin at speed = music rotation speed
+            transform.RotateAround(Vector3.zero, Vector3.up, musicRotationSpeed * Time.deltaTime);
+            //face origin
+            transform.LookAt(Vector3.zero);
         }
-        //Seek closest chair
-        MoveTowards(closestChair);
-
+        else
+        {
+            if (!reachedChair)
+            {
+                //Find closest unoccupied chair
+                closestChair = FindClosestChair();
+            }
+            //Seek closest chair
+            MoveTowards(closestChair);
+        }
         if (showRay)
         {
             // Draw a ray forward from the player object in the Scene view
@@ -110,10 +126,8 @@ public class SeekEmptyChair : MonoBehaviour
     {
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Chair")
         { 
-            if (!reachedChair)
+            if (reachedChair)
             {
-                // Set the chair to occupied
-                reachedChair = true;
                 closestChair = collision.gameObject;
             }
         }

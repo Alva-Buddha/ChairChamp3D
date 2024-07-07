@@ -14,10 +14,19 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Forward ray visibility")]
     public bool showRay = false;
     [Tooltip("Forward ray scaling")]
-    public float rayScale = 2;  
+    public float rayScale = 2;
+
+    [Header("GameState")]
+    [Tooltip("Has the player reached a chair")]
+    public bool reachedChair = false;
+    [Tooltip("Music-on rotation speed")]
+    public float musicRotationSpeed = 60f;
 
     //The InputManager to read input from
     private InputManager inputManager;
+
+    //The GameManager to read music state from
+    private GameManager gameManager;
 
     //The object's rigidbody
     private Rigidbody rb;
@@ -28,7 +37,27 @@ public class PlayerController : MonoBehaviour
     {
         // Get the InputManager component
         SetupInput();
+        // Get the GameManager component
+        SetupGameManager();
+        // Get the Rigidbody component
+        rb = GetComponent<Rigidbody>();
     }
+
+    ///<summary>
+    ///Set up GameManager if it is not already set up. Throws an error if none exists
+    ///</summary>
+    private void SetupGameManager()
+    {
+        if (gameManager == null)
+        {
+            gameManager = GameManager.Instance;
+        }
+        if (gameManager == null)
+        {
+            Debug.LogWarning("There is no GameManager in the scene, there needs to be one for the Controller to work");
+        }
+    }
+
 
     /// <summary>
     /// Sets up the input manager if it is not already set up. Throws an error if none exists
@@ -48,8 +77,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Collect input and move the player accordingly
-        HandleInput();
+        if (gameManager.musicPlaying == false && reachedChair == false)
+        {
+            // Collect input and move the player accordingly
+            HandleInput();
+        }
+        else
+        {
+            if (gameManager.musicPlaying)
+            {
+                // Rotate the player around origin at constant speed
+                transform.RotateAround(Vector3.zero, Vector3.up, musicRotationSpeed * Time.deltaTime);
+                // Face the origin
+                transform.LookAt(Vector3.zero);
+            }
+            else
+            {
+                // Stop the player from moving
+                rb.velocity = Vector3.zero;
+            }
+        }
 
         if(showRay)
         {

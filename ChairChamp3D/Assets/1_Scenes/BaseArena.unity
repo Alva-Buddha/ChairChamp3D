@@ -271,8 +271,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 720
-  showRay: 0
+  showRay: 1
   rayScale: 2
+  reachedChair: 0
+  musicRotationSpeed: 30
 --- !u!1 &229357214
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +421,7 @@ GameObject:
   - component: {fileID: 336776786}
   m_Layer: 0
   m_Name: NPCSpawner
-  m_TagString: Untagged
+  m_TagString: NPCSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -746,8 +748,10 @@ MonoBehaviour:
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
-  roundStartTimerFrom: 10
-  roundStartTimerTo: 20
+  roundStartTimerFrom: 5
+  roundStartTimerTo: 10
+  musicPlaying: 0
+  chairSpawner: {fileID: 0}
 --- !u!4 &1063798619
 Transform:
   m_ObjectHideFlags: 0
@@ -839,7 +843,7 @@ GameObject:
   - component: {fileID: 1223847241}
   m_Layer: 0
   m_Name: ChairSpawner
-  m_TagString: Untagged
+  m_TagString: ChairSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

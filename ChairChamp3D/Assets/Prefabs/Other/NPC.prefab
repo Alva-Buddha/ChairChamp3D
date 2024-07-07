@@ -146,9 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6abbc5980b5e8349abf21cf5c7e0c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 5
   rotationSpeed: 720
   stoppingDistance: 0.1
   reachedChair: 0
-  showRay: 0
+  musicRotationSpeed: 30
+  showRay: 1
   rayScale: 2

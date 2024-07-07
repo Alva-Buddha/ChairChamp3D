@@ -58,12 +58,12 @@ public class Power : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if inputmanager power is held call activate power function
-        if (inputManager.powerHeld)
-        {
-            Debug.Log("Activate Power called");
-            ActivatePower();
-        }
+        //if inputmanager power is held call activate power function - handled by player controller
+        //if (inputManager.powerHeld)
+        //{
+        //    Debug.Log("Activate Power called");
+        //    ActivatePower();
+        //}
         //if timers are greater than 0, decrease them by time.deltatime
         if (dashTimer > 0)
         {
@@ -108,7 +108,7 @@ public class Power : MonoBehaviour
         }
         //Move this object towerd's the input manager's target axis position by dash distance
         this.transform.position = Vector3.MoveTowards(this.transform.position, 
-            new Vector3(inputManager.horizontalTargetAxis, 0, inputManager.verticalTargetAxis), dashDistance);
+            new Vector3(inputManager.horizontalTargetAxis, this.transform.position.y, inputManager.verticalTargetAxis), dashDistance);
         //Set dash timer to cooldown
         dashTimer = dashCooldown;
     }

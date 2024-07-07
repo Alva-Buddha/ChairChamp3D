@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     //The object's rigidbody
     private Rigidbody rb;
 
+    [Header("Player Power")]
+    [Tooltip("The player's power")]
+    public Power playerPower;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,8 @@ public class PlayerController : MonoBehaviour
         SetupGameManager();
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>();
+        // Get the Power component
+        playerPower = GetComponent<Power>();    
     }
 
     ///<summary>
@@ -117,7 +122,12 @@ public class PlayerController : MonoBehaviour
         Vector3 movementVector = new Vector3(inputManager.horizontalMoveAxis, 0, inputManager.verticalMoveAxis);
         // Move the player
         MovePlayer(movementVector);
-        //TargetPoint(targetPosition);
+
+        //Get the powerheld state from input manager and call Power if powerheld is true
+        if (inputManager.powerHeld)
+        {
+            playerPower.ActivatePower();
+        }
     }
 
     /// <summary>

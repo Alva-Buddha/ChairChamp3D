@@ -62,25 +62,39 @@ public class InputManager : MonoBehaviour
     public float horizontalTargetAxis;
     public float verticalTargetAxis;
 
+    [Tooltip("The object that the player is targeting")]
+    public GameObject targetObject;
+
     /// <summary>
-    /// Read player input for targeting
+    /// Read player input for targeting in a 3D game
     /// </summary>
     /// <param name="context">Input action callback context meant to be read for targeting</param>
     public void ReadMousePositionInput(InputAction.CallbackContext context)
     {
-        Vector3 inputVector = context.ReadValue<Vector3>();
-        if (Mathf.Abs(inputVector.x) > 1 && Mathf.Abs(inputVector.y) > 1)
+        // Read the mouse position input from the context
+        Vector2 inputVector = context.ReadValue<Vector2>();
+
+        // Raycast from the camera to identify colliding objects
+        Ray ray = Camera.main.ScreenPointToRay(inputVector);
+        // Identify object hit by the ray
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
         {
-            horizontalTargetAxis = inputVector.x;
-            verticalTargetAxis = inputVector.y;
+            // Get the position of the object hit by the ray
+            Vector3 targetPosition = hit.point;
+            // Set the target object to the object hit by the ray
+            targetObject = hit.collider.gameObject;
+            // Set the target axis to the position of the object hit by the ray
+            horizontalTargetAxis = targetPosition.x;
+            verticalTargetAxis = targetPosition.z;
         }
     }
 
     [Header("Player Power Input")]
     [Tooltip("Whether or not the power button was pressed this frame")]
-    public bool powerPressed;
+    public bool powerPressed = false;
     [Tooltip("Whether or not the power button is being held")]
-    public bool powerHeld;
+    public bool powerHeld = false;
 
     /// <summary>
     /// Reads the power input from the player

@@ -368,6 +368,7 @@
 "Assets/Scripts/NPC/NPCSpawner.cs"
 "Assets/Scripts/NPC/SeekEmptyChair.cs"
 "Assets/Scripts/Player/PlayerController.cs"
+"Assets/Scripts/Powers/Power.cs"
 "Assets/Scripts/UI/UIManager.cs"
 -langversion:9.0
 

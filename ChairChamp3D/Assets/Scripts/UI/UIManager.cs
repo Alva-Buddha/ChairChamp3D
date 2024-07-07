@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -8,12 +9,15 @@ public class UIManager : MonoBehaviour
     [Tooltip("The TextMeshPro object showing the number of unoccupied chairs.")]
     public TextMeshProUGUI unoccupiedChairsText; // Reference to the number of unoccupied chairs left
     [Tooltip("The TextMeshPro object showing the round end text.")]
-    public TextMeshProUGUI roundEndText; //Reference to the round end Text component
+    public TextMeshProUGUI roundEndText; // Reference to the round end Text component
+    [Tooltip("The TextMeshPro object showing the restart button.")]
+    public Button restartButton; // Reference to the restart button
 
     // Start is called before the first frame update
     void Start()
     {
         roundEndText.gameObject.SetActive(false);  // Hide the round end text at the start
+        restartButton.gameObject.SetActive(false);  // Hide the round end text at the start
     }
 
     void Update()
@@ -40,7 +44,8 @@ public class UIManager : MonoBehaviour
                 roundEndText.color = Color.white;
                 roundEndText.text = "DRAW!!";
             }
-            roundEndText.gameObject.SetActive(true);  // Show the text when unoccupiedChairs equals 0
+            roundEndText.gameObject.SetActive(true);  // Show the round end text
+            restartButton.gameObject.SetActive(true);  // Show the restart button 
         }
     }
 }

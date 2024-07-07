@@ -77,8 +77,7 @@ public class GameManager : MonoBehaviour
         //restart the game when pressing the R key
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Destroy(gameObject);  // Destroy the old GameManager instance
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            RestartGame();
         }
     }
 
@@ -96,5 +95,14 @@ public class GameManager : MonoBehaviour
     void ResumeGame()
     {
         Time.timeScale = 1;
+    }
+
+    /// <summary>
+    /// Function to restart the game
+    /// </summary>
+    public void RestartGame()
+    {
+        Destroy(gameObject);  // Destroy the old GameManager instance
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

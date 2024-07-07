@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 13046069}
   - component: {fileID: 13046073}
   - component: {fileID: 13046074}
+  - component: {fileID: 13046075}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -275,6 +276,29 @@ MonoBehaviour:
   rayScale: 2
   reachedChair: 0
   musicRotationSpeed: 30
+  playerPower: {fileID: 0}
+--- !u!114 &13046075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13046068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12dae723ffac8c845b9b30be0d7a4250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPower: 2
+  dashDistance: 5
+  dashCooldown: 1
+  pullDistance: 5
+  pullCooldown: 1
+  pullMask:
+    serializedVersion: 2
+    m_Bits: 320
+  dashTimer: 0
+  pullTimer: 0
 --- !u!1 &229357214
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 4556829775865857356, guid: b03d38ff12ea6ae408b65bd5078443c4, type: 3}
-  numberOfNPC: 4
+  numberOfNPC: 0
   NPCParent: {fileID: 1164767503}
   playerLocation: {x: 0, y: 0.6, z: 15}
 --- !u!1 &519420028
@@ -748,8 +772,8 @@ MonoBehaviour:
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
-  roundStartTimerFrom: 5
-  roundStartTimerTo: 10
+  roundStartTimerFrom: 0
+  roundStartTimerTo: 0
   musicPlaying: 0
   chairSpawner: {fileID: 0}
 --- !u!4 &1063798619
@@ -1387,6 +1411,7 @@ MonoBehaviour:
   verticalMoveAxis: 0
   horizontalTargetAxis: 0
   verticalTargetAxis: 0
+  targetObject: {fileID: 0}
   powerPressed: 0
   powerHeld: 0
   pausePressed: 0
@@ -1431,6 +1456,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d33b68af-bdca-4709-b6ee-add6eef3c34d
     m_ActionName: PlayerInput/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1867952514}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: ReadPowerInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a59999d8-bdae-434b-b9bb-97986d3d5e5d
+    m_ActionName: PlayerInput/Power[/Keyboard/space,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1867952514}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: ReadMousePositionInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fc3c3df3-a79b-4357-bd86-dc8c083dca73
+    m_ActionName: PlayerInput/Targeting[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput

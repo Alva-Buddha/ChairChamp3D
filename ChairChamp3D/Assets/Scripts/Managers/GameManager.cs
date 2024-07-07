@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;// Static instance of GameManager which allows it to be accessed by any other script
-    public int score;  // Variable used to track the player's score
-    public int unoccupiedChairs; // Variable used to track the number of unoccupied chairs
-    public int playerChairs; // Variable used to track the number of chairs the player has acquired
-    public int npcChairs; // Variable used to track the number of chairs the NPCs have acquired
+    public int score;  // Tracks the player's score
+    public int unoccupiedChairs; // Tracks the number of unoccupied chairs
+    public int playerChairs; // Tracks the number of chairs the player has acquired
+    public int npcChairs; // Tracks the number of chairs the NPCs have acquired
     public float roundStartTimerFrom = 10.0f; // Music will stop at a certain time between the From and the To variables
     public float roundStartTimerTo = 20.0f; // Music will stop at a certain time between the From and the To variables
+    public Button startButton; // Reference the start button in the UI
 
-    private AudioSource musicSource; // Variable used to track the music object for before the round starts
+    private AudioSource musicSource; // Tracks the music object for before the round starts
+    private bool gameStarted = false; // Tracks whether or not the game has started
 
     void Awake()
     {
@@ -41,8 +44,13 @@ public class GameManager : MonoBehaviour
     {
         // Set unoccupiedChairs to the number of "Chair" prefabs in the scene
         unoccupiedChairs = GameObject.FindGameObjectsWithTag("Chair").Length;
+        // Set the audio source on the camera to the music source variable
         musicSource = Camera.main.GetComponent<AudioSource>();
-        StartCoroutine(PlayAndStopMusic());
+        // Play music on clicking the start button
+        startButton.onClick.AddListener(() => {
+            gameStarted = true;
+            StartCoroutine(PlayAndStopMusic());
+        });
     }
 
     //Plays music when the game starts, then stops it at a semi-random time range
@@ -56,6 +64,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Don't start the game until the start button is clicked
+        if (!gameStarted) return;
+        
         //If all chairs are occupied, pause the game and bring up the round end UI
         if (unoccupiedChairs == 0)
         {

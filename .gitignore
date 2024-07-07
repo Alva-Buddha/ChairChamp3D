@@ -70,3 +70,21 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+ChairChamp3D/Library/ArtifactDB
+ChairChamp3D/Library/Bee/backend1.traceevents
+ChairChamp3D/Library/Bee/fullprofile.json
+ChairChamp3D/Library/Bee/tundra.digestcache
+ChairChamp3D/Library/Bee/tundra.log.json
+ChairChamp3D/Library/Bee/TundraBuildState.state
+ChairChamp3D/Library/Bee/TundraBuildState.state.map
+ChairChamp3D/Library/EditorInstance.json
+ChairChamp3D/Library/ilpp.pid
+ChairChamp3D/Library/SourceAssetDB
+ChairChamp3D/Library/StateCache/MainStageHierarchy/ab/abb7e5a8b2116d6390f174f1ef7d9009.json
+ChairChamp3D/Logs/AssetImportWorker0-prev.log
+ChairChamp3D/Logs/AssetImportWorker1-prev.log
+ChairChamp3D/Logs/shadercompiler-UnityShaderCompiler.exe0.log
+ChairChamp3D/Temp/__Backupscenes/0.backup
+ChairChamp3D/Temp/FSTimeGet-8b030146fe496014d9971fd177cbdbad
+ChairChamp3D/Temp/UnityLockfile
+ChairChamp3D/Temp/workerlic

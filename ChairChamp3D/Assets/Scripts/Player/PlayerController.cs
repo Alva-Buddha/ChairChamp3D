@@ -7,8 +7,10 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Variables")]
     [Tooltip("The speed at which the player will move.")]
     public float moveSpeed = 10.0f;
-    [Tooltip("The speed at which the player rotates in asteroids movement mode")]
+    [Tooltip("The speed at which the player rotates")]
     public float rotationSpeed = 60f;
+    [Tooltip("Time to start/stop")]
+    public float timeToAccelerate = 0.5f;
 
     [Header("Debugging")]
     [Tooltip("Forward ray visibility")]
@@ -91,15 +93,31 @@ public class PlayerController : MonoBehaviour
         {
             if (gameManager.musicPlaying)
             {
-                // Rotate the player around origin at constant speed
-                transform.RotateAround(Vector3.zero, Vector3.up, musicRotationSpeed * Time.deltaTime);
-                // Face the origin
-                transform.LookAt(Vector3.zero);
+                // Calculate distance from player to origin
+                Vector3 distanceToOrigin = (Vector3.zero - rb.position);
+
+                // Calculate perpendicular vector for circular movement around origin
+                Vector3 perpendicularVector = Vector3.Cross(Vector3.up, distanceToOrigin);
+
+                // Set velocity by multiplying perpendicular vector with music rotation speed in radians
+                rb.velocity = perpendicularVector * musicRotationSpeed * Mathf.Deg2Rad;
+
+                // Calculate the target angle in degrees
+                float targetAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg;
+
+                // Create a target rotation based on the target angle
+                Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+
+                // Smoothly rotate towards the target rotation using Rigidbody.MoveRotation
+                rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
             }
             else
             {
-                // Stop the player from moving
-                rb.velocity = Vector3.zero;
+                if (rb.velocity.magnitude > 0.01)
+                {
+                    //reduce the velocity magnitude based on timeToAccelerate
+                    rb.velocity -= rb.velocity * Time.deltaTime / timeToAccelerate;
+                }
             }
         }
 
@@ -136,24 +154,35 @@ public class PlayerController : MonoBehaviour
     /// <param name="movement">The direction to move the player</param>
     private void MovePlayer(Vector3 movement)
     {
-        // Move the player
-        transform.position += movement * moveSpeed * Time.deltaTime;
+        // Calculate the acceleration vector based on input, move speed, and time to accelerate
+        Vector3 acceleration = movement.normalized * moveSpeed / timeToAccelerate;
 
-        // Rotate the player to face the direction of movement
+        // Check if there is movement input
         if (movement != Vector3.zero)
         {
+
+            // Apply the calculated force to the Rigidbody component
+            rb.velocity += acceleration * Time.deltaTime;
+
+            //Cap velocity at move speed
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, moveSpeed);
+
             // Calculate the target angle in degrees
-            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
+            float targetAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg;
 
-            //Log to see target angle z+ is 0 degrees and x+ is +90 degrees
-            //Debug.Log("Target Angle: " + targetAngle);
-
-            // Get the current rotation and the target rotation
-            Quaternion currentRotation = transform.rotation;
+            // Create a target rotation based on the target angle
             Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
 
-            // Rotate towards the target rotation at the specified rotation speed
-            transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
+            // Smoothly rotate towards the target rotation using Rigidbody.MoveRotation
+            rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+        }
+        else
+        {
+            if (rb.velocity.magnitude > 0.01)
+            {
+                //reduce the velocity magnitude based on timeToAccelerate
+                rb.velocity -= rb.velocity * Time.deltaTime/ timeToAccelerate;
+            }
         }
     }
 }

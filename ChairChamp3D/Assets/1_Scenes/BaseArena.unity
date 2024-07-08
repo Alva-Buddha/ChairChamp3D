@@ -272,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 720
+  timeToAccelerate: 1
   showRay: 1
   rayScale: 2
   reachedChair: 0
@@ -478,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 4556829775865857356, guid: b03d38ff12ea6ae408b65bd5078443c4, type: 3}
-  numberOfNPC: 2
+  numberOfNPC: 0
   NPCParent: {fileID: 1164767503}
   playerLocation: {x: 0, y: 0.6, z: 15}
 --- !u!1 &519420028
@@ -1034,7 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chairPrefab: {fileID: 277904933332868267, guid: c73410ceb9da0994ab13b7156f5d81cb, type: 3}
-  numberOfChairs: 2
+  numberOfChairs: 4
   chairParent: {fileID: 1611959190}
   spawnLocation: {x: 0, y: 0.2, z: 5}
 --- !u!1 &1411828004

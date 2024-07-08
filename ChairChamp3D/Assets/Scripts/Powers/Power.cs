@@ -121,10 +121,27 @@ public class Power : MonoBehaviour
             Debug.Log("Pull is on cooldown");
             return;
         }
+        // Check if inputManager target object belongs to layerMask
+        bool isTargetPullable = IsLayerInLayerMask(inputManager.targetObject.layer, pullMask);
+        if (!isTargetPullable)
+        {
+            Debug.Log("Target object is not pullable");
+            return;
+        }
         //Pull the target object identified from the input manager towards this object object
         inputManager.targetObject.transform.position = Vector3.MoveTowards(inputManager.targetObject.transform.position,
                        this.transform.position, pullDistance);
         //Set pull timer to cooldown
         pullTimer = pullCooldown;
+    }
+
+    // Helper method to check if a layer is in a given LayerMask
+    bool IsLayerInLayerMask(int layer, LayerMask layerMask)
+    {
+        // Convert the object's layer to a bitfield for comparison
+        int layerBit = 1 << layer;
+        // Perform a bitwise AND with the layerMask and check if the result is not zero
+        bool isInMask = (layerMask.value & layerBit) != 0;
+        return isInMask;
     }
 }

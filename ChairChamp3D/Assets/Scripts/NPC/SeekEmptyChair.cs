@@ -9,6 +9,8 @@ public class SeekEmptyChair : MonoBehaviour
     public float moveSpeed = 10.0f;
     [Tooltip("The speed at which the NPC rotates")]
     public float rotationSpeed = 60f;
+    [Tooltip("Time to start/stop")]
+    public float timeToAccelerate = 1f;
 
     [Tooltip("The distance at which the NPC will stop moving towards the chair")]
     public float stoppingDistance = 0.1f;
@@ -33,13 +35,16 @@ public class SeekEmptyChair : MonoBehaviour
     [Tooltip("Forward ray scaling")]
     public float rayScale = 2;
 
-    
+    //The object's rigidbody
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         chairs = GameObject.FindGameObjectsWithTag("Chair");
         gameManager = GameManager.Instance;
+        // Get the Rigidbody component
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -47,10 +52,23 @@ public class SeekEmptyChair : MonoBehaviour
     {
         if (gameManager.musicPlaying)
         {
-            //rotate around origin at speed = music rotation speed
-            transform.RotateAround(Vector3.zero, Vector3.up, musicRotationSpeed * Time.deltaTime);
-            //face origin
-            transform.LookAt(Vector3.zero);
+            // Calculate distance from player to origin
+            Vector3 distanceToOrigin = (Vector3.zero - rb.position);
+
+            // Calculate perpendicular vector for circular movement around origin
+            Vector3 perpendicularVector = Vector3.Cross(Vector3.up, distanceToOrigin);
+
+            // Set velocity by multiplying perpendicular vector with music rotation speed in radians
+            rb.velocity = perpendicularVector * musicRotationSpeed * Mathf.Deg2Rad;
+
+            // Calculate the target angle in degrees
+            float targetAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg;
+
+            // Create a target rotation based on the target angle
+            Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+
+            // Smoothly rotate towards the target rotation using Rigidbody.MoveRotation
+            rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
         }
         else
         {
@@ -107,17 +125,36 @@ public class SeekEmptyChair : MonoBehaviour
         //Debug.Log("Moving towards: " + target.name);
 
         // Get direction to target
-        Vector3 direction = target.transform.position - transform.position;
-        direction.y = 0; // Ignore the y component for rotation
+        Vector3 movement = target.transform.position - transform.position;
+        movement.y = 0; // Ignore the y component for rotation
 
-        // Rotate towards target
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        // Calculate the acceleration vector based on input, move speed, and time to accelerate
+        Vector3 acceleration = movement.normalized * moveSpeed / timeToAccelerate;
 
         if (Vector3.Distance(transform.position, target.transform.position) > stoppingDistance)
         {
-            // Move towards target
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+            // Apply the calculated force to the Rigidbody component
+            rb.velocity += acceleration * Time.deltaTime;
+
+            //Cap velocity at move speed
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, moveSpeed);
+
+            // Calculate the target angle in degrees
+            float targetAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg;
+
+            // Create a target rotation based on the target angle
+            Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+
+            // Smoothly rotate towards the target rotation using Rigidbody.MoveRotation
+            rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+        }
+        else
+        {
+            if (rb.velocity.magnitude > 0.01)
+            {
+                //reduce the velocity magnitude based on timeToAccelerate
+                rb.velocity -= rb.velocity * Time.deltaTime / timeToAccelerate;
+            }
         }
     }
 

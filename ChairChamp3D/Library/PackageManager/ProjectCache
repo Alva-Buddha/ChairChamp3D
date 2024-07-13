@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638562728605580717
-    m_Hash: 3255028849
+      ticks: 638564266157132183
+    m_Hash: 1710189192
   m_LockFileStatus:
     m_FilePath: C:/Users/ljens/OneDrive/Documents 2020/Chair Champions 3D/ChairChamp3D/ChairChamp3D/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638562728605684832
-    m_Hash: 766960727
+      ticks: 638564266232051540
+    m_Hash: 38365223
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:

@@ -367,6 +367,7 @@
 "Assets/Scripts/Player/PlayerController.cs"
 "Assets/Scripts/Powers/Power.cs"
 "Assets/Scripts/UI/MainMenu.cs"
+"Assets/Scripts/UI/SettingsMenu.cs"
 "Assets/Scripts/UI/UIManager.cs"
 -langversion:9.0
 

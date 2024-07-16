@@ -6,16 +6,19 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;// Static instance of GameManager which allows it to be accessed by any other script
+    public static bool GameIsPaused = false; // Static variable used to track whether or not the game is paused
+
     public int score;  // Variable used to track the player's score
     public int unoccupiedChairs; // Variable used to track the number of unoccupied chairs
     public int playerChairs; // Variable used to track the number of chairs the player has acquired
     public int npcChairs; // Variable used to track the number of chairs the NPCs have acquired
     public float roundStartTimerFrom = 10.0f; // Music will stop at a certain time between the From and the To variables
     public float roundStartTimerTo = 20.0f; // Music will stop at a certain time between the From and the To variables
-
     public bool musicPlaying = false; // Variable used to track if the music is playing
+    public bool roundStarted = false; // Variable used to track if the starting music has stopped and the round has started
 
     public GameObject chairSpawner = null; // Variable used to track the chair spawner object
+    public GameObject pauseMenuUI; // Variable used to track the pause menu ui
 
     private AudioSource musicSource; // Variable used to track the music object for before the round starts
 
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         unoccupiedChairs = GameObject.FindGameObjectsWithTag("Chair").Length;
         // Set unoccupiedChairs to the number of "Chair" prefabs in the scene
         if (unoccupiedChairs == 0 || chairSpawner != null)
@@ -60,14 +64,40 @@ public class GameManager : MonoBehaviour
     {
         musicSource.Play();
         musicPlaying = true;
-        yield return new WaitForSeconds(Random.Range(roundStartTimerFrom, roundStartTimerTo));
-        musicSource.Stop();
-        musicPlaying = false;
+        while (musicPlaying)
+        {
+            if (GameIsPaused)
+            {
+                yield return null; // Pauses the coroutine when the game is paused
+            }
+            else
+            {
+                yield return new WaitForSeconds(Random.Range(roundStartTimerFrom, roundStartTimerTo));
+                musicSource.Stop();
+                musicPlaying = false;
+                roundStarted = true;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {     
+        // If the pause button is pressed, pause/resume the game depending on if it's already paused or not
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            if (GameIsPaused)
+            {
+                ResumeGame();
+                pauseMenuUI.SetActive(false);
+            }
+            else
+            {
+                PauseGame();
+                pauseMenuUI.SetActive(true);
+            }
+        }
+
         //If all chairs are occupied, pause the game and bring up the round end UI
         if (unoccupiedChairs == 0)
         {
@@ -82,19 +112,36 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Function to pause the game
+    /// Function to pause the game & music
     /// </summary>
     void PauseGame()
     {
-        Time.timeScale = 0;
+        // Pause control
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+
+        // Music control
+        if (musicSource != null)
+        {
+            musicSource.Pause();
+        }
     }
 
     /// <summary>
-    /// Function to resume/unpause the game
+    /// Function to resume/unpause the game & music
     /// </summary>
-    void ResumeGame()
+    public void ResumeGame()
     {
-        Time.timeScale = 1;
+        // Pause control
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+
+        // Music control
+        if (roundStarted == false && musicSource != null)
+        {
+            musicSource.UnPause();
+            musicPlaying = true;
+        }
     }
 
     /// <summary>
@@ -102,7 +149,26 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void RestartGame()
     {
+        GameIsPaused = false;
         Destroy(gameObject);  // Destroy the old GameManager instance
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    /// <summary>
+    /// Function to go back to the main menu
+    /// </summary>
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    /// <summary>
+    /// Function to quit the game
+    /// </summary>
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

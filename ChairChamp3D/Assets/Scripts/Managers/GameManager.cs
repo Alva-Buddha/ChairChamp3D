@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
                 audioManager.StopMusic();
                 musicPlaying = false;
                 roundStarted = true;
+                audioManager.PlayLevelThemeMusic();
             }
         }
     }
@@ -153,10 +154,17 @@ public class GameManager : MonoBehaviour
         GameIsPaused = false;
 
         // Music control
-        if (roundStarted == false && audioManager != null)
+        if (audioManager != null)
         {
-            audioManager.UnpauseMusic();
-            musicPlaying = true;
+            if (roundStarted == false)
+            {
+                audioManager.UnpauseMusic();
+                musicPlaying = true;
+            }
+            else
+            {
+                audioManager.UnpauseMusic();
+            }
         }
     }
 

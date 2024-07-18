@@ -33,6 +33,14 @@ public class AudioManager : MonoBehaviour
         PlayMusicClip(titleMusic, true);
     }
 
+    // Play level theme music
+    public void PlayLevelThemeMusic()
+    {
+        musicSource.clip = levelThemeMusic;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
     // Play selected music clip
     public void PlayMusicClip(AudioClip musicClip, bool isLooping)
     {

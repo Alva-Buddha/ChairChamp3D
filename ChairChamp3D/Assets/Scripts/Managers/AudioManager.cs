@@ -9,50 +9,44 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
 
-    [Header("Audio Clips")]
+    [Header("Audio Clips - Music")]
+    public AudioClip titleMusic;
+    public AudioClip preRoundMusic;
+    public AudioClip roundStartMusic;
+    public AudioClip roundEndMusic;
+    public AudioClip playerSoloWinMusic;
+
+    [Header("Audio Clips - SFX")]
+    public AudioClip powerupDash;
+    public AudioClip powerupStun;
+    public AudioClip powerupPull;
+    public AudioClip powerupSwap;
     public AudioClip chairGet;
+    public AudioClip playerSoloWinSFX;
+    public AudioClip roundEndSFX;
 
-    [Header("Audio Mixers")]
+    [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
-
-    public static AudioManager Instance;// Make AudioManager a singleton which allows it to be accessed by any other script
-
-    void Awake()
-    {
-        #region Singleton
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        #endregion
-    }
 
     private void Start()
     {
-        sfxSource.clip = chairGet;
-        //sfxSource.Play();
+        PlayMusicClip(titleMusic, true);
     }
 
-    // Play the actual audio clip
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    // Play selected music clip
+    public void PlayMusicClip(AudioClip musicClip, bool isLooping)
     {
-        // Spawn the GameObject
-        AudioSource audioSource = Instantiate(sfxSource, spawnTransform.position, Quaternion.identity);
+        musicSource.Stop();
+        musicSource.clip = musicClip;
+        musicSource.loop = isLooping;
+        musicSource.Play();
+    }
 
-        // Assign the audioClip
-        audioSource.clip = audioClip;
-
-        // Assign volume
-        audioSource.volume = volume;
-
-        // Play the sound
-        audioSource.Play();
-
-        // Get the length of the sound effect clip
-        float clipLength = audioSource.clip.length;
-
-        // Destroy the clip after it plays
-        Destroy(audioSource.gameObject, clipLength);
+    // Play selected sound effect clip
+    public void PlaySFXClip(AudioClip sfxClip)
+    {
+        sfxSource.clip = sfxClip;
+        sfxSource.Play();
     }
 
     // Function to adjust the master volume

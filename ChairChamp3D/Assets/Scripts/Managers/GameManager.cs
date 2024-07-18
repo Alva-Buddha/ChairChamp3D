@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        #region Singleton
         // Check if instance already exists
         if (Instance == null)
         {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
             // Then destroy this, meaning there can only ever be one instance of a GameManager
             Destroy(gameObject);
         }
+        #endregion
         // Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
@@ -46,7 +48,6 @@ public class GameManager : MonoBehaviour
         ResumeGame();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         #region Set up chairs
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
         #endregion
     }
 
-    // Plays music when the game starts, then stops it at a semi-random time range
+    // Coroutine that plays music when the round starts, then stops it at a time range specified in the public variables
     IEnumerator PlayAndStopMusic()
     {
         audioManager.PlayPreRoundMusic();
@@ -97,10 +98,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {     
-        // If the pause button is pressed, pause/resume the game depending on if it's already paused or not
+        // Pause/Unpause the game
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu")
         {
             if (GameIsPaused)
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // If all chairs are occupied, pause the game and bring up the round end UI
+        // If all chairs are occupied, round is over; pause the game, play music and bring up the round end UI
         if (unoccupiedChairs == 0)
         {
             PauseGame();

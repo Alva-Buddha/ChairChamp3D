@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject chairSpawner = null; // Variable used to track the chair spawner object
     public GameObject pauseMenuUI; // Variable used to track the pause menu ui
 
-    private AudioSource musicSource; // Variable used to track the music object for before the round starts
+    private AudioManager audioManager; // Variable used to track the audio manager object for before the round starts
 
     void Awake()
     {
@@ -39,7 +39,8 @@ public class GameManager : MonoBehaviour
         // Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
-        chairSpawner = GameObject.Find("ChairSpawner"); // Find the chair spawner object in the scene
+        // Find the chair spawner object in the scene
+        chairSpawner = GameObject.Find("ChairSpawner"); 
 
         // Ensure the game is not paused when the scene starts
         ResumeGame();
@@ -48,21 +49,36 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        #region Set up chairs
         unoccupiedChairs = GameObject.FindGameObjectsWithTag("Chair").Length;
         // Set unoccupiedChairs to the number of "Chair" prefabs in the scene
         if (unoccupiedChairs == 0 || chairSpawner != null)
         {
             unoccupiedChairs = chairSpawner.GetComponent<ChairSpawner>().numberOfChairs;
         }
-        musicSource = Camera.main.GetComponent<AudioSource>();
+        #endregion
+
+        #region Set up audio
+        // Find the AudioManager gameobject using the 'Audio' tag
+        GameObject audioManagerObject = GameObject.FindGameObjectWithTag("Audio");
+        if (audioManagerObject != null)
+        {
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        }
+        else
+        {
+            Debug.LogError("No GameObject with tag 'Audio' found in the scene.");
+        }
+
+        // Start playing the pre-round music on a timer
         StartCoroutine(PlayAndStopMusic());
+        #endregion
     }
 
-    //Plays music when the game starts, then stops it at a semi-random time range
+    // Plays music when the game starts, then stops it at a semi-random time range
     IEnumerator PlayAndStopMusic()
     {
-        musicSource.Play();
+        audioManager.PlayPreRoundMusic();
         musicPlaying = true;
         while (musicPlaying)
         {
@@ -73,7 +89,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 yield return new WaitForSeconds(Random.Range(roundStartTimerFrom, roundStartTimerTo));
-                musicSource.Stop();
+                audioManager.StopMusic();
                 musicPlaying = false;
                 roundStarted = true;
             }
@@ -98,13 +114,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //If all chairs are occupied, pause the game and bring up the round end UI
+        // If all chairs are occupied, pause the game and bring up the round end UI
         if (unoccupiedChairs == 0)
         {
             PauseGame();
         }
 
-        //restart the game when pressing the R key
+        // Restart the game when pressing the R key
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartGame();
@@ -121,9 +137,9 @@ public class GameManager : MonoBehaviour
         GameIsPaused = true;
 
         // Music control
-        if (musicSource != null)
+        if (audioManager != null)
         {
-            musicSource.Pause();
+            audioManager.PauseMusic();
         }
     }
 
@@ -137,9 +153,9 @@ public class GameManager : MonoBehaviour
         GameIsPaused = false;
 
         // Music control
-        if (roundStarted == false && musicSource != null)
+        if (roundStarted == false && audioManager != null)
         {
-            musicSource.UnPause();
+            audioManager.UnpauseMusic();
             musicPlaying = true;
         }
     }

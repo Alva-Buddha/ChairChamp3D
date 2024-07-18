@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
-    //public AudioMixer audioMixer;
-
     // Variables to store an array of possible resolutions to change between
     public TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
@@ -54,26 +51,6 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-
-    #region Audio settings
-    //// Change the master volume (includes both music and SFX)
-    //public void SetMasterVolume(float volume)
-    //{
-    //    audioMixer.SetFloat("masterVolume", volume);
-    //}
-
-    //// Change the music volume
-    //public void SetMusicVolume(float volume)
-    //{
-    //    audioMixer.SetFloat("musicVolume", volume);
-    //}
-
-    //// Change the sfx volume
-    //public void SetSFXVolume(float volume)
-    //{
-    //    audioMixer.SetFloat("sfxVolume", volume);
-    //}
-    #endregion
 
     // Change quality level of the graphics
     public void SetQuality(int qualityIndex)

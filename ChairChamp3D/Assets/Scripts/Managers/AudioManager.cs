@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Clips - Music")]
     public AudioClip titleMusic;
     public AudioClip preRoundMusic;
-    public AudioClip roundStartMusic;
+    public AudioClip levelThemeMusic;
     public AudioClip roundEndMusic;
     public AudioClip playerSoloWinMusic;
 
@@ -42,11 +42,38 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    // Stop current music clip
+    public void StopMusic()
+    {
+        musicSource.Stop();
+    }
+
+    // Pauses current music clip
+    public void PauseMusic()
+    {
+        musicSource.Pause();
+    }
+
+    // Unpauses current music clip
+    public void UnpauseMusic()
+    {
+        musicSource.UnPause();
+    }
+
     // Play selected sound effect clip
     public void PlaySFXClip(AudioClip sfxClip)
     {
         sfxSource.clip = sfxClip;
         sfxSource.Play();
+    }
+
+    // Play the pre round music
+    public void PlayPreRoundMusic()
+    {
+        musicSource.Stop();
+        musicSource.clip = preRoundMusic;
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
     // Function to adjust the master volume

@@ -16,11 +16,14 @@ public class GameManager : MonoBehaviour
     public float roundStartTimerTo = 20.0f; // Music will stop at a certain time between the From and the To variables
     public bool musicPlaying = false; // Variable used to track if the music is playing
     public bool roundStarted = false; // Variable used to track if the starting music has stopped and the round has started
+    public bool hasRoundEnded = false; // Variable used to track if the round has ended
 
     public GameObject chairSpawner = null; // Variable used to track the chair spawner object
     public GameObject pauseMenuUI; // Variable used to track the pause menu ui
+    public GameObject roundEndUI; // Variable used to track the round end ui
 
     private AudioManager audioManager; // Variable used to track the audio manager object for before the round starts
+    private UIManager uiManager;
 
     void Awake()
     {
@@ -74,6 +77,14 @@ public class GameManager : MonoBehaviour
         // Start playing the pre-round music on a timer
         StartCoroutine(PlayAndStopMusic());
         #endregion
+
+        #region Set up ui
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        if (uiManager == null)
+        {
+            Debug.LogError("The script 'UIManager' can't be found on any UI game objects called 'Canvas'.");
+        }
+        #endregion
     }
 
     // Coroutine that plays music when the round starts, then stops it at a time range specified in the public variables
@@ -115,10 +126,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // If all chairs are occupied, round is over; pause the game, play music and bring up the round end UI
-        if (unoccupiedChairs == 0)
+        // If all chairs are occupied, round is over; pause the game, play round end music, and bring up the round end UI
+        if (unoccupiedChairs == 0 && hasRoundEnded == false)
         {
-            PauseGame();
+            EndRound();
         }
 
         // Restart the game when pressing the R key
@@ -126,6 +137,32 @@ public class GameManager : MonoBehaviour
         {
             RestartGame();
         }
+    }
+
+    /// <summary>
+    /// Function to handle the end of the round
+    /// </summary>
+    void EndRound()
+    {
+        hasRoundEnded = true;
+
+        // Enable UI
+        roundEndUI.SetActive(true);
+        uiManager.EndRound();
+
+        // Pause control
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+
+        // Play end round music
+        if (npcChairs == 0)
+        {
+            audioManager.PlayPlayerSoloWinAudio();
+        }
+        else
+        {
+            audioManager.PlayRoundEndAudio();
+        }        
     }
 
     /// <summary>
@@ -186,6 +223,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    /// <summary>
+    /// Function to load the next scene
+    /// </summary>
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     /// <summary>

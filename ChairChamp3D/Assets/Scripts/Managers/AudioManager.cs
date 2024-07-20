@@ -33,12 +33,30 @@ public class AudioManager : MonoBehaviour
         PlayMusicClip(titleMusic, true);
     }
 
+    // Play the pre round music
+    public void PlayPreRoundMusic()
+    {
+        PlayMusicClip(preRoundMusic, true);
+    }
+
     // Play level theme music
     public void PlayLevelThemeMusic()
     {
-        musicSource.clip = levelThemeMusic;
-        musicSource.loop = true;
-        musicSource.Play();
+        PlayMusicClip(levelThemeMusic, true);
+    }
+
+    // Play round end music
+    public void PlayRoundEndAudio()
+    {
+        PlaySFXClip(roundEndSFX);
+        PlayMusicClip(roundEndMusic, true);
+    }
+
+    // Play round end music if the player won vs all AI
+    public void PlayPlayerSoloWinAudio()
+    {
+        PlaySFXClip(playerSoloWinSFX);
+        PlayMusicClip(playerSoloWinMusic, true);
     }
 
     // Play selected music clip
@@ -72,16 +90,8 @@ public class AudioManager : MonoBehaviour
     public void PlaySFXClip(AudioClip sfxClip)
     {
         sfxSource.clip = sfxClip;
+        sfxSource.loop = false;
         sfxSource.Play();
-    }
-
-    // Play the pre round music
-    public void PlayPreRoundMusic()
-    {
-        musicSource.Stop();
-        musicSource.clip = preRoundMusic;
-        musicSource.loop = true;
-        musicSource.Play();
     }
 
     // Function to adjust the master volume

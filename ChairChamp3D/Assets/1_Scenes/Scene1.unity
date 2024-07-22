@@ -6509,7 +6509,11 @@ MonoBehaviour:
   roundStartTimerFrom: 9
   roundStartTimerTo: 18
   musicPlaying: 0
+  roundStarted: 0
+  hasRoundEnded: 0
   chairSpawner: {fileID: 0}
+  pauseMenuUI: {fileID: 0}
+  roundEndUI: {fileID: 0}
 --- !u!4 &1063798619
 Transform:
   m_ObjectHideFlags: 0
@@ -12347,7 +12351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2007713849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12449,7 +12453,6 @@ MonoBehaviour:
   scoreText: {fileID: 1435903603}
   unoccupiedChairsText: {fileID: 229357215}
   roundEndText: {fileID: 1953094270}
-  restartButton: {fileID: 1977100018}
 --- !u!1 &2009456846
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject roundEndUI; // Variable used to track the round end ui
 
     private AudioManager audioManager; // Variable used to track the audio manager object for before the round starts
-    private UIManager uiManager;
+    private UIManager uiManager;// Variable used to track the UI manager object for before the round starts
 
     void Awake()
     {
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         #endregion
+
         // Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 

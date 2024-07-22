@@ -28,6 +28,21 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
 
+    public static AudioManager instance;
+
+    public void Awake()
+    {
+        // used to implement singleton pattern
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
     private void Start()
     {
         PlayMusicClip(titleMusic, true);
@@ -84,6 +99,30 @@ public class AudioManager : MonoBehaviour
     public void UnpauseMusic()
     {
         musicSource.UnPause();
+    }
+
+    // Play sound effect clip for the Pull powerup
+    public void PlayPullSFX()
+    {
+        PlaySFXClip(powerupPull);
+    }
+
+    // Play sound effect clip for the Dash powerup
+    public void PlayDashSFX()
+    {
+        PlaySFXClip(powerupDash);
+    }
+
+    // Play sound effect clip for the Stun powerup
+    public void PlayStunSFX()
+    {
+        PlaySFXClip(powerupStun);
+    }
+
+    // Play sound effect clip for the Swap powerup
+    public void PlaySwapSFX()
+    {
+        PlaySFXClip(powerupSwap);
     }
 
     // Play selected sound effect clip

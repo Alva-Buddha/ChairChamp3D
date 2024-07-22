@@ -6,6 +6,7 @@ public class Power : MonoBehaviour
 {
     //create inputManager object
     private InputManager inputManager;
+    private AudioManager audioManager;
 
     [Tooltip("The types of power possible")]
     public enum PowerType
@@ -38,9 +39,26 @@ public class Power : MonoBehaviour
     {
         //initialize inputManager
         SetupInput();
+
+        //initialize audioManager
+        SetupAudio();
+
         //Timers for cooldowns
         dashTimer = 0.0f;
         pullTimer = 0.0f;
+
+        #region Set up audio
+        // Find the AudioManager gameobject using the 'Audio' tag
+        GameObject audioManagerObject = GameObject.FindGameObjectWithTag("Audio");
+        if (audioManagerObject != null)
+        {
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        }
+        else
+        {
+            Debug.LogError("No GameObject with tag 'Audio' found in the scene.");
+        }
+        #endregion
     }
 
     private void SetupInput()
@@ -52,6 +70,18 @@ public class Power : MonoBehaviour
         if (inputManager == null)
         {
             Debug.LogWarning("There is no player input manager in the scene, there needs to be one for the Controller to work");
+        }
+    }
+
+    private void SetupAudio()
+    {
+        if (audioManager == null)
+        {
+            audioManager = AudioManager.instance;
+        }
+        if (audioManager == null)
+        {
+            Debug.LogWarning("There is no player audio manager in the scene, there needs to be one for the Controller to work");
         }
     }
 
@@ -106,11 +136,13 @@ public class Power : MonoBehaviour
             Debug.Log("Dash is on cooldown");
             return;
         }
-        //Move this object towerd's the input manager's target axis position by dash distance
+        //Move this object towards the input manager's target axis position by dash distance
         this.transform.position = Vector3.MoveTowards(this.transform.position, 
             new Vector3(inputManager.horizontalTargetAxis, this.transform.position.y, inputManager.verticalTargetAxis), dashDistance);
         //Set dash timer to cooldown
         dashTimer = dashCooldown;
+        // Play sound effect
+        audioManager.PlayDashSFX();
     }
 
     public void Pull()
@@ -133,6 +165,8 @@ public class Power : MonoBehaviour
                        this.transform.position, pullDistance);
         //Set pull timer to cooldown
         pullTimer = pullCooldown;
+        // Play sound effect
+        audioManager.PlayPullSFX();
     }
 
     // Helper method to check if a layer is in a given LayerMask

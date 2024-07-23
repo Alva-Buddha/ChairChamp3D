@@ -7,8 +7,10 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Variables")]
     [Tooltip("The speed at which the player will move.")]
     public float moveSpeed = 10.0f;
-    [Tooltip("The speed at which the player rotates in asteroids movement mode")]
+    [Tooltip("The speed at which the player rotates ")]
     public float rotationSpeed = 60f;
+    [Tooltip("The speed at which the player moves during music")]
+    public float musicMoveSpeed = 5f;
 
     [Header("Debugging")]
     [Tooltip("Forward ray visibility")]
@@ -91,15 +93,33 @@ public class PlayerController : MonoBehaviour
         {
             if (gameManager.musicPlaying)
             {
-                // Rotate the player around origin at constant speed
-                transform.RotateAround(Vector3.zero, Vector3.up, musicRotationSpeed * Time.deltaTime);
-                // Face the origin
-                transform.LookAt(Vector3.zero);
+                // Calculate direction from player to origin
+                Vector3 directionToOrigin = (Vector3.zero - rb.position).normalized;
+
+                // Calculate perpendicular direction for circular movement around origin
+                Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, directionToOrigin).normalized;
+
+                // Set velocity to move player around origin
+                rb.velocity = perpendicularDirection * musicMoveSpeed;
+
+                // Calculate angular velocity for facing the origin
+                // Determine the target rotation to face the origin
+                Quaternion targetRotation = Quaternion.LookRotation(-directionToOrigin, Vector3.up);
+
+                // Calculate the angular velocity needed to rotate the player towards the target rotation
+                Quaternion deltaRotation = targetRotation * Quaternion.Inverse(rb.rotation);
+                deltaRotation.ToAngleAxis(out float angleInDegrees, out Vector3 rotationAxis);
+                angleInDegrees = Mathf.DeltaAngle(0, angleInDegrees);
+                Vector3 angularVelocity = (Mathf.Deg2Rad * angleInDegrees / Time.fixedDeltaTime) * rotationAxis.normalized;
+
+                // Apply the calculated angular velocity
+                rb.angularVelocity = angularVelocity;
             }
             else
             {
                 // Stop the player from moving
                 rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
             }
         }
 

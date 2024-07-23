@@ -9,6 +9,8 @@ public class SeekEmptyChair : MonoBehaviour
     public float moveSpeed = 10.0f;
     [Tooltip("The speed at which the NPC rotates")]
     public float rotationSpeed = 60f;
+    [Tooltip("The speed at which the NPC moves during music")]
+    public float musicMoveSpeed = 5f;
 
     [Tooltip("The distance at which the NPC will stop moving towards the chair")]
     public float stoppingDistance = 0.1f;
@@ -33,13 +35,15 @@ public class SeekEmptyChair : MonoBehaviour
     [Tooltip("Forward ray scaling")]
     public float rayScale = 2;
 
-    
+    //The object's rigidbody
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         chairs = GameObject.FindGameObjectsWithTag("Chair");
         gameManager = GameManager.Instance;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -47,10 +51,27 @@ public class SeekEmptyChair : MonoBehaviour
     {
         if (gameManager.musicPlaying)
         {
-            //rotate around origin at speed = music rotation speed
-            transform.RotateAround(Vector3.zero, Vector3.up, musicRotationSpeed * Time.deltaTime);
-            //face origin
-            transform.LookAt(Vector3.zero);
+            // Calculate direction from NPC to origin
+            Vector3 directionToOrigin = (Vector3.zero - rb.position).normalized;
+
+            // Calculate perpendicular direction for circular movement around origin
+            Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, directionToOrigin).normalized;
+
+            // Set velocity to move NPC around origin
+            rb.velocity = perpendicularDirection * musicMoveSpeed;
+
+            // Calculate angular velocity for facing the origin
+            // Determine the target rotation to face the origin
+            Quaternion targetRotation = Quaternion.LookRotation(-directionToOrigin, Vector3.up);
+
+            // Calculate the angular velocity needed to rotate the NPC towards the target rotation
+            Quaternion deltaRotation = targetRotation * Quaternion.Inverse(rb.rotation);
+            deltaRotation.ToAngleAxis(out float angleInDegrees, out Vector3 rotationAxis);
+            angleInDegrees = Mathf.DeltaAngle(0, angleInDegrees);
+            Vector3 angularVelocity = (Mathf.Deg2Rad * angleInDegrees / Time.fixedDeltaTime) * rotationAxis.normalized;
+
+            // Apply the calculated angular velocity
+            rb.angularVelocity = angularVelocity;
         }
         else
         {
@@ -103,21 +124,27 @@ public class SeekEmptyChair : MonoBehaviour
     /// <param name="target">The chair to move towards</param>
     private void MoveTowards(GameObject target)
     {
+        if (target == null) return; // Ensure there is a target
 
-        //Debug.Log("Moving towards: " + target.name);
-
-        // Get direction to target
         Vector3 direction = target.transform.position - transform.position;
-        direction.y = 0; // Ignore the y component for rotation
+        direction.y = 0; // Ignore the y component for movement
 
-        // Rotate towards target
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        // Calculate the velocity vector towards the target
+        Vector3 velocity = direction.normalized * moveSpeed;
+        rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z); // Apply velocity while maintaining current y velocity
 
-        if (Vector3.Distance(transform.position, target.transform.position) > stoppingDistance)
+        // Check if we are close enough to the target to consider stopping
+        if (direction.magnitude > stoppingDistance)
         {
-            // Move towards target
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+            // Rotate towards target using MoveRotation for smooth rotation
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+        }
+        else
+        {
+            // Optionally, stop the NPC when it reaches the target
+            rb.velocity = Vector3.zero;
+            reachedChair = true; // Update the state to indicate the NPC has reached the chair
         }
     }
 

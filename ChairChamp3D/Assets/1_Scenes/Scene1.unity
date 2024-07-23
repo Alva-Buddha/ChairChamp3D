@@ -3329,7 +3329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 4556829775865857356, guid: b03d38ff12ea6ae408b65bd5078443c4, type: 3}
-  numberOfNPC: 0
+  numberOfNPC: 1
   NPCParent: {fileID: 1164767503}
   playerLocation: {x: 0, y: 0.6, z: 15}
 --- !u!1 &366526753

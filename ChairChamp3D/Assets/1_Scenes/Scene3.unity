@@ -1685,7 +1685,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.5
-  far clip plane: 160
+  far clip plane: 200
   field of view: 26.991467
   orthographic: 0
   orthographic size: 10
@@ -1712,13 +1712,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05090352, y: -0.8992995, z: 0.4204969, w: 0.10886531}
-  m_LocalPosition: {x: 16.4, y: 98.1, z: 84.1}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 0, y: 110, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50.12, y: -166.195, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!82 &519420033
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2486,7 +2486,11 @@ MonoBehaviour:
   roundStartTimerFrom: 9
   roundStartTimerTo: 18
   musicPlaying: 0
+  roundStarted: 0
+  hasRoundEnded: 0
   chairSpawner: {fileID: 0}
+  pauseMenuUI: {fileID: 0}
+  roundEndUI: {fileID: 0}
 --- !u!4 &1063798619
 Transform:
   m_ObjectHideFlags: 0
@@ -4496,7 +4500,6 @@ MonoBehaviour:
   scoreText: {fileID: 1435903603}
   unoccupiedChairsText: {fileID: 229357215}
   roundEndText: {fileID: 1953094270}
-  restartButton: {fileID: 1977100018}
 --- !u!1 &2125331355
 GameObject:
   m_ObjectHideFlags: 0

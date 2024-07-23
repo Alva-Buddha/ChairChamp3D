@@ -131,29 +131,39 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Move player object and rotate in direction of movement
+    /// Move player object and rotate in direction of movement dynamically using Rigidbody
     /// </summary>
     /// <param name="movement">The direction to move the player</param>
     private void MovePlayer(Vector3 movement)
     {
-        // Move the player
-        transform.position += movement * moveSpeed * Time.deltaTime;
+        // Calculate the velocity vector based on input and move speed
+        Vector3 velocity = movement * moveSpeed;
 
-        // Rotate the player to face the direction of movement
+        // Apply the calculated velocity to the Rigidbody component for dynamic movement
+        rb.velocity = velocity;
+
+        //debugging ray to show forward direction of object
+        Debug.DrawRay(transform.position, transform.forward * 2, Color.red);
+
+        //debugging ray to show velocity direction
+        Debug.DrawRay(transform.position, rb.velocity, Color.green);
+
+        // Check if there is movement to determine if rotation should occur
         if (movement != Vector3.zero)
         {
             // Calculate the target angle in degrees
             float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
 
-            //Log to see target angle z+ is 0 degrees and x+ is +90 degrees
-            //Debug.Log("Target Angle: " + targetAngle);
-
-            // Get the current rotation and the target rotation
-            Quaternion currentRotation = transform.rotation;
+            // Create a target rotation based on the target angle
             Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
 
-            // Rotate towards the target rotation at the specified rotation speed
-            transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
+            // Smoothly rotate towards the target rotation using Rigidbody.MoveRotation
+            rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+        }
+        else
+        {
+            // Optionally, handle stopping more smoothly
+            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, Time.deltaTime * 5);
         }
     }
 }

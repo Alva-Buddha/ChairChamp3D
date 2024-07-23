@@ -360,6 +360,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/Chairs/ChairSpawner.cs"
 "Assets/Scripts/Chairs/ChairState.cs"
+"Assets/Scripts/Managers/AudioManager.cs"
 "Assets/Scripts/Managers/GameManager.cs"
 "Assets/Scripts/Managers/InputManager.cs"
 "Assets/Scripts/NPC/NPCSpawner.cs"

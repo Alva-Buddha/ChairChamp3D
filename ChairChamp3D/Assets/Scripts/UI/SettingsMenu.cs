@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
-
     // Variables to store an array of possible resolutions to change between
     public TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
 
     private void Start()
     {
+        #region Resolution settings
         // Set up resolution options and clear the current list
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -44,6 +42,7 @@ public class SettingsMenu : MonoBehaviour
         // Update the current resolution value and refresh the display of it
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        #endregion
     }
 
     // Change the resolution of the game
@@ -52,12 +51,6 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
-
-    // Change the master volume (includes both music and SFX)
-    public void SetMasterVolume (float volume)
-    {
-        audioMixer.SetFloat("masterVolume", volume);
-    }    
 
     // Change quality level of the graphics
     public void SetQuality(int qualityIndex)

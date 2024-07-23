@@ -13,8 +13,13 @@ public class Power : MonoBehaviour
     {
         None,
         Dash,
-        Pull
+        Pull,
+        Stun,
+        Swap,
     }
+
+    [Tooltip("Duration of the power")]
+    public float powerTime = 0.5f; // Duration in seconds
 
     [Tooltip("The type of power the player has")]
     public PowerType currentPower = PowerType.None;
@@ -26,6 +31,12 @@ public class Power : MonoBehaviour
     public float pullDistance = 5.0f;
     [Tooltip("Pull cooldown")]
     public float pullCooldown = 1.0f;
+    [Tooltip("Stun time")]
+    public float stunTime = 2.0f;
+    [Tooltip("Stun cooldown")]
+    public float stunCooldown = 1.0f;
+    [Tooltip("Swap cooldown")]
+    public float SwapCooldown = 1.0f;
 
     //pull layer mask
     public LayerMask pullMask;
@@ -33,6 +44,14 @@ public class Power : MonoBehaviour
     [Header("Cooldown timers - do not change")]
     public float dashTimer = 0f;
     public float pullTimer = 0f;
+    public float stunTimer = 0f;
+    public float swapTimer = 0f;
+
+    //rigidbody for this object
+    private Rigidbody rb;
+
+    //rigidbody for target object
+    private Rigidbody targetRb;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +65,11 @@ public class Power : MonoBehaviour
         //Timers for cooldowns
         dashTimer = 0.0f;
         pullTimer = 0.0f;
+        stunTimer = 0.0f;
+        swapTimer = 0.0f;
+
+        //get rigidbody component
+        rb = GetComponent<Rigidbody>();
 
         #region Set up audio
         // Find the AudioManager gameobject using the 'Audio' tag
@@ -103,6 +127,14 @@ public class Power : MonoBehaviour
         {
             pullTimer -= Time.deltaTime;
         }
+        if (stunTimer > 0)
+        {
+            stunTimer -= Time.deltaTime;
+        }
+        if (swapTimer > 0)
+        {
+            swapTimer -= Time.deltaTime;
+        }
     }
 
     //function to activate power
@@ -121,10 +153,36 @@ public class Power : MonoBehaviour
                 //call pull function
                 Pull();
                 break;
+            //if power type is stun
+            case PowerType.Stun:
+                //call stun function
+                Stun();
+                break;
+            //if power type is swap
+            case PowerType.Swap:
+                //call swap function
+                Swap();
+                break;
             default:
                 Debug.Log("No power selected or power is None");
                 break;
         }
+    }
+
+    // Placeholder for the Stun method
+    private void Stun()
+    {
+        Debug.Log("Stun called");
+        // Implement stun logic here
+        // Example: Apply a status effect to the target that prevents movement or actions for a duration
+    }
+
+    // Placeholder for the Swap method
+    private void Swap()
+    {
+        Debug.Log("Swap called");
+        // Implement swap logic here
+        // Example: Swap positions with the target object or enemy
     }
 
     //function to dash
@@ -136,15 +194,36 @@ public class Power : MonoBehaviour
             Debug.Log("Dash is on cooldown");
             return;
         }
-        //Move this object towards the input manager's target axis position by dash distance
-        this.transform.position = Vector3.MoveTowards(this.transform.position, 
-            new Vector3(inputManager.horizontalTargetAxis, this.transform.position.y, inputManager.verticalTargetAxis), dashDistance);
-        //Set dash timer to cooldown
+
+        // Calculate dash direction based on input manager's target axis
+        Vector3 dashDirection = new Vector3(inputManager.horizontalTargetAxis, 0, inputManager.verticalTargetAxis).normalized;
+
+        // Calculate the velocity needed to cover the dashDistance in powerTime
+        Vector3 dashVelocity = dashDirection * (dashDistance / powerTime);
+
+        // Set the Rigidbody's velocity to dashVelocity
+        rb.velocity = dashVelocity;
+
+        // Start the coroutine to reset the velocity after powerTime
+        StartCoroutine(ResetVelocityAfterTime(powerTime));
+
+        // Set dash timer to cooldown
         dashTimer = dashCooldown;
         // Play sound effect
         audioManager.PlayDashSFX();
     }
 
+    // Coroutine to reset the Rigidbody's velocity after a specified time
+    private IEnumerator ResetVelocityAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        // Reset the velocity to zero or to the Rigidbody's initial velocity if needed
+        rb.velocity = Vector3.zero;
+    }
+
+
+    //function to pull target object
     public void Pull()
     {
         Debug.Log("Pull called");
@@ -160,13 +239,42 @@ public class Power : MonoBehaviour
             Debug.Log("Target object is not pullable");
             return;
         }
-        //Pull the target object identified from the input manager towards this object object
-        inputManager.targetObject.transform.position = Vector3.MoveTowards(inputManager.targetObject.transform.position,
-                       this.transform.position, pullDistance);
-        //Set pull timer to cooldown
+        // Get target object's Rigidbody component
+        targetRb = inputManager.targetObject.GetComponent<Rigidbody>();
+        if (targetRb != null)
+        {
+            // Start the coroutine to pull the target towards the player
+            StartCoroutine(PullTargetOverTime(inputManager.targetObject.transform, powerTime));
+        }
+        else
+        {
+            Debug.Log("Target object does not have a Rigidbody");
+        }
+        // Set pull timer to cooldown
         pullTimer = pullCooldown;
         // Play sound effect
         audioManager.PlayPullSFX();
+    }
+
+    private IEnumerator PullTargetOverTime(Transform target, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = target.position;
+        Vector3 endPosition = this.transform.position;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            // Calculate the pull force or velocity based on the elapsed time
+            Vector3 direction = (endPosition - startPosition).normalized;
+            float pullSpeed = pullDistance / duration; // Ensure the target is pulled over the specified duration
+            targetRb.velocity = direction * pullSpeed; // Apply the calculated velocity
+
+            yield return null; // Wait until the next frame
+        }
+
+        // Optionally, stop the target's movement after pulling
+        targetRb.velocity = Vector3.zero;
     }
 
     // Helper method to check if a layer is in a given LayerMask
@@ -178,4 +286,79 @@ public class Power : MonoBehaviour
         bool isInMask = (layerMask.value & layerBit) != 0;
         return isInMask;
     }
+
+    //function to stun target object for duration = stunTime
+    public void StunTarget()
+    {
+        Debug.Log("StunTarget called");
+
+        // Check if stun is on cooldown
+        if (stunTimer > 0)
+        {
+            Debug.Log("Stun is on cooldown");
+            return;
+        }
+
+        // Get the target Object's rigidbody component
+        targetRb = inputManager.targetObject.GetComponent<Rigidbody>();
+
+        if (targetRb != null)
+        {
+            //Call coroutine to set target object velocity to zero for stunTime
+            StartCoroutine(StunTargetOverTime(targetRb, stunTime));
+        }
+        else
+        {
+            Debug.Log("Target object does not have a Rigidbody");
+        }
+
+        // Set stun timer to cooldown
+        stunTimer = stunCooldown;
+
+        // Play sound effect
+        audioManager.PlayStunSFX();
+    }
+
+    //Coroutine to set target object velocity to zero for stunTime
+    private IEnumerator StunTargetOverTime(Rigidbody targetRbLocal, float duration)
+    {
+        // Set target object velocity to zero
+        targetRbLocal.velocity = Vector3.zero;
+
+        // Wait for duration
+        yield return new WaitForSeconds(duration);
+
+        // Optionally, reset the target object's velocity to its previous value
+        //targetRb.velocity = previousVelocity;
+    }
+
+
+    //function to swap position with target object
+    public void SwapPosition()
+    {
+        Debug.Log("SwapPosition called");
+
+        // Check if swap is on cooldown
+        if (swapTimer > 0)
+        {
+            Debug.Log("Swap is on cooldown");
+            return;
+        }
+
+        // Get the target object's position
+        Vector3 targetPosition = inputManager.targetObject.transform.position;
+
+        // Swap the player's position with the target object's position
+        Vector3 playerPosition = this.transform.position;
+        this.transform.position = targetPosition;
+        inputManager.targetObject.transform.position = playerPosition;
+
+        // Set swap timer to cooldown
+        swapTimer = SwapCooldown;
+
+        // Play sound effect
+        audioManager.PlaySwapSFX();
+    }
 }
+
+

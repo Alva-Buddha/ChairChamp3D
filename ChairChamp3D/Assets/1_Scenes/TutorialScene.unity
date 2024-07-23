@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 4556829775865857356, guid: b03d38ff12ea6ae408b65bd5078443c4, type: 3}
-  numberOfNPC: 0
+  numberOfNPC: 2
   NPCParent: {fileID: 1164767503}
   playerLocation: {x: 0, y: 0.6, z: 27.34}
 --- !u!1 &429409431
@@ -3733,6 +3733,8 @@ PrefabInstance:
     - {fileID: 5541288247475511922, guid: 75dd6c8fdc95082428a145dd29dc54d1, type: 3}
     - {fileID: -1175268017269276566, guid: 75dd6c8fdc95082428a145dd29dc54d1, type: 3}
     - {fileID: 6099540864375021995, guid: 75dd6c8fdc95082428a145dd29dc54d1, type: 3}
+    - {fileID: 4893014826540723307, guid: 75dd6c8fdc95082428a145dd29dc54d1, type: 3}
+    - {fileID: -4508997660933455333, guid: 75dd6c8fdc95082428a145dd29dc54d1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 75dd6c8fdc95082428a145dd29dc54d1, type: 3}
       insertIndex: -1
@@ -5680,6 +5682,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1809651878}
     m_Modifications:
+    - target: {fileID: 767028327149571151, guid: c5a6f4745a7b3a144b2c8547d8602eff, type: 3}
+      propertyPath: currentPower
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2848214795107627440, guid: c5a6f4745a7b3a144b2c8547d8602eff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

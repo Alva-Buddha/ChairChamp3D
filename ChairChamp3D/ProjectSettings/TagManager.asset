@@ -9,6 +9,7 @@ TagManager:
   - ChairSpawner
   - NPCSpawner
   - Audio
+  - Powerup
   layers:
   - Default
   - TransparentFX

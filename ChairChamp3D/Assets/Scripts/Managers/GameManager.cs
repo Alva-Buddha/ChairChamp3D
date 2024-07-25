@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public bool roundStarted = false; // Variable used to track if the starting music has stopped and the round has started
     public bool hasRoundEnded = false; // Variable used to track if the round has ended
 
-    public GameObject chairSpawner = null; // Variable used to track the chair spawner object
+    public GameObject chairSpawner; // Variable used to track the chair spawner object
     public GameObject pauseMenuUI; // Variable used to track the pause menu ui
     public GameObject roundEndUI; // Variable used to track the round end ui
 
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         // Find the chair spawner object in the scene
-        chairSpawner = GameObject.Find("ChairSpawner"); 
+        chairSpawner = GameObject.Find("ChairSpawner");
 
         // Ensure the game is not paused when the scene starts
         ResumeGame();

@@ -7,13 +7,26 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager instance;
 
+    // Input variables (for changing controls)
+    public Vector2 MoveInput { get; private set; }
+    public Vector2 TargetingInput { get; private set; }
+    public bool PowerInput { get; private set; }
+    public bool MenuOpenCloseInput { get; private set; }
+
+    private PlayerInput playerInput;
+    // Controls
+    private InputAction moveAction;
+    private InputAction powerAction;
+    private InputAction menuOpenCloseAction;
+    private InputAction targetingAction;
+
     /// <summary>
     /// Standard Unity function while loading script
     /// </summary>
     public void Awake()
     {
         ResetValuesToDefault();
-        // used to implement singleton pattern
+        #region singleton
         if (instance == null)
         {
             instance = this;
@@ -22,6 +35,38 @@ public class InputManager : MonoBehaviour
         {
             Destroy(this);
         }
+        #endregion
+
+        playerInput = GetComponent<PlayerInput>();
+
+        SetupInputActions();
+    }
+
+    private void Update()
+    {
+        UpdateInputs();
+    }
+
+    /// <summary>
+    /// Function to initialise input control scheme on game start
+    /// </summary>
+    private void SetupInputActions()
+    {
+        moveAction = playerInput.actions["Movement"];
+        targetingAction = playerInput.actions["Targeting"];
+        powerAction = playerInput.actions["Power"];
+        menuOpenCloseAction = playerInput.actions["MenuOpenClose"];
+    }
+
+    /// <summary>
+    /// Function to update input control scheme to match what the latest player action was
+    /// </summary>
+    private void UpdateInputs()
+    {
+        MoveInput = moveAction.ReadValue<Vector2>();
+        TargetingInput = targetingAction.ReadValue<Vector2>();
+        PowerInput = powerAction.WasPressedThisFrame();
+        MenuOpenCloseInput = menuOpenCloseAction.WasPressedThisFrame();
     }
 
     /// <summary>

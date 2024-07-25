@@ -681,10 +681,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1379516509556156387, guid: 7ded978c6a206024196d52612e828769, type: 3}
-      propertyPath: levelThemeMusic
-      value: 
-      objectReference: {fileID: 8300000, guid: 5ae470867abce324facbce10a535ad05, type: 3}
     - target: {fileID: 3687087598281230514, guid: 7ded978c6a206024196d52612e828769, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2472,6 +2468,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fc3c3df3-a79b-4357-bd86-dc8c083dca73
     m_ActionName: PlayerInput/Targeting[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f56e6dad-c188-471c-8a39-d10ad122bfb2
+    m_ActionName: PlayerInput/MenuOpenClose[/Keyboard/escape,/DualSenseGamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput

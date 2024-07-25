@@ -8,7 +8,7 @@ public class InputManager : MonoBehaviour
     public static InputManager instance;
 
     // Input variables (for changing controls)
-    public Vector2 MoveInput { get; private set; }
+    public Vector3 MoveInput { get; private set; }
     public Vector2 TargetingInput { get; private set; }
     public bool PowerInput { get; private set; }
     public bool MenuOpenCloseInput { get; private set; }
@@ -63,7 +63,7 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private void UpdateInputs()
     {
-        MoveInput = moveAction.ReadValue<Vector2>();
+        MoveInput = moveAction.ReadValue<Vector3>();
         TargetingInput = targetingAction.ReadValue<Vector2>();
         PowerInput = powerAction.WasPressedThisFrame();
         MenuOpenCloseInput = menuOpenCloseAction.WasPressedThisFrame();

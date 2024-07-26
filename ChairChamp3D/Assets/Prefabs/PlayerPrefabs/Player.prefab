@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 2029357438508059333}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 27.34}
+  m_LocalPosition: {x: 0, y: 0.7, z: 27.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -407,7 +407,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -442,7 +442,6 @@ MonoBehaviour:
   showRay: 1
   rayScale: 2
   reachedChair: 0
-  musicRotationSpeed: 30
   playerPower: {fileID: 2783129647459190323}
 --- !u!114 &2783129647459190323
 MonoBehaviour:

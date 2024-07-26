@@ -18,8 +18,11 @@ public class SeekEmptyChair : MonoBehaviour
     [Tooltip("Boolean to check if the NPC has reached the chair")]
     public bool reachedChair = false;
 
-    [Tooltip("Rotation speed when music is playing")]
-    public float musicRotationSpeed = 30f;
+    [Tooltip("Distance to check for blockers")]
+    public float checkBlockerDistance = 2.0f;
+
+    [Tooltip("Distance to move to avoid blockers")]
+    public float avoidBlockerDistance = 2.0f;
 
     //The GameManager to read music state from
     private GameManager gameManager;
@@ -79,6 +82,8 @@ public class SeekEmptyChair : MonoBehaviour
             {
                 //Find closest unoccupied chair
                 closestChair = FindClosestChair();
+                //Function to check for nearby blocker between NPC and closestChair
+                CheckBlocker(closestChair);
             }
             //Seek closest chair
             MoveTowards(closestChair);
@@ -117,6 +122,27 @@ public class SeekEmptyChair : MonoBehaviour
         //return closest chair
         return closestChair;
     }
+
+    /// <summary>
+    /// Function to check for and avoid nearby blockers between NPC and closest chair
+    /// </summary>
+    /// <param name="target">The chair to move towards</param>>
+    private void CheckBlocker(GameObject target)
+    {
+        if (target == null) return; // Ensure there is a target
+        if (Physics.Raycast(transform.position, target.transform.position - transform.position, out RaycastHit hit, checkBlockerDistance))
+        {
+            if (hit.collider.gameObject != target)
+            {
+                //Set move velocity perpendicular to vector joining NPC and closest chair for distnce of avoidBlockerDistance
+                Vector3 targetDirection = target.transform.position - transform.position;
+                Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, targetDirection).normalized;
+                Vector3 avoidVelocity = perpendicularDirection * avoidBlockerDistance;
+                rb.velocity = new Vector3(avoidVelocity.x, rb.velocity.y, avoidVelocity.z);
+            }
+        }
+    }
+
 
     /// <summary>
     /// Function to rotate and move towards closest chair object and update state when reached

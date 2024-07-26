@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -21,8 +23,6 @@ public class PlayerController : MonoBehaviour
     [Header("GameState")]
     [Tooltip("Has the player reached a chair")]
     public bool reachedChair = false;
-    [Tooltip("Music-on rotation speed")]
-    public float musicRotationSpeed = 60f;
 
     //The InputManager to read input from
     private InputManager inputManager;
@@ -93,8 +93,9 @@ public class PlayerController : MonoBehaviour
         {
             if (gameManager.musicPlaying)
             {
-                // Calculate direction from player to origin
-                Vector3 directionToOrigin = (Vector3.zero - rb.position).normalized;
+                Vector3 Origin = new Vector3(0, rb.position.y, 0);
+                // Calculate direction from player to (0, rb.y, 0)
+                Vector3 directionToOrigin = (Origin - rb.position).normalized;
 
                 // Calculate perpendicular direction for circular movement around origin
                 Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, directionToOrigin).normalized;

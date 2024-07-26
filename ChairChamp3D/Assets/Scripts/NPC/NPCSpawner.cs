@@ -11,8 +11,8 @@ public class NPCSpawner : MonoBehaviour
     public int numberOfNPC = 4;
     [Tooltip("Parent for spawned NPC objects")]
     public GameObject NPCParent = null;
-    [Tooltip("Location of player spawn")]
-    public Vector3 playerLocation = new Vector3(0, 0.2f, 10);
+    [Tooltip("Transform of player spawn")]
+    public GameObject player = null;
 
     private Vector3 spawnLocation;
 
@@ -21,7 +21,13 @@ public class NPCSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnLocation = playerLocation;
+        // check if player object is set to null, and if null, search for player tag and asign to object
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        spawnLocation = player.transform.position;
         //Loop to spawn NPC
         for (int i = 0; i < numberOfNPC; i++)
         {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1460373896190555903}
   - component: {fileID: 5491948965676513238}
   - component: {fileID: 2384701811197027451}
+  - component: {fileID: 5134831182749317373}
   m_Layer: 6
   m_Name: chair_A
   m_TagString: Chair
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5134831182749317373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4249693139118737476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c4790b5180c3541bb0ce55cc56d91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOccupied: 0

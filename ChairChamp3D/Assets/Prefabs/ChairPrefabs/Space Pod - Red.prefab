@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3680658151213420681}
   - component: {fileID: 6265528351271246554}
   - component: {fileID: 5382978422557672221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Polyhedron.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,9 +92,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2331727569850971681}
-  m_Layer: 0
+  - component: {fileID: 4432719914004329632}
+  m_Layer: 6
   m_Name: Space Pod - Red
-  m_TagString: Untagged
+  m_TagString: Chair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,6 +118,19 @@ Transform:
   - {fileID: 6330273092289951835}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4432719914004329632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124188537326329784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c4790b5180c3541bb0ce55cc56d91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOccupied: 0
 --- !u!1 &2987757166441575641
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +142,7 @@ GameObject:
   - component: {fileID: 6587148453126387564}
   - component: {fileID: 3683042835834861364}
   - component: {fileID: 1953483985953822861}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box 21.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +225,7 @@ GameObject:
   - component: {fileID: 6330273092289951835}
   - component: {fileID: 7715689130346735110}
   - component: {fileID: 7621509696558125811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere 7.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

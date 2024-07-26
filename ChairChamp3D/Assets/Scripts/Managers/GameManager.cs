@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
         {
             // If not, set instance to this
             Instance = this;
+            // Sets this to not be destroyed when reloading scene
+            DontDestroyOnLoad(gameObject);
+
         }
         // If instance already exists and it's not this
         else if (Instance != this)
@@ -42,9 +45,6 @@ public class GameManager : MonoBehaviour
         }
         #endregion
 
-        // Sets this to not be destroyed when reloading scene
-        DontDestroyOnLoad(gameObject);
-
         // Find the chair spawner object in the scene
         chairSpawner = GameObject.Find("ChairSpawner");
 
@@ -53,6 +53,12 @@ public class GameManager : MonoBehaviour
     }
 
     void Start()
+    {
+        SetUpLevel();
+    }
+
+    // function to set up level
+    private void SetUpLevel()
     {
         #region Set up chairs
         unoccupiedChairs = GameObject.FindGameObjectsWithTag("Chair").Length;
@@ -223,6 +229,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameIsPaused = false;
+        Destroy(gameObject);  // Destroy the old GameManager instance
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -231,6 +238,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadNextScene()
     {
+        Destroy(gameObject);  // Destroy the old GameManager instance
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

@@ -2582,8 +2582,8 @@ MonoBehaviour:
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
-  roundStartTimerFrom: 2
-  roundStartTimerTo: 3
+  roundStartTimerFrom: 9
+  roundStartTimerTo: 18
   musicPlaying: 0
   roundStarted: 0
   hasRoundEnded: 0
@@ -4819,6 +4819,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fc3c3df3-a79b-4357-bd86-dc8c083dca73
     m_ActionName: PlayerInput/Targeting[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f56e6dad-c188-471c-8a39-d10ad122bfb2
+    m_ActionName: PlayerInput/MenuOpenClose[/Keyboard/escape,/DualSenseGamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput

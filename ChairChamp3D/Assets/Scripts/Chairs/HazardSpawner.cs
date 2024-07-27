@@ -8,9 +8,7 @@ public class HazardSpawner : MonoBehaviour
     [Header("Spawn parameters")]
     [Tooltip("Array of Hazard Prefabs to select randomly from")]
     public GameObject[] hazardPrefabs = null;
-    [Tooltip("The number of chairs to spawn")]
-    public int numberOfHazards = 4;
-    [Tooltip("Parent for spawned chair objects")]
+    [Tooltip("Parent for spawned hazard objects")]
     public GameObject hazardParent = null;
     [Tooltip("Inner radius of Hazard Spawn")]
     public float innerRadius = 10.0f;

@@ -1994,7 +1994,7 @@ MonoBehaviour:
   NPCPrefab: {fileID: 4556829775865857356, guid: b03d38ff12ea6ae408b65bd5078443c4, type: 3}
   numberOfNPC: 3
   NPCParent: {fileID: 1164767503}
-  playerLocation: {x: 0, y: 0.6, z: 15}
+  player: {fileID: 0}
 --- !u!1 &366526753
 GameObject:
   m_ObjectHideFlags: 0

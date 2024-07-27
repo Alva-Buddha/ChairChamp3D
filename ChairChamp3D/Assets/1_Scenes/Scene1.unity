@@ -3049,6 +3049,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 896844578}
     m_Modifications:
+    - target: {fileID: 6054581805115732456, guid: 9e44591391d8c9d4999f4e84f57aafe5, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8267426801170647711, guid: 9e44591391d8c9d4999f4e84f57aafe5, type: 3}
       propertyPath: m_LocalScale.x
       value: 17.112703
@@ -3127,6 +3131,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a5c54d43cf7025146af204c2e7dc4b71, type: 2}
+    - target: {fileID: 6054581805115732456, guid: 9e44591391d8c9d4999f4e84f57aafe5, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8267426801170647711, guid: 9e44591391d8c9d4999f4e84f57aafe5, type: 3}
       propertyPath: m_LocalScale.x
       value: 21.24351
@@ -3757,6 +3765,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 896844578}
     m_Modifications:
+    - target: {fileID: 6054581805115732456, guid: 9e44591391d8c9d4999f4e84f57aafe5, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8267426801170647711, guid: 9e44591391d8c9d4999f4e84f57aafe5, type: 3}
       propertyPath: m_LocalScale.x
       value: 17.112705
@@ -6130,6 +6142,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 896844578}
     m_Modifications:
+    - target: {fileID: 6054581805115732456, guid: 9e44591391d8c9d4999f4e84f57aafe5, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8267426801170647711, guid: 9e44591391d8c9d4999f4e84f57aafe5, type: 3}
       propertyPath: m_LocalScale.x
       value: 21.243505
@@ -6558,8 +6574,8 @@ MonoBehaviour:
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
-  roundStartTimerFrom: 9
-  roundStartTimerTo: 18
+  roundStartTimerFrom: 5
+  roundStartTimerTo: 8
   musicPlaying: 0
   roundStarted: 0
   hasRoundEnded: 0
@@ -7620,7 +7636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338bf62eb1161dd4197882cdeb700652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chairPrefab: {fileID: 4249693139118737476, guid: c1565ef96f494b643a65a87256033bc7, type: 3}
+  chairPrefab: {fileID: 919132149155446097, guid: 017f0c7de3f8d0e4eb846358da43525b, type: 3}
   numberOfChairs: 4
   chairParent: {fileID: 1611959190}
   spawnLocation: {x: 0, y: 0.2, z: 5}

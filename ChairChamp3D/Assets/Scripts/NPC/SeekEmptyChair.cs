@@ -19,10 +19,7 @@ public class SeekEmptyChair : MonoBehaviour
     public bool reachedChair = false;
 
     [Tooltip("Distance to check for blockers")]
-    public float checkBlockerDistance = 2.0f;
-
-    [Tooltip("Distance to move to avoid blockers")]
-    public float avoidBlockerDistance = 2.0f;
+    public float checkBlockerDistance = 5.0f;
 
     //The GameManager to read music state from
     private GameManager gameManager;
@@ -37,6 +34,8 @@ public class SeekEmptyChair : MonoBehaviour
     public bool showRay = false;
     [Tooltip("Forward ray scaling")]
     public float rayScale = 2;
+    [Tooltip("Flag to check if NPC is detecting a blocker")]
+    public bool isBlocked = false;
 
     //The object's rigidbody
     private Rigidbody rb;
@@ -52,6 +51,7 @@ public class SeekEmptyChair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region musicPlaying
         if (gameManager.musicPlaying)
         {
             // Calculate direction from NPC to origin
@@ -76,8 +76,11 @@ public class SeekEmptyChair : MonoBehaviour
             // Apply the calculated angular velocity
             rb.angularVelocity = angularVelocity;
         }
+        #endregion
+        #region !musicPlaying
         else
         {
+            isBlocked = false;
             if (!reachedChair)
             {
                 //Find closest unoccupied chair
@@ -85,13 +88,26 @@ public class SeekEmptyChair : MonoBehaviour
                 //Function to check for nearby blocker between NPC and closestChair
                 CheckBlocker(closestChair);
             }
-            //Seek closest chair
-            MoveTowards(closestChair);
+            //Seek closest chair if not blocked
+            if (!isBlocked)
+            {
+                MoveTowards(closestChair);
+            }
         }
+        #endregion
         if (showRay)
         {
             // Draw a ray forward from the player object in the Scene view
             Debug.DrawRay(transform.position, transform.forward * rayScale, Color.black);
+
+            // Draw a ray showing the rigidbody velocity
+            Debug.DrawRay(transform.position, rb.velocity, Color.red);
+
+            // Draw a ray showing line linking NPC and closest chair
+            if (closestChair != null)
+            {
+                Debug.DrawRay(transform.position, closestChair.transform.position - transform.position, Color.green);
+            }
         }
     }
 
@@ -132,13 +148,25 @@ public class SeekEmptyChair : MonoBehaviour
         if (target == null) return; // Ensure there is a target
         if (Physics.Raycast(transform.position, target.transform.position - transform.position, out RaycastHit hit, checkBlockerDistance))
         {
-            if (hit.collider.gameObject != target)
+            //Check if some object is hit AND it is not the target
+            if (hit.collider.gameObject != null && hit.collider.gameObject != target)
             {
-                //Set move velocity perpendicular to vector joining NPC and closest chair for distnce of avoidBlockerDistance
-                Vector3 targetDirection = target.transform.position - transform.position;
-                Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, targetDirection).normalized;
-                Vector3 avoidVelocity = perpendicularDirection * avoidBlockerDistance;
-                rb.velocity = new Vector3(avoidVelocity.x, rb.velocity.y, avoidVelocity.z);
+                isBlocked = true;
+                Debug.Log("Blocked by: " + hit.collider.gameObject.name);
+                //Set identify perpendicular direction to avoid blocker
+                Vector3 targetDirection = (target.transform.position - transform.position).normalized;
+                //Identify positive or negative perpendicular direction randomly
+                Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, targetDirection).normalized * Random.Range(-2,2);
+                //Set velocity at angle between target and perpendicular direction
+                Vector3 avoidVelocity = (perpendicularDirection + targetDirection) * moveSpeed;
+                //Slowly update velocity to avoid blocker with Lerp
+                rb.velocity = Vector3.Lerp(rb.velocity, avoidVelocity, Time.deltaTime);
+            }
+            else
+            {
+                isBlocked = false;
+                rb.velocity = Vector3.zero;
+                return;
             }
         }
     }

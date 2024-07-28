@@ -50,6 +50,9 @@ public class PowerUp : MonoBehaviour
         // Assign the random power to the player
         powerups.playerPower.currentPower = randomPower;
 
+        // Update the icon above the player's head
+        powerups.EnablePowerIcon(randomPower);
+
         // Disable the powerup visuals and collisions so that attached VFX can continue to play
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;

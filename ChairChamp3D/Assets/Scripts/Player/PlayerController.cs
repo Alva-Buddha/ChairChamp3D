@@ -187,4 +187,24 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, Time.deltaTime * 5);
         }
     }
+
+    public void EnablePowerIcon(Power.PowerType powerType)
+    {
+        // Disable all power icons
+        foreach (Transform child in transform)
+        {
+            if (child.name.EndsWith("Icon"))
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+        // Enable the correct power icon
+        string iconName = powerType.ToString() + "Icon";
+        Transform icon = transform.Find(iconName);
+        if (icon != null)
+        {
+            icon.gameObject.SetActive(true);
+        }
+    }
 }

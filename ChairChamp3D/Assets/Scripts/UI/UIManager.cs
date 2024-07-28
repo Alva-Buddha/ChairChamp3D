@@ -11,10 +11,9 @@ public class UIManager : MonoBehaviour
     [Tooltip("The TextMeshPro object showing the round end text.")]
     public TextMeshProUGUI roundEndText; // Reference to the round end Text component
 
-    // Start is called before the first frame update
-    void Start()
+    void Update()
     {
-        scoreText.text = "Score: " + GameManager.Instance.score.ToString(); // Display the score
+        scoreText.text = "Score: " + ScoreManager.Instance.score.ToString(); // Display the score
         unoccupiedChairsText.text = "Unoccupied Chairs: " + GameManager.Instance.unoccupiedChairs.ToString(); // Display the number of unoccupied chairs
     }
 

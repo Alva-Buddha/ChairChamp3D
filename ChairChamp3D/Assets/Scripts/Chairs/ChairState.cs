@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class ChairState : MonoBehaviour
 {
-    /// <summary>
-    /// variable to check if the chair is occupied
-    /// </summary>
-    public bool isOccupied = false;
-    /// <summary>
-    /// variable to link to the GameManager script which controls global variables and settings
-    /// </summary>
-    private GameManager gameManager;
+    public bool isOccupied = false; // variable to check if the chair is occupied
+
+    private GameManager gameManager; // variable to link to the GameManager script which controls global variables and settings
 
     // Start is called before the first frame update
     void Start()
@@ -55,7 +50,7 @@ public class ChairState : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerController>().reachedChair = true;
 
                 //Increase the global score variable in the GameManager script
-                gameManager.score++;
+                ScoreManager.Instance.IncreaseScore(1);
                 //Decrease the unoccupied chairs variable in the GameManager script
                 gameManager.unoccupiedChairs--;
                 gameManager.playerChairs++;

@@ -169,22 +169,6 @@ public class Power : MonoBehaviour
         }
     }
 
-    // Placeholder for the Stun method
-    private void Stun()
-    {
-        Debug.Log("Stun called");
-        // Implement stun logic here
-        // Example: Apply a status effect to the target that prevents movement or actions for a duration
-    }
-
-    // Placeholder for the Swap method
-    private void Swap()
-    {
-        Debug.Log("Swap called");
-        // Implement swap logic here
-        // Example: Swap positions with the target object or enemy
-    }
-
     //function to dash
     public void Dash()
     {
@@ -288,9 +272,9 @@ public class Power : MonoBehaviour
     }
 
     //function to stun target object for duration = stunTime
-    public void StunTarget()
+    public void Stun()
     {
-        Debug.Log("StunTarget called");
+        Debug.Log("StunTarget called for " + inputManager.targetObject.name);
 
         // Check if stun is on cooldown
         if (stunTimer > 0)
@@ -304,7 +288,7 @@ public class Power : MonoBehaviour
 
         if (targetRb != null)
         {
-            //Call coroutine to set target object velocity to zero for stunTime
+            // Call coroutine to set target object velocity to zero and lock constraints for stunTime
             StartCoroutine(StunTargetOverTime(targetRb, stunTime));
         }
         else
@@ -319,24 +303,34 @@ public class Power : MonoBehaviour
         audioManager.PlayStunSFX();
     }
 
-    //Coroutine to set target object velocity to zero for stunTime
+    // Coroutine to set target object velocity to zero and lock constraints for stunTime
     private IEnumerator StunTargetOverTime(Rigidbody targetRbLocal, float duration)
     {
+        Debug.Log("StunTargetOverTime called");
+
+        // Store the original constraints
+        RigidbodyConstraints originalConstraints = targetRbLocal.constraints;
+
         // Set target object velocity to zero
         targetRbLocal.velocity = Vector3.zero;
 
-        // Wait for duration
+        // Lock all constraints to freeze the target
+        targetRbLocal.constraints = RigidbodyConstraints.FreezeAll;
+
+        // Wait for the duration of the stun
         yield return new WaitForSeconds(duration);
 
-        // Optionally, reset the target object's velocity to its previous value
-        //targetRb.velocity = previousVelocity;
+        // Restore the original constraints
+        targetRbLocal.constraints = originalConstraints;
+
+        Debug.Log("StunTargetOverTime ended");
     }
 
 
     //function to swap position with target object
-    public void SwapPosition()
+    public void Swap()
     {
-        Debug.Log("SwapPosition called");
+        Debug.Log("SwapPosition called with target");
 
         // Check if swap is on cooldown
         if (swapTimer > 0)

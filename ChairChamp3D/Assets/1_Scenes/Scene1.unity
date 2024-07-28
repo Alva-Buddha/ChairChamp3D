@@ -3702,7 +3702,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7066367, y: 0.025778893, z: 0.025778962, w: 0.70663685}
   m_LocalPosition: {x: 0.019802246, y: -0.047198296, z: 0.006170273}
-  m_LocalScale: {x: 0.11, y: 0.11, z: 1}
+  m_LocalScale: {x: 0.11, y: 0.11, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652479227928}
@@ -8510,6 +8510,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2783129647459190323, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+      propertyPath: stunTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783129647459190323, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+      propertyPath: currentPower
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12531,6 +12539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9284cc971b87c5c4683d6924e13f593a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 320
   horizontalMoveAxis: 0
   verticalMoveAxis: 0
   horizontalTargetAxis: 0
@@ -12612,6 +12623,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fc3c3df3-a79b-4357-bd86-dc8c083dca73
     m_ActionName: PlayerInput/Targeting[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f56e6dad-c188-471c-8a39-d10ad122bfb2
+    m_ActionName: PlayerInput/MenuOpenClose[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput

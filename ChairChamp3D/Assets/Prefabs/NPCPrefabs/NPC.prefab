@@ -146,12 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6abbc5980b5e8349abf21cf5c7e0c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   rotationSpeed: 720
   musicMoveSpeed: 5
   stoppingDistance: 0.1
   reachedChair: 0
   checkBlockerDistance: 2
-  avoidBlockerDistance: 2
   showRay: 1
   rayScale: 2
+  isBlocked: 0

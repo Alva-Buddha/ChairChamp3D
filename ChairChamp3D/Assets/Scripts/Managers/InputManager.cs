@@ -13,6 +13,9 @@ public class InputManager : MonoBehaviour
     public bool PowerInput { get; private set; }
     public bool MenuOpenCloseInput { get; private set; }
 
+    // Layer mask for target object
+    public LayerMask targetLayerMask;
+
     private PlayerInput playerInput;
     // Controls
     private InputAction moveAction;
@@ -121,9 +124,9 @@ public class InputManager : MonoBehaviour
 
         // Raycast from the camera to identify colliding objects
         Ray ray = Camera.main.ScreenPointToRay(inputVector);
-        // Identify object hit by the ray
+        // Identify object hit by the ray in layermask
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayerMask))
         {
             // Get the position of the object hit by the ray
             Vector3 targetPosition = hit.point;

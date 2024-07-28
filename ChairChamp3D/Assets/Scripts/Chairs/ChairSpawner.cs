@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChairSpawner : MonoBehaviour
@@ -24,7 +25,10 @@ public class ChairSpawner : MonoBehaviour
         {
             //Instantiate chair prefab
             GameObject chair = Instantiate(chairPrefab, spawnLocation, Quaternion.identity);
-            
+            //Ensure chair's Z is facing away from the center as defined by (0, chair.transform.position.y, 0)
+            chair.transform.LookAt(new Vector3(0, chair.transform.position.y, 0));
+            chair.transform.Rotate(0, 180, 0);
+
             //Set parent of chair to chairParent
             chair.transform.parent = chairParent.transform;
 

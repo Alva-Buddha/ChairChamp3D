@@ -22,9 +22,6 @@ public class PowerSpawner : MonoBehaviour
     //The GameManager to read music state from
     private GameManager gameManager;
 
-    //Power timer
-    private float PowerTimer = 0.0f;
-
     // Start is called before the first frame update
     void Start()
     {

@@ -152,7 +152,7 @@ public class SeekEmptyChair : MonoBehaviour
             if (hit.collider.gameObject != null && hit.collider.gameObject != target)
             {
                 isBlocked = true;
-                Debug.Log("Blocked by: " + hit.collider.gameObject.name);
+                //Debug.Log("Blocked by: " + hit.collider.gameObject.name);
                 //Set identify perpendicular direction to avoid blocker
                 Vector3 targetDirection = (target.transform.position - transform.position).normalized;
                 //Identify positive or negative perpendicular direction randomly

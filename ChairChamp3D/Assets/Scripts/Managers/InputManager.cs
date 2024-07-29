@@ -43,6 +43,9 @@ public class InputManager : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
 
         SetupInputActions();
+
+        //Set default target layer mask to chair and NPC
+        targetLayerMask = LayerMask.GetMask("Chair", "NPC");
     }
 
     private void Update()

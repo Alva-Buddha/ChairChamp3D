@@ -4649,8 +4649,8 @@ MonoBehaviour:
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
-  roundStartTimerFrom: 9
-  roundStartTimerTo: 18
+  roundStartTimerFrom: 5
+  roundStartTimerTo: 9
   musicPlaying: 0
   roundStarted: 0
   hasRoundEnded: 0
@@ -5444,7 +5444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338bf62eb1161dd4197882cdeb700652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chairPrefab: {fileID: 4648060256806069636, guid: ca07dbcc7f59d7040b92cec5488c3d7b, type: 3}
+  chairPrefab: {fileID: 3890475670491406534, guid: ba0ad18fc85b659439816f2114125eb9, type: 3}
   numberOfChairs: 3
   chairParent: {fileID: 1611959190}
   spawnLocation: {x: 0, y: 0, z: 4}
@@ -8232,7 +8232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15
+      value: 18.1
       objectReference: {fileID: 0}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8882,6 +8882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9284cc971b87c5c4683d6924e13f593a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   horizontalMoveAxis: 0
   verticalMoveAxis: 0
   horizontalTargetAxis: 0

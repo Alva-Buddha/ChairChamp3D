@@ -606,7 +606,7 @@ MonoBehaviour:
   dashCooldown: 1
   pullDistance: 5
   pullCooldown: 1
-  stunTime: 2
+  stunTime: 0.5
   stunCooldown: 1
   SwapCooldown: 1
   pullMask:

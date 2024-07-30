@@ -32,7 +32,7 @@ public class Power : MonoBehaviour
     [Tooltip("Pull cooldown")]
     public float pullCooldown = 1.0f;
     [Tooltip("Stun time")]
-    public float stunTime = 2.0f;
+    public float stunTime = 0.5f;
     [Tooltip("Stun cooldown")]
     public float stunCooldown = 1.0f;
     [Tooltip("Swap cooldown")]

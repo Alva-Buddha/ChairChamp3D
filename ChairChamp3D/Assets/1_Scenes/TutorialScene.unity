@@ -682,9 +682,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 4556829775865857356, guid: b03d38ff12ea6ae408b65bd5078443c4, type: 3}
-  numberOfNPC: 1
+  NPCCountChange: 0
   NPCParent: {fileID: 1164767503}
-  player: {fileID: 0}
+  player: {fileID: 875937817}
+  numberOfNPC: 1
 --- !u!1 &429409431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,6 +1670,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854236432}
   m_CullTransparentMesh: 1
+--- !u!1 &875937817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2029357438508059333, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+  m_PrefabInstance: {fileID: 3362452488906298576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &876393089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,6 +2630,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  additionalChairs: 1
+  totalChairs: 0
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
@@ -2635,6 +2643,7 @@ MonoBehaviour:
   chairSpawner: {fileID: 1223847239}
   pauseMenuUI: {fileID: 1051890101}
   roundEndUI: {fileID: 1809143814}
+  NPCCount: 0
 --- !u!4 &1063798619
 Transform:
   m_ObjectHideFlags: 0
@@ -2887,9 +2896,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chairPrefab: {fileID: 277904933332868267, guid: c73410ceb9da0994ab13b7156f5d81cb, type: 3}
-  numberOfChairs: 2
+  chairCountChange: 0
   chairParent: {fileID: 1611959190}
   spawnLocation: {x: 0, y: 0.6, z: 2}
+  numberOfChairs: 2
 --- !u!1001 &1263005683
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;// Static instance of GameManager which allows it to be accessed by any other script
+    public static GameManager Instance; // Static instance of GameManager which allows it to be accessed by any other script
     public static bool GameIsPaused = false; // Static variable used to track whether or not the game is paused
 
-    public int score;  // Variable used to track the player's score
+    public int score; // Variable used to track the player's score
+    public int additionalChairs = 0; // Variable used to set the number of additional chairs to spawn
+    public int totalChairs; // Variable used to track the total number of chairs
     public int unoccupiedChairs; // Variable used to track the number of unoccupied chairs
     public int playerChairs; // Variable used to track the number of chairs the player has acquired
     public int npcChairs; // Variable used to track the number of chairs the NPCs have acquired
@@ -23,8 +25,13 @@ public class GameManager : MonoBehaviour
     public GameObject roundEndUI; // Variable used to track the round end ui
 
     private AudioManager audioManager; // Variable used to track the audio manager object for before the round starts
-    private UIManager uiManager;// Variable used to track the UI manager object for before the round starts
+    private UIManager uiManager; // Variable used to track the UI manager object for before the round starts
 
+    public int NPCCount; // Public variable to expose NPC count
+
+    private const string NPCCountPrefsKey = "NPCCount"; // Key for PlayerPrefs
+
+    // Awake is called before Start
     void Awake()
     {
         #region Singleton
@@ -35,7 +42,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
             // Sets this to not be destroyed when reloading scene
             DontDestroyOnLoad(gameObject);
-
         }
         // If instance already exists and it's not this
         else if (Instance != this)
@@ -45,28 +51,32 @@ public class GameManager : MonoBehaviour
         }
         #endregion
 
-        // Find the chair spawner object in the scene
-        chairSpawner = GameObject.Find("ChairSpawner");
-
         // Ensure the game is not paused when the scene starts
         ResumeGame();
     }
 
     void Start()
     {
+        // Load NPCCount from PlayerPrefs
+        if (PlayerPrefs.HasKey(NPCCountPrefsKey))
+        {
+            NPCCount = PlayerPrefs.GetInt(NPCCountPrefsKey);
+        }
+        else
+        {
+            NPCCount = 1; // Default value if no saved value exists
+        }
+
         SetUpLevel();
     }
 
-    // function to set up level
+    // Function to set up level
     private void SetUpLevel()
     {
         #region Set up chairs
-        unoccupiedChairs = GameObject.FindGameObjectsWithTag("Chair").Length;
-        // Set unoccupiedChairs to the number of "Chair" prefabs in the scene
-        if (unoccupiedChairs == 0 || chairSpawner != null)
-        {
-            unoccupiedChairs = chairSpawner.GetComponent<ChairSpawner>().numberOfChairs;
-        }
+        // Set unoccupiedChairs to the NPCCount value
+        totalChairs = NPCCount + additionalChairs;
+        unoccupiedChairs = totalChairs;
         #endregion
 
         #region Set up audio
@@ -117,7 +127,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Update()
-    {     
+    {
         // Pause/Unpause the game
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu")
         {
@@ -169,7 +179,7 @@ public class GameManager : MonoBehaviour
         else
         {
             audioManager.PlayRoundEndAudio();
-        }        
+        }
     }
 
     /// <summary>
@@ -218,7 +228,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         GameIsPaused = false;
-        Destroy(gameObject);  // Destroy the old GameManager instance
+        Destroy(gameObject); // Destroy the old GameManager instance
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -229,7 +239,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameIsPaused = false;
-        Destroy(gameObject);  // Destroy the old GameManager instance
+        Destroy(gameObject); // Destroy the old GameManager instance
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -238,7 +248,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void LoadNextScene()
     {
-        Destroy(gameObject);  // Destroy the old GameManager instance
+        Destroy(gameObject); // Destroy the old GameManager instance
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

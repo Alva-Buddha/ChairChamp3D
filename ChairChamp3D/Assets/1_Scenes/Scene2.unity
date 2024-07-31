@@ -2097,9 +2097,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 4556829775865857356, guid: b03d38ff12ea6ae408b65bd5078443c4, type: 3}
-  numberOfNPC: 3
+  NPCCountChange: 0
   NPCParent: {fileID: 1164767503}
   player: {fileID: 0}
+  numberOfNPC: 3
 --- !u!1 &366526753
 GameObject:
   m_ObjectHideFlags: 0
@@ -4646,6 +4647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  additionalChairs: 0
+  totalChairs: 0
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
@@ -4657,6 +4660,7 @@ MonoBehaviour:
   chairSpawner: {fileID: 0}
   pauseMenuUI: {fileID: 1054982842}
   roundEndUI: {fileID: 557255489}
+  NPCCount: 0
 --- !u!4 &1063798619
 Transform:
   m_ObjectHideFlags: 0
@@ -5444,10 +5448,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338bf62eb1161dd4197882cdeb700652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chairPrefab: {fileID: 3890475670491406534, guid: ba0ad18fc85b659439816f2114125eb9, type: 3}
-  numberOfChairs: 3
+  chairPrefab: {fileID: 6677083066938353281, guid: a8370d31d271dbd41883bcfbb0b60e67, type: 3}
+  chairCountChange: 0
   chairParent: {fileID: 1611959190}
   spawnLocation: {x: 0, y: 0, z: 4}
+  numberOfChairs: 3
 --- !u!1 &1271066658
 GameObject:
   m_ObjectHideFlags: 0

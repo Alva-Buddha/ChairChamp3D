@@ -4338,7 +4338,7 @@ Camera:
   m_Depth: 0.1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1527
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -11849,6 +11849,11 @@ MonoBehaviour:
   innerRadius: 10
   outerRadius: 15
   avoidDistance: 1
+  powerAvoidDistance: 5
+  iterationLimit: 10000
+  powerLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1751399422
 GameObject:
   m_ObjectHideFlags: 0

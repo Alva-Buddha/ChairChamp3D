@@ -60,8 +60,10 @@ public class SeekEmptyChair : MonoBehaviour
             // Calculate perpendicular direction for circular movement around origin
             Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, directionToOrigin).normalized;
 
-            // Set velocity to move NPC around origin
-            rb.velocity = perpendicularDirection * musicMoveSpeed;
+            // Set velocity to move NPC around origin, preserving the Y component
+            Vector3 newVelocity = perpendicularDirection * musicMoveSpeed;
+            newVelocity.y = rb.velocity.y; // Preserve the current Y velocity
+            rb.velocity = newVelocity;
 
             // Calculate angular velocity for facing the origin
             // Determine the target rotation to face the origin
@@ -156,16 +158,22 @@ public class SeekEmptyChair : MonoBehaviour
                 //Set identify perpendicular direction to avoid blocker
                 Vector3 targetDirection = (target.transform.position - transform.position).normalized;
                 //Identify positive or negative perpendicular direction randomly
-                Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, targetDirection).normalized * Random.Range(-2,2);
+                Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, targetDirection).normalized * Random.Range(-2, 2);
                 //Set velocity at angle between target and perpendicular direction
                 Vector3 avoidVelocity = (perpendicularDirection + targetDirection) * moveSpeed;
                 //Slowly update velocity to avoid blocker with Lerp
-                rb.velocity = Vector3.Lerp(rb.velocity, avoidVelocity, Time.deltaTime);
+                Vector3 newVelocity = rb.velocity;
+                newVelocity.x = avoidVelocity.x;
+                newVelocity.z = avoidVelocity.z;
+                rb.velocity = Vector3.Lerp(rb.velocity, newVelocity, Time.deltaTime);
             }
             else
             {
                 isBlocked = false;
-                rb.velocity = Vector3.zero;
+                Vector3 newVelocity = rb.velocity;
+                newVelocity.x = 0;
+                newVelocity.z = 0;
+                rb.velocity = newVelocity;
                 return;
             }
         }
@@ -185,7 +193,12 @@ public class SeekEmptyChair : MonoBehaviour
 
         // Calculate the velocity vector towards the target
         Vector3 velocity = direction.normalized * moveSpeed;
-        rb.velocity = new Vector3(velocity.x, rb.velocity.y, velocity.z); // Apply velocity while maintaining current y velocity
+
+        // Preserve the current Y velocity and apply the calculated X and Z velocity
+        Vector3 newVelocity = rb.velocity;
+        newVelocity.x = velocity.x;
+        newVelocity.z = velocity.z;
+        rb.velocity = newVelocity;
 
         // Check if we are close enough to the target to consider stopping
         if (direction.magnitude > stoppingDistance)
@@ -197,7 +210,10 @@ public class SeekEmptyChair : MonoBehaviour
         else
         {
             // Optionally, stop the NPC when it reaches the target
-            rb.velocity = Vector3.zero;
+            Vector3 stopVelocity = rb.velocity;
+            stopVelocity.x = 0;
+            stopVelocity.z = 0;
+            rb.velocity = stopVelocity;
             reachedChair = true; // Update the state to indicate the NPC has reached the chair
         }
     }

@@ -34458,6 +34458,7 @@ GameObject:
   - component: {fileID: 477757618762602515}
   - component: {fileID: 301895462421005948}
   - component: {fileID: 6374127953376505031}
+  - component: {fileID: -4578469538369417026}
   m_Layer: 0
   m_Name: ItemPickUp
   m_TagString: Untagged
@@ -34474,7 +34475,7 @@ Transform:
   m_GameObject: {fileID: 8025132903235333772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.1, y: 26.24, z: -5.3}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -34547,9 +34548,23 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4578469538369417026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8025132903235333772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf3ca9e90a7bbe4d8fe70b496f5ce60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupEffect: {fileID: 2676844213119171033, guid: 6e986acdfb8909546a19ddfb9c090fb1, type: 3}
+  vfxDuration: 2

@@ -567,7 +567,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &3358163751797797782
 MonoBehaviour:
@@ -601,10 +601,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxDuration: 4
-  dashVFX: {fileID: 2676844213119171033, guid: 8da40c052b65d344a95c6f33e7971868, type: 3}
-  stunVFX: {fileID: 2676844213119171033, guid: ca08e56fc896b48438f7c42c7c0b98fc, type: 3}
-  swapVFX: {fileID: 2676844213119171033, guid: ddca0a2fadd81af498d5810f6b487dfb, type: 3}
-  pullVFX: {fileID: 2676844213119171033, guid: 3b1cbbb28bd6d4040817114f684ec837, type: 3}
+  dashVFX: {fileID: 8265888853355354970, guid: 6372011a499a7d143b8b438e0a19a917, type: 3}
+  stunVFX: {fileID: 8176850701479282271, guid: b219c04f384e7f345bb8ae1fef443965, type: 3}
+  swapVFX: {fileID: 265624075066507412, guid: 2a398ffc8278c094abce76fa16d5b37c, type: 3}
+  pullVFX: {fileID: 3881145679999665229, guid: 1598c231ca5c5bf49a03d70605c95662, type: 3}
   powerTime: 0.5
   currentPower: 0
   dashDistance: 5

@@ -5,17 +5,17 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public GameObject pickupEffect;
-    public float vfxDuration = 4f;
+    public float vfxDuration = 1f;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(Pickup(other));
+            Pickup(other);
         }
     }
 
-    IEnumerator Pickup(Collider player)
+    void Pickup(Collider player)
     {
         // Spawn cool effect
         if (pickupEffect == null)
@@ -58,7 +58,6 @@ public class PowerUp : MonoBehaviour
         GetComponent<Collider>().enabled = false;
 
         // Remove power-up object after X seconds
-        yield return new WaitForSeconds(vfxDuration);
         Destroy(gameObject);
     }
 }

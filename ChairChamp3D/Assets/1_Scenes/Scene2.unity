@@ -2280,7 +2280,7 @@ GameObject:
   - component: {fileID: 473040218}
   - component: {fileID: 473040217}
   - component: {fileID: 473040216}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Walk Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8890,6 +8890,9 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 320
+  baseLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   horizontalMoveAxis: 0
   verticalMoveAxis: 0
   horizontalTargetAxis: 0

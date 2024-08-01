@@ -16,6 +16,9 @@ public class InputManager : MonoBehaviour
     // Layer mask for target object
     public LayerMask targetLayerMask;
 
+    //Layer mask for base object
+    public LayerMask baseLayerMask;
+
     private PlayerInput playerInput;
     // Controls
     private InputAction moveAction;
@@ -46,6 +49,9 @@ public class InputManager : MonoBehaviour
 
         //Set default target layer mask to chair and NPC
         targetLayerMask = LayerMask.GetMask("Chair", "NPC");
+
+        //Set default base layer mask to base
+        baseLayerMask = LayerMask.GetMask("Base");
     }
 
     private void Update()
@@ -136,6 +142,12 @@ public class InputManager : MonoBehaviour
             // Set the target object to the object hit by the ray
             targetObject = hit.collider.gameObject;
             // Set the target axis to the position of the object hit by the ray
+            horizontalTargetAxis = targetPosition.x;
+            verticalTargetAxis = targetPosition.z;
+        }
+        else if (Physics.Raycast(ray, out hit, Mathf.Infinity, baseLayerMask))
+        {
+            Vector3 targetPosition = hit.point;
             horizontalTargetAxis = targetPosition.x;
             verticalTargetAxis = targetPosition.z;
         }

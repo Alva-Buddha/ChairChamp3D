@@ -3713,6 +3713,9 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 320
+  baseLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   horizontalMoveAxis: 0
   verticalMoveAxis: 0
   horizontalTargetAxis: 0
@@ -4032,7 +4035,7 @@ GameObject:
   - component: {fileID: 2125331357}
   - component: {fileID: 2125331360}
   - component: {fileID: 2125331361}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}

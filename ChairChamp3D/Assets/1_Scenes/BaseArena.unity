@@ -207,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: 19.88
       objectReference: {fileID: 0}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -291,9 +291,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 4556829775865857356, guid: b03d38ff12ea6ae408b65bd5078443c4, type: 3}
-  numberOfNPC: 0
+  NPCCountChange: 0
   NPCParent: {fileID: 1164767503}
-  playerLocation: {x: 0, y: 0.6, z: 15}
+  player: {fileID: 0}
+  numberOfNPC: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,6 +740,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
+  additionalChairs: 0
+  totalChairs: 0
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
@@ -750,6 +753,7 @@ MonoBehaviour:
   chairSpawner: {fileID: 0}
   pauseMenuUI: {fileID: 1225866469}
   roundEndUI: {fileID: 536961733}
+  NPCCount: 0
 --- !u!4 &1063798619
 Transform:
   m_ObjectHideFlags: 0
@@ -874,9 +878,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chairPrefab: {fileID: 277904933332868267, guid: c73410ceb9da0994ab13b7156f5d81cb, type: 3}
-  numberOfChairs: 2
+  chairCountChange: 0
   chairParent: {fileID: 1611959190}
   spawnLocation: {x: 0, y: 0.2, z: 5}
+  numberOfChairs: 2
 --- !u!1 &1225866469 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6427724222676874295, guid: 458d88a8172137b448aaf1219dba6bb7, type: 3}
@@ -1366,6 +1371,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9284cc971b87c5c4683d6924e13f593a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  baseLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   horizontalMoveAxis: 0
   verticalMoveAxis: 0
   horizontalTargetAxis: 0
@@ -1447,6 +1458,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fc3c3df3-a79b-4357-bd86-dc8c083dca73
     m_ActionName: PlayerInput/Targeting[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f56e6dad-c188-471c-8a39-d10ad122bfb2
+    m_ActionName: PlayerInput/MenuOpenClose[/Keyboard/escape,/DualSenseGamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerInput

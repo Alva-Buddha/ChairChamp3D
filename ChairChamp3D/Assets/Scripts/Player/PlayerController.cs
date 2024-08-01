@@ -100,8 +100,10 @@ public class PlayerController : MonoBehaviour
                 // Calculate perpendicular direction for circular movement around origin
                 Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, directionToOrigin).normalized;
 
-                // Set velocity to move player around origin
-                rb.velocity = perpendicularDirection * musicMoveSpeed;
+                // Set velocity to move player around origin, preserving the Y component
+                Vector3 newVelocity = perpendicularDirection * musicMoveSpeed;
+                newVelocity.y = rb.velocity.y; // Preserve the current Y velocity
+                rb.velocity = newVelocity;
 
                 // Calculate angular velocity for facing the origin
                 // Determine the target rotation to face the origin
@@ -118,9 +120,18 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                // Stop the player from moving
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
+                // Stop the player from moving except in the Y axis
+                Vector3 newVelocity = rb.velocity;
+                newVelocity.x = 0; // Stop X axis movement
+                newVelocity.z = 0; // Stop Z axis movement
+                rb.velocity = newVelocity;
+
+                // Stop the player's rotation around the X and Z axes, preserving the Y axis rotation
+                Vector3 newAngularVelocity = rb.angularVelocity;
+                newAngularVelocity.x = 0; // Stop rotation around X axis
+                newAngularVelocity.z = 0; // Stop rotation around Z axis
+                rb.angularVelocity = newAngularVelocity;
+
             }
         }
 
@@ -160,13 +171,16 @@ public class PlayerController : MonoBehaviour
         // Calculate the velocity vector based on input and move speed
         Vector3 velocity = movement * moveSpeed;
 
-        // Apply the calculated velocity to the Rigidbody component for dynamic movement
-        rb.velocity = velocity;
+        // Preserve the current Y velocity and apply the calculated X and Z velocity
+        Vector3 newVelocity = rb.velocity;
+        newVelocity.x = velocity.x;
+        newVelocity.z = velocity.z;
+        rb.velocity = newVelocity;
 
-        //debugging ray to show forward direction of object
+        // Debugging ray to show forward direction of object
         Debug.DrawRay(transform.position, transform.forward * 2, Color.red);
 
-        //debugging ray to show velocity direction
+        // Debugging ray to show velocity direction
         Debug.DrawRay(transform.position, rb.velocity, Color.green);
 
         // Check if there is movement to determine if rotation should occur
@@ -184,7 +198,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             // Optionally, handle stopping more smoothly
-            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, Time.deltaTime * 5);
+            Vector3 stopVelocity = rb.velocity;
+            stopVelocity.x = Mathf.Lerp(rb.velocity.x, 0, Time.deltaTime * 5);
+            stopVelocity.z = Mathf.Lerp(rb.velocity.z, 0, Time.deltaTime * 5);
+            rb.velocity = stopVelocity;
         }
     }
 

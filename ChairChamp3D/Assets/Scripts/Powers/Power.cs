@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Power : MonoBehaviour
 {
+    //Variables for VFX
+    public float vfxDuration = 4f;
+    public GameObject dashVFX;
+    public GameObject stunVFX;
+    public GameObject swapVFX;
+    public GameObject pullVFX;
+
+
     //create inputManager object
     private InputManager inputManager;
     private AudioManager audioManager;
@@ -200,8 +208,24 @@ public class Power : MonoBehaviour
 
         // Set dash timer to cooldown
         dashTimer = dashCooldown;
+
         // Play sound effect
         audioManager.PlayDashSFX();
+
+        // Play VFX
+        StartCoroutine(PowerupVFX(dashVFX));
+    }
+
+    IEnumerator PowerupVFX(GameObject vfx)
+    {
+        //Create VFX
+        Instantiate(vfx, transform.position, transform.rotation);
+
+        // Set timer for VFX to be destroyed
+        yield return new WaitForSeconds(vfxDuration);
+
+        // Destroy VFX
+        Destroy(vfx);
     }
 
     // Coroutine to reset the Rigidbody's velocity after a specified time
@@ -243,8 +267,12 @@ public class Power : MonoBehaviour
         }
         // Set pull timer to cooldown
         pullTimer = pullCooldown;
+
         // Play sound effect
         audioManager.PlayPullSFX();
+
+        // Play VFX
+        StartCoroutine(PowerupVFX(pullVFX));
     }
 
     private IEnumerator PullTargetOverTime(Transform target, float duration)
@@ -308,6 +336,9 @@ public class Power : MonoBehaviour
 
         // Play sound effect
         audioManager.PlayStunSFX();
+
+        // Play VFX
+        StartCoroutine(PowerupVFX(stunVFX));
     }
 
     // Coroutine to set target object velocity to zero and lock constraints for stunTime
@@ -359,6 +390,9 @@ public class Power : MonoBehaviour
 
         // Play sound effect
         audioManager.PlaySwapSFX();
+
+        // Play VFX
+        StartCoroutine(PowerupVFX(swapVFX));
     }
 }
 

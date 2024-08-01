@@ -14334,7 +14334,7 @@ GameObject:
   - component: {fileID: 8176850701479282266}
   - component: {fileID: 8176850701479282265}
   m_Layer: 0
-  m_Name: Flash_star_ellow_purple
+  m_Name: VFX_Stun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

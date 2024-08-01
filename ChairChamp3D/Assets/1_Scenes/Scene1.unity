@@ -6953,8 +6953,8 @@ MonoBehaviour:
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
-  roundStartTimerFrom: 5
-  roundStartTimerTo: 8
+  roundStartTimerFrom: 1
+  roundStartTimerTo: 2
   musicPlaying: 0
   roundStarted: 0
   hasRoundEnded: 0
@@ -8606,8 +8606,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2783129647459190323, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+      propertyPath: powerTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783129647459190323, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: currentPower
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11965,7 +11969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerPrefab: {fileID: 7512947999235161691, guid: 14945e12c838dac4aa3887540d4cffb3, type: 3}
-  numberOfPowers: 4
+  numberOfPowers: 0
   PowerParent: {fileID: 1369524957}
   innerRadius: 10
   outerRadius: 15

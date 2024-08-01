@@ -19,7 +19,7 @@ public class Power : MonoBehaviour
     }
 
     [Tooltip("Duration of the power")]
-    public float powerTime = 0.5f; // Duration in seconds
+    public float powerTime = 0.1f; // Duration in seconds
 
     [Tooltip("The type of power the player has")]
     public PowerType currentPower = PowerType.None;
@@ -46,6 +46,9 @@ public class Power : MonoBehaviour
     public float pullTimer = 0f;
     public float stunTimer = 0f;
     public float swapTimer = 0f;
+
+    [Header("Debug variables")]
+    public Vector3 dashVelocityCheck;
 
     //rigidbody for this object
     private Rigidbody rb;
@@ -179,11 +182,15 @@ public class Power : MonoBehaviour
             return;
         }
 
-        // Calculate dash direction based on input manager's target axis
-        Vector3 dashDirection = new Vector3(inputManager.horizontalTargetAxis, 0, inputManager.verticalTargetAxis).normalized;
+        // Calculate dash position based on input manager's target axis
+        Vector3 dashPosition = new Vector3(inputManager.horizontalTargetAxis, this.transform.position.y, inputManager.verticalTargetAxis);
+        Vector3 dashDirection = (dashPosition - this.transform.position).normalized;
 
         // Calculate the velocity needed to cover the dashDistance in powerTime
         Vector3 dashVelocity = dashDirection * (dashDistance / powerTime);
+
+        //debug check
+        dashVelocityCheck = dashVelocity;
 
         // Set the Rigidbody's velocity to dashVelocity
         rb.velocity = dashVelocity;

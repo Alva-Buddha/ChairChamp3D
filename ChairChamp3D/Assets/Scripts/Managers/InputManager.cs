@@ -49,9 +49,11 @@ public class InputManager : MonoBehaviour
 
         //Set default target layer mask to chair and NPC
         targetLayerMask = LayerMask.GetMask("Chair", "NPC");
+        Debug.Log("Input Target layer mask is set to:" + targetLayerMask.value.ToString());
 
         //Set default base layer mask to base
         baseLayerMask = LayerMask.GetMask("Base");
+        Debug.Log("Input Base layer mask is set to:" + baseLayerMask.value.ToString());
     }
 
     private void Update()
@@ -145,11 +147,12 @@ public class InputManager : MonoBehaviour
             horizontalTargetAxis = targetPosition.x;
             verticalTargetAxis = targetPosition.z;
         }
-        else if (Physics.Raycast(ray, out hit, Mathf.Infinity, baseLayerMask))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, baseLayerMask))
         {
             Vector3 targetPosition = hit.point;
             horizontalTargetAxis = targetPosition.x;
             verticalTargetAxis = targetPosition.z;
+            Debug.Log("Base hit with input position x:"+horizontalTargetAxis+" and z:"+verticalTargetAxis);
         }
     }
 

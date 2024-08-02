@@ -2278,7 +2278,6 @@ GameObject:
   - component: {fileID: 473040215}
   - component: {fileID: 473040219}
   - component: {fileID: 473040218}
-  - component: {fileID: 473040217}
   - component: {fileID: 473040216}
   m_Layer: 3
   m_Name: Walk Area
@@ -2324,33 +2323,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &473040217
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473040214}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &473040218
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8428,7 +8400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8892279492477020122, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00037927626
+      value: 0.0003792572
       objectReference: {fileID: 0}
     - target: {fileID: 8892279492477020122, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10287,8 +10259,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148450245703}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37054625, y: -0.43951076, z: -0.2697089, w: 0.7725172}
-  m_LocalPosition: {x: 8.100004, y: 4.86, z: -1.3200012}
+  m_LocalRotation: {x: 0.37054634, y: -0.4395108, z: -0.26970887, w: 0.77251714}
+  m_LocalPosition: {x: 8.100012, y: 4.8600016, z: -1.3200024}
   m_LocalScale: {x: 29.534, y: 29.534002, z: 29.534}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -13085,8 +13057,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082271959332773660}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7280675, y: 0.09072114, z: 0.093346424, w: 0.67303324}
-  m_LocalPosition: {x: 0.00006453438, y: 0.011537298, z: 0.00037926753}
+  m_LocalRotation: {x: -0.7280676, y: 0.09072111, z: 0.093346454, w: 0.6730333}
+  m_LocalPosition: {x: 0.00006453155, y: 0.011537297, z: 0.00037927114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

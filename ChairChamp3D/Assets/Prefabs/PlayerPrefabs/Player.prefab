@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e859b4c2e30074aacf83340123d0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 3.5
   rotationSpeed: 720
   musicMoveSpeed: 5
   showRay: 1
@@ -621,6 +621,7 @@ MonoBehaviour:
   pullTimer: 0
   stunTimer: 0
   swapTimer: 0
+  dashVelocityCheck: {x: 0, y: 0, z: 0}
 --- !u!1 &2332357104417382652
 GameObject:
   m_ObjectHideFlags: 0

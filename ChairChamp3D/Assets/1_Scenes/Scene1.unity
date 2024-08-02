@@ -8058,27 +8058,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3416089, y: 0.9034734, z: 0.3499999}
   m_Center: {x: -0.23788008, y: 2.6160388, z: 0.17500824}
---- !u!65 &1263005687
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019121708913739476}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 13.095443, y: 13.095443, z: 1.1674349}
-  m_Center: {x: -0.008463742, y: 0.0014078326, z: 0.5837232}
 --- !u!95 &1263005690
 Animator:
   serializedVersion: 5
@@ -16286,7 +16265,6 @@ GameObject:
   - component: {fileID: 5167743267207896727}
   - component: {fileID: 2175312551615800715}
   - component: {fileID: 106920534235572283}
-  - component: {fileID: 1263005687}
   - component: {fileID: 5167743267207896728}
   m_Layer: 3
   m_Name: Main level grass.002
@@ -19095,33 +19073,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3775266076227999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &5167743267207896728
-Rigidbody:
+--- !u!65 &5167743267207896728
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019121708913739476}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.095446, y: 13.095446, z: 1.1674349}
+  m_Center: {x: -0.008456598, y: 0.0013564099, z: 0.5837182}
 --- !u!4 &5215284916560069122
 Transform:
   m_ObjectHideFlags: 0

@@ -20,6 +20,8 @@ public class SeekEmptyChair : MonoBehaviour
 
     [Tooltip("Distance to check for blockers")]
     public float checkBlockerDistance = 5.0f;
+    [Tooltip("Y height of raycast to check for blockers")]
+    public float checkBlockerHeight = 0.5f;
 
     [Tooltip("Left vs right preference")]
     public float lrPreference;
@@ -153,8 +155,10 @@ public class SeekEmptyChair : MonoBehaviour
     /// <param name="target">The chair to move towards</param>>
     private void CheckBlocker(GameObject target)
     {
+        Vector3 raystart = new Vector3(transform.position.x, checkBlockerHeight, transform.position.z);
+
         if (target == null) return; // Ensure there is a target
-        if (Physics.Raycast(transform.position, target.transform.position - transform.position, out RaycastHit hit, checkBlockerDistance))
+        if (Physics.Raycast(raystart, target.transform.position - transform.position, out RaycastHit hit, checkBlockerDistance))
         {
             //Check if some object is hit AND it is not the target
             if (hit.collider.gameObject != null && hit.collider.gameObject != target)

@@ -24,6 +24,8 @@ public class PowerSpawner : MonoBehaviour
     public float powerAvoidDistance = 5.0f;
     [Tooltip("Iteration limit to avoid infinite loops")]
     public int iterationLimit = 1000;
+    [Tooltip("Debugger to validate number of powers spawned")]
+    public int powerSpawned = 0;
 
 
     //The GameManager to read music state from
@@ -129,6 +131,8 @@ public class PowerSpawner : MonoBehaviour
 
         //Instantiate the Power prefab at the spawn position
         GameObject Power = Instantiate(PowerPrefab, spawnPosition, Quaternion.identity);
+
+        powerSpawned++;
 
         //Set the parent of the Power to the Power parent
         Power.transform.parent = PowerParent.transform;

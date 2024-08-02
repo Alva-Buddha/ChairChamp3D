@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8819108135980207424}
   - component: {fileID: 7551590338725968048}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RandomIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4455689705456772513}
   - component: {fileID: 4455689705456772519}
   - component: {fileID: 4455689705456772512}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Area_star_ellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5001,7 +5001,7 @@ GameObject:
   - component: {fileID: 4455689705710964695}
   - component: {fileID: 4455689705710964693}
   - component: {fileID: 4455689705710964694}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9910,7 +9910,7 @@ GameObject:
   - component: {fileID: 4455689706250565038}
   - component: {fileID: 4455689706250565036}
   - component: {fileID: 4455689706250565037}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 'glow_vertical '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14810,7 +14810,7 @@ GameObject:
   - component: {fileID: 4455689706460428076}
   - component: {fileID: 4455689706460428066}
   - component: {fileID: 4455689706460428067}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: circles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19710,7 +19710,7 @@ GameObject:
   - component: {fileID: 4455689707198739510}
   - component: {fileID: 4455689707198739508}
   - component: {fileID: 4455689707198739509}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24619,7 +24619,7 @@ GameObject:
   - component: {fileID: 5069272130601106456}
   - component: {fileID: 5069272130601106438}
   - component: {fileID: 5069272130601106457}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: spiral1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29538,7 +29538,7 @@ GameObject:
   - component: {fileID: 5069272132181277029}
   - component: {fileID: 5069272132181277027}
   - component: {fileID: 5069272132181277026}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: spiral2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34459,7 +34459,7 @@ GameObject:
   - component: {fileID: 301895462421005948}
   - component: {fileID: 6374127953376505031}
   - component: {fileID: -4578469538369417026}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ItemPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34475,7 +34475,7 @@ Transform:
   m_GameObject: {fileID: 8025132903235333772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:

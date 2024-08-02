@@ -321,10 +321,10 @@ MonoBehaviour:
   levelThemeMusic: {fileID: 8300000, guid: 5ae470867abce324facbce10a535ad05, type: 3}
   roundEndMusic: {fileID: 8300000, guid: a4cb33760a44aee4583951090d909474, type: 3}
   playerSoloWinMusic: {fileID: 8300000, guid: a4cb33760a44aee4583951090d909474, type: 3}
-  powerupDash: {fileID: 8300000, guid: 411d3e2ac3cd3724fb45d4c578bc302d, type: 3}
-  powerupStun: {fileID: 8300000, guid: 9eb142ad0c551c648a039d3113b74cd1, type: 3}
-  powerupPull: {fileID: 8300000, guid: 4c88d24548e7a7c448d8963da2314f86, type: 3}
-  powerupSwap: {fileID: 8300000, guid: c37c3aeeb8bcb524cb0ef1156a114cc6, type: 3}
+  powerupDash: {fileID: 8300000, guid: f546e63523c5b624d977f2877277ccc3, type: 3}
+  powerupStun: {fileID: 8300000, guid: ce6bfca94cb62aa49ba2032d2776b969, type: 3}
+  powerupPull: {fileID: 8300000, guid: 662385d0ea2639d46a11ffb7945092e5, type: 3}
+  powerupSwap: {fileID: 8300000, guid: bed72f03368af7c4e82c21ee1894a861, type: 3}
   chairGet: {fileID: 8300000, guid: ab27d72e0cc6bdc4d957c9f30e7e119c, type: 3}
   playerSoloWinSFX: {fileID: 8300000, guid: e3e42ad97041bac48bcb13f17349d2d7, type: 3}
   roundEndSFX: {fileID: 8300000, guid: 62014f2e0902f2b4c898d2576cd4a2bc, type: 3}

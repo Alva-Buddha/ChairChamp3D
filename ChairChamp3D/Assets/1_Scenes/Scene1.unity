@@ -693,7 +693,7 @@ Animation:
   m_GameObject: {fileID: 117571045}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: -203655887218126122, guid: 5367b0ba5e1d02049a845c1a52112c8c, type: 3}
+  m_Animation: {fileID: 7400000, guid: 0990063cb4f1aeb40845d4f2893acd85, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
@@ -3511,6 +3511,14 @@ PrefabInstance:
       propertyPath: currentPower
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3996825458639612094, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: eaa814dc69d3be14d987a517f5fd460d, type: 3}
+    - target: {fileID: 3996825458639612094, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59fa6488b60173b458906f293b211875, type: 2}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.35476
@@ -7654,6 +7662,14 @@ PrefabInstance:
       propertyPath: currentPower
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3996825458639612094, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: eaa814dc69d3be14d987a517f5fd460d, type: 3}
+    - target: {fileID: 3996825458639612094, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59fa6488b60173b458906f293b211875, type: 2}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -11130,7 +11146,7 @@ Animation:
   m_GameObject: {fileID: 1413948296}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 24ae950bcde17d54cb732ea1ca9a5e10, type: 2}
+  m_Animation: {fileID: 7400000, guid: 0990063cb4f1aeb40845d4f2893acd85, type: 2}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1

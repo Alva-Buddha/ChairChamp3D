@@ -21,6 +21,9 @@ public class SeekEmptyChair : MonoBehaviour
     [Tooltip("Distance to check for blockers")]
     public float checkBlockerDistance = 5.0f;
 
+    [Tooltip("Left vs right preference")]
+    public float lrPreference;
+
     //The GameManager to read music state from
     private GameManager gameManager;
 
@@ -46,6 +49,9 @@ public class SeekEmptyChair : MonoBehaviour
         chairs = GameObject.FindGameObjectsWithTag("Chair");
         gameManager = GameManager.Instance;
         rb = GetComponent<Rigidbody>();
+
+        //Initiate LR preference as a random number between -2 and 2
+        lrPreference = Random.Range(-2, 2);
     }
 
     // Update is called once per frame
@@ -158,7 +164,7 @@ public class SeekEmptyChair : MonoBehaviour
                 //Set identify perpendicular direction to avoid blocker
                 Vector3 targetDirection = (target.transform.position - transform.position).normalized;
                 //Identify positive or negative perpendicular direction randomly
-                Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, targetDirection).normalized * Random.Range(-2, 2);
+                Vector3 perpendicularDirection = Vector3.Cross(Vector3.up, targetDirection).normalized * lrPreference;
                 //Set velocity at angle between target and perpendicular direction
                 Vector3 avoidVelocity = (perpendicularDirection + targetDirection) * moveSpeed;
                 //Slowly update velocity to avoid blocker with Lerp

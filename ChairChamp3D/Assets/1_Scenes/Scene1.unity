@@ -11804,13 +11804,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24f085fd67dac742b4c9fb2d12b01f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PowerPrefab: {fileID: 7512947999235161691, guid: 14945e12c838dac4aa3887540d4cffb3, type: 3}
-  numberOfPowers: 1
+  PowerPrefab: {fileID: 8025132903235333772, guid: b33a90bde9449464bb4a82a00711478e, type: 3}
+  numberOfPowers: 2
   PowerParent: {fileID: 1369524957}
-  innerRadius: 10
+  innerRadius: 5
   outerRadius: 15
   avoidDistance: 1
-  powerAvoidDistance: 5
+  powerAvoidDistance: 1
   iterationLimit: 10000
   powerLayer:
     serializedVersion: 2

@@ -1531,11 +1531,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215970392}
   m_Mesh: {fileID: -1429324438731377640, guid: 75dd6c8fdc95082428a145dd29dc54d1, type: 3}
---- !u!1 &221441160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4746924623966414889, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
-  m_PrefabInstance: {fileID: 1059009641}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &226889256
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,37 +6781,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4237811490805266514, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1087099478}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4746924623966414889, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1059009645}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
 --- !u!4 &1059009642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4237811490805266514, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
   m_PrefabInstance: {fileID: 1059009641}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1059009645
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221441160}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d9245e34d1c5fd249a6ae9ca19606da6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1063798617
 GameObject:
   m_ObjectHideFlags: 0
@@ -11470,6 +11441,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1379516509556156387, guid: 7ded978c6a206024196d52612e828769, type: 3}
+      propertyPath: preRoundMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: f3916d969c0e4a04983d295b5b1768c6, type: 3}
+    - target: {fileID: 1379516509556156387, guid: 7ded978c6a206024196d52612e828769, type: 3}
+      propertyPath: levelThemeMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a9abf5cbe5237944ac86fbf9a1bb2a5, type: 3}
     - target: {fileID: 3687087598281230514, guid: 7ded978c6a206024196d52612e828769, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

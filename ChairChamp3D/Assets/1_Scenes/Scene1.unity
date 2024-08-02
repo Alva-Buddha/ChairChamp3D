@@ -11805,7 +11805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerPrefab: {fileID: 7512947999235161691, guid: 14945e12c838dac4aa3887540d4cffb3, type: 3}
-  numberOfPowers: 0
+  numberOfPowers: 1
   PowerParent: {fileID: 1369524957}
   innerRadius: 10
   outerRadius: 15

@@ -11812,6 +11812,7 @@ MonoBehaviour:
   avoidDistance: 1
   powerAvoidDistance: 1
   iterationLimit: 10000
+  powerSpawned: 0
   powerLayer:
     serializedVersion: 2
     m_Bits: 0

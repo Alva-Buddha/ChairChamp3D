@@ -317,7 +317,7 @@ MonoBehaviour:
   musicSource: {fileID: 2281719309099564191}
   sfxSource: {fileID: 4686682175860370981}
   titleMusic: {fileID: 8300000, guid: ab006a3f3fc4fde4e9ebb8efe42c48a2, type: 3}
-  preRoundMusic: {fileID: 8300000, guid: 8a9abf5cbe5237944ac86fbf9a1bb2a5, type: 3}
+  preRoundMusic: {fileID: 8300000, guid: bd5cfd25f7a03fa45be5d860b495303d, type: 3}
   levelThemeMusic: {fileID: 8300000, guid: 5ae470867abce324facbce10a535ad05, type: 3}
   roundEndMusic: {fileID: 8300000, guid: a4cb33760a44aee4583951090d909474, type: 3}
   playerSoloWinMusic: {fileID: 8300000, guid: a4cb33760a44aee4583951090d909474, type: 3}

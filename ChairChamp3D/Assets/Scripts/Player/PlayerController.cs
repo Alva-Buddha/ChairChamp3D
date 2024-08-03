@@ -37,6 +37,17 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The player's power")]
     public Power playerPower;
 
+    //Boolean to stop movement after movement input's released
+    [Tooltip("Check to stop player movement only after button's released")]
+    public bool stoppedMovement = false;
+
+    //Time to reset stopMovement after a short time
+    [Tooltip("Time to reset stopMovement")]
+    public float stopMovementTime = 0.05f;
+
+    //Timer to keep track of time since movement button release
+    private float timeSinceMove = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -153,7 +164,21 @@ public class PlayerController : MonoBehaviour
         // Get movement input from the inputManager
         Vector3 movementVector = new Vector3(inputManager.horizontalMoveAxis, 0, inputManager.verticalMoveAxis);
         // Move the player
-        MovePlayer(movementVector);
+        if (movementVector != Vector3.zero)
+        {
+            timeSinceMove = 0;
+            stoppedMovement = false;   
+            MovePlayer(movementVector);
+        }
+        else
+        {
+            timeSinceMove += Time.deltaTime;
+            if (timeSinceMove > stopMovementTime && stoppedMovement == false)
+            {
+                StopPlayerMovement();
+            }
+        }
+        
 
         //Get the powerheld state from input manager and call Power if powerheld is true
         if (inputManager.powerHeld)
@@ -195,14 +220,16 @@ public class PlayerController : MonoBehaviour
             // Smoothly rotate towards the target rotation using Rigidbody.MoveRotation
             rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
         }
-        else
-        {
-            // Optionally, handle stopping more smoothly
-            Vector3 stopVelocity = rb.velocity;
-            stopVelocity.x = Mathf.Lerp(rb.velocity.x, 0, Time.deltaTime * 5);
-            stopVelocity.z = Mathf.Lerp(rb.velocity.z, 0, Time.deltaTime * 5);
-            rb.velocity = stopVelocity;
-        }
+    }
+
+    // function stop player movement after a short time
+    private void StopPlayerMovement()
+    {
+        Vector3 newVelocity = rb.velocity;
+        newVelocity.x = 0;
+        newVelocity.z = 0;
+        rb.velocity = newVelocity;
+        stoppedMovement = true;
     }
 
     public void EnablePowerIcon(Power.PowerType powerType)

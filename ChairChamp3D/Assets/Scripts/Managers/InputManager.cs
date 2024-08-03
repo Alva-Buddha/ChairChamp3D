@@ -19,6 +19,9 @@ public class InputManager : MonoBehaviour
     //Layer mask for base object
     public LayerMask baseLayerMask;
 
+    // Movement held flag
+    public bool movementHeld;
+
     private PlayerInput playerInput;
     // Controls
     private InputAction moveAction;
@@ -115,6 +118,16 @@ public class InputManager : MonoBehaviour
         Vector3 inputVector = context.ReadValue<Vector3>();
         horizontalMoveAxis = inputVector.x;
         verticalMoveAxis = inputVector.z;
+
+        //capture if the movement button is being held down in a boolean flag
+        if (horizontalMoveAxis != 0 || verticalMoveAxis != 0)
+        {
+            movementHeld = true;
+        }
+        else
+        {
+            movementHeld = false;
+        }
     }
 
     [Header("Target Around input")]

@@ -41,6 +41,8 @@ public class SeekEmptyChair : MonoBehaviour
     public float rayScale = 2;
     [Tooltip("Flag to check if NPC is detecting a blocker")]
     public bool isBlocked = false;
+    [Tooltip("Check variable for NPC velocity")]
+    public Vector3 npcVelocity;
 
     //The object's rigidbody
     private Rigidbody rb;
@@ -52,8 +54,9 @@ public class SeekEmptyChair : MonoBehaviour
         gameManager = GameManager.Instance;
         rb = GetComponent<Rigidbody>();
 
-        //Initiate LR preference as a random number between -2 and 2
-        lrPreference = Random.Range(-2, 2);
+        //Initiate LR preference as a random number between -2 and 2 excluding 0
+        int[] validValues = { -2, -1, 1, 2 };
+        lrPreference = validValues[Random.Range(0, validValues.Length)];
     }
 
     // Update is called once per frame
@@ -72,6 +75,7 @@ public class SeekEmptyChair : MonoBehaviour
             Vector3 newVelocity = perpendicularDirection * musicMoveSpeed;
             newVelocity.y = rb.velocity.y; // Preserve the current Y velocity
             rb.velocity = newVelocity;
+            npcVelocity = rb.velocity;
 
             // Calculate angular velocity for facing the origin
             // Determine the target rotation to face the origin
@@ -102,6 +106,7 @@ public class SeekEmptyChair : MonoBehaviour
             if (!isBlocked)
             {
                 MoveTowards(closestChair);
+                npcVelocity = rb.velocity;
             }
         }
         #endregion
@@ -176,14 +181,15 @@ public class SeekEmptyChair : MonoBehaviour
                 newVelocity.x = avoidVelocity.x;
                 newVelocity.z = avoidVelocity.z;
                 rb.velocity = Vector3.Lerp(rb.velocity, newVelocity, Time.deltaTime);
+                npcVelocity = rb.velocity;
             }
             else
             {
                 isBlocked = false;
-                Vector3 newVelocity = rb.velocity;
-                newVelocity.x = 0;
-                newVelocity.z = 0;
-                rb.velocity = newVelocity;
+                //Vector3 newVelocity = rb.velocity;
+                //newVelocity.x = 0;
+                //newVelocity.z = 0;
+                //rb.velocity = newVelocity;
                 return;
             }
         }
@@ -204,15 +210,16 @@ public class SeekEmptyChair : MonoBehaviour
         // Calculate the velocity vector towards the target
         Vector3 velocity = direction.normalized * moveSpeed;
 
-        // Preserve the current Y velocity and apply the calculated X and Z velocity
-        Vector3 newVelocity = rb.velocity;
-        newVelocity.x = velocity.x;
-        newVelocity.z = velocity.z;
-        rb.velocity = newVelocity;
-
         // Check if we are close enough to the target to consider stopping
         if (direction.magnitude > stoppingDistance)
         {
+            // Preserve the current Y velocity and apply the calculated X and Z velocity
+            Vector3 newVelocity = rb.velocity;
+            newVelocity.x = velocity.x;
+            newVelocity.z = velocity.z;
+            rb.velocity = newVelocity;
+            npcVelocity = rb.velocity;
+
             // Rotate towards target using MoveRotation for smooth rotation
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime));
@@ -224,6 +231,7 @@ public class SeekEmptyChair : MonoBehaviour
             stopVelocity.x = 0;
             stopVelocity.z = 0;
             rb.velocity = stopVelocity;
+            npcVelocity = rb.velocity;
             reachedChair = true; // Update the state to indicate the NPC has reached the chair
         }
     }

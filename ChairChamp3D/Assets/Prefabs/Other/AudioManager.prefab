@@ -326,8 +326,8 @@ MonoBehaviour:
   powerupPull: {fileID: 8300000, guid: 662385d0ea2639d46a11ffb7945092e5, type: 3}
   powerupSwap: {fileID: 8300000, guid: bed72f03368af7c4e82c21ee1894a861, type: 3}
   chairGet: {fileID: 8300000, guid: ab27d72e0cc6bdc4d957c9f30e7e119c, type: 3}
-  playerSoloWinSFX: {fileID: 8300000, guid: e3e42ad97041bac48bcb13f17349d2d7, type: 3}
-  roundEndSFX: {fileID: 8300000, guid: 62014f2e0902f2b4c898d2576cd4a2bc, type: 3}
+  playerSoloWinSFX: {fileID: 8300000, guid: d4cdf650db9acd447bc18a918381b06e, type: 3}
+  roundEndSFX: {fileID: 8300000, guid: d4cdf650db9acd447bc18a918381b06e, type: 3}
   hazardPuddleSFX: {fileID: 8300000, guid: 44605d9ab2758874a906f64f7dbdb946, type: 3}
   hazardMeteoriteSFX: {fileID: 8300000, guid: 06f04bb1cfbc27a4f8ee6ccc7605f4d9, type: 3}
   hazardOctopusSFX: {fileID: 8300000, guid: 38bb6fa93e45ef242995ebd3c9e80ac9, type: 3}

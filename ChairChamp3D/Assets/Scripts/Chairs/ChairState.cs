@@ -18,7 +18,7 @@ public class ChairState : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-
+       
     }
 
     /// <summary>
@@ -54,6 +54,11 @@ public class ChairState : MonoBehaviour
                 //Decrease the unoccupied chairs variable in the GameManager script
                 gameManager.unoccupiedChairs--;
                 gameManager.playerChairs++;
+            }
+            if (isOccupied)
+            {
+                //Lock the rigidbody of the chair so it cannot be moved
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             }
         }
     }

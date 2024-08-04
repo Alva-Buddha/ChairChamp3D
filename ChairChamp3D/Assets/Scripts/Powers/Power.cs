@@ -258,6 +258,12 @@ public class Power : MonoBehaviour
         targetRb = inputManager.targetObject.GetComponent<Rigidbody>();
         if (targetRb != null)
         {
+            //If target is occupied chair return
+            if (inputManager.targetObject.GetComponent<ChairState>().isOccupied)
+            {
+                Debug.Log("Target object is an occupied chair");
+                return;
+            }
             // Start the coroutine to pull the target towards the player
             StartCoroutine(PullTargetOverTime(inputManager.targetObject.transform, powerTime));
         }
@@ -323,6 +329,11 @@ public class Power : MonoBehaviour
 
         if (targetRb != null)
         {
+            if (inputManager.targetObject.GetComponent<ChairState>().isOccupied)
+            {
+                Debug.Log("Target object is an occupied chair");
+                return;
+            }
             // Call coroutine to set target object velocity to zero and lock constraints for stunTime
             StartCoroutine(StunTargetOverTime(targetRb, stunTime));
         }
@@ -374,6 +385,12 @@ public class Power : MonoBehaviour
         if (swapTimer > 0)
         {
             Debug.Log("Swap is on cooldown");
+            return;
+        }
+
+        if (inputManager.targetObject.GetComponent<ChairState>().isOccupied)
+        {
+            Debug.Log("Target object is an occupied chair");
             return;
         }
 

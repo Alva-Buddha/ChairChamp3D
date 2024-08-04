@@ -1346,6 +1346,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985
@@ -4532,6 +4548,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985
@@ -5388,8 +5420,8 @@ Transform:
   m_GameObject: {fileID: 473040214}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 0.5, y: -1.37, z: 1.17}
-  m_LocalScale: {x: 12, y: -0.07021659, z: 12}
+  m_LocalPosition: {x: 0.47, y: -1.23, z: 1.17}
+  m_LocalScale: {x: 12.659895, y: -0.07021659, z: 12.849192}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1576070097721272565}
@@ -6367,6 +6399,22 @@ PrefabInstance:
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
@@ -8323,6 +8371,22 @@ PrefabInstance:
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
@@ -13893,6 +13957,22 @@ PrefabInstance:
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
@@ -21399,6 +21479,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985
@@ -26186,6 +26282,22 @@ PrefabInstance:
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636971444250009957, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x

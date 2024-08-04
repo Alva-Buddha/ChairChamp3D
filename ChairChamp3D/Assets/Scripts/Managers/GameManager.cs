@@ -69,7 +69,10 @@ public class GameManager : MonoBehaviour
         }
 
         SetUpLevel();
-        PlayTutorial();
+        if (SceneManager.GetActiveScene().name == "TutorialScene")
+        {
+            PlayTutorial();
+        }
     }
 
     // Function to set up level

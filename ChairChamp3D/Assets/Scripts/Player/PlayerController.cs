@@ -23,12 +23,17 @@ public class PlayerController : MonoBehaviour
     [Header("GameState")]
     [Tooltip("Has the player reached a chair")]
     public bool reachedChair = false;
+    [Tooltip("Has the player been stunned")]
+    public bool isStunned = false;
 
     //The InputManager to read input from
     private InputManager inputManager;
 
     //The GameManager to read music state from
     private GameManager gameManager;
+
+    //The Animator to read animation states from
+    public Animator animator;
 
     //The object's rigidbody
     private Rigidbody rb;
@@ -58,7 +63,9 @@ public class PlayerController : MonoBehaviour
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>();
         // Get the Power component
-        playerPower = GetComponent<Power>();    
+        playerPower = GetComponent<Power>();
+        // Player start each round moving
+        animator.SetBool("IsMoving", true);
     }
 
     ///<summary>
@@ -92,6 +99,55 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Movement functions for when inside Movement objects
+    /// </summary>
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Space"))
+        {
+            animator.SetLayerWeight(2, 1f); // Set the layer weight to 1 if entering the target layer
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Pool"))
+        {
+            animator.SetLayerWeight(1, 1f); // Set the layer weight to 1 if entering the target layer
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Space") || other.gameObject.layer == LayerMask.NameToLayer("Pool"))
+        {
+            animator.SetLayerWeight(1, 0f); // Turn off swimming movement
+            animator.SetLayerWeight(2, 0f); // Turn off space movement
+        }
+    }
+
+    /// <summary>
+    /// Timed function that stuns the player when they hit a hazard
+    /// </summary>
+    public IEnumerator StunPlayer(float stunDuration)
+    {
+        isStunned = true;
+        yield return new WaitForSeconds(stunDuration);
+        isStunned = false;
+    }
+
+    /// <summary>
+    /// Function that slows the player when they hit a hazard
+    /// </summary>
+    public void SlowPlayer(float slowPercent)
+    {
+        moveSpeed *= slowPercent;
+    }
+
+    /// <summary>
+    /// Function that unslows the player when they leave a hazard
+    /// </summary>
+    public void UnSlowPlayer(float slowPercent)
+    {
+        moveSpeed /= slowPercent;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -120,6 +176,10 @@ public class PlayerController : MonoBehaviour
                 // Determine the target rotation to face the origin
                 Quaternion targetRotation = Quaternion.LookRotation(-directionToOrigin, Vector3.up);
 
+                // Add a 270-degree offset to the target rotation
+                Quaternion offsetRotation = Quaternion.Euler(0, 270, 0);
+                targetRotation *= offsetRotation;
+
                 // Calculate the angular velocity needed to rotate the player towards the target rotation
                 Quaternion deltaRotation = targetRotation * Quaternion.Inverse(rb.rotation);
                 deltaRotation.ToAngleAxis(out float angleInDegrees, out Vector3 rotationAxis);
@@ -142,7 +202,6 @@ public class PlayerController : MonoBehaviour
                 newAngularVelocity.x = 0; // Stop rotation around X axis
                 newAngularVelocity.z = 0; // Stop rotation around Z axis
                 rb.angularVelocity = newAngularVelocity;
-
             }
         }
 
@@ -193,43 +252,48 @@ public class PlayerController : MonoBehaviour
     /// <param name="movement">The direction to move the player</param>
     private void MovePlayer(Vector3 movement)
     {
-        // Calculate the velocity vector based on input and move speed
-        Vector3 velocity = movement * moveSpeed;
-
-        // Preserve the current Y velocity and apply the calculated X and Z velocity
-        Vector3 newVelocity = rb.velocity;
-        newVelocity.x = velocity.x;
-        newVelocity.z = velocity.z;
-        rb.velocity = newVelocity;
-
-        // Debugging ray to show forward direction of object
-        Debug.DrawRay(transform.position, transform.forward * 2, Color.red);
-
-        // Debugging ray to show velocity direction
-        Debug.DrawRay(transform.position, rb.velocity, Color.green);
-
-        // Check if there is movement to determine if rotation should occur
-        if (movement != Vector3.zero)
+        if (!isStunned)
         {
-            // Calculate the target angle in degrees
-            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
+            animator.SetBool("IsMoving", true);
+            // Calculate the velocity vector based on input and move speed
+            Vector3 velocity = movement * moveSpeed;
 
-            // Create a target rotation based on the target angle
-            Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+            // Preserve the current Y velocity and apply the calculated X and Z velocity
+            Vector3 newVelocity = rb.velocity;
+            newVelocity.x = velocity.x;
+            newVelocity.z = velocity.z;
+            rb.velocity = newVelocity;
 
-            // Smoothly rotate towards the target rotation using Rigidbody.MoveRotation
-            rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+            // Debugging ray to show forward direction of object
+            Debug.DrawRay(transform.position, transform.forward * 2, Color.red);
+
+            // Debugging ray to show velocity direction
+            Debug.DrawRay(transform.position, rb.velocity, Color.green);
+
+            // Check if there is movement to determine if rotation should occur
+            if (movement != Vector3.zero)
+            {
+                // Calculate the target angle in degrees
+                float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
+
+                // Create a target rotation based on the target angle
+                Quaternion targetRotation = Quaternion.Euler(0, targetAngle, 0);
+
+                // Smoothly rotate towards the target rotation using Rigidbody.MoveRotation
+                rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+            }
         }
     }
 
     // function stop player movement after a short time
-    private void StopPlayerMovement()
+    public void StopPlayerMovement()
     {
         Vector3 newVelocity = rb.velocity;
         newVelocity.x = 0;
         newVelocity.z = 0;
         rb.velocity = newVelocity;
         stoppedMovement = true;
+        animator.SetBool("IsMoving", false);
     }
 
     public void EnablePowerIcon(Power.PowerType powerType)

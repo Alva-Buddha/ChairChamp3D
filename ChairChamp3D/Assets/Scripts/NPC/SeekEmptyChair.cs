@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SeekEmptyChair : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class SeekEmptyChair : MonoBehaviour
     [Tooltip("Boolean to check if the NPC has reached the chair")]
     public bool reachedChair = false;
 
+    [Tooltip("Has the NPC been stunned")]
+    public bool isStunned = false;
+
     // The GameManager to read music state from
     private GameManager gameManager;
 
@@ -27,6 +31,9 @@ public class SeekEmptyChair : MonoBehaviour
 
     // Get array of chair objects in scene
     private GameObject[] chairs = null;
+
+    //The Animator to read animation states from
+    public Animator animator;
 
     [Header("Obstacle Avoidance")]
     [Tooltip("Distance to check for nearby blockers")]
@@ -83,6 +90,7 @@ public class SeekEmptyChair : MonoBehaviour
         chairs = GameObject.FindGameObjectsWithTag("Chair");
         gameManager = GameManager.Instance;
         rb = GetComponent<Rigidbody>();
+        animator.SetBool("IsMoving", true);
     }
 
     // Update is called once per frame
@@ -98,16 +106,18 @@ public class SeekEmptyChair : MonoBehaviour
         #region !musicPlaying
         else
         {
-            if (!reachedChair)
+            if (!reachedChair && !isStunned)
             {
                 // Find closest unoccupied chair
                 closestChair = FindClosestChair();
                 // Function to check for nearby blocker between NPC and closestChair
                 SmartApproach(closestChair);
                 npcVelocity = rb.velocity;
+                animator.SetBool("IsMoving", true); // Update animation to moving
             }
             else if (reachedChair)
             {
+                animator.SetBool("IsSitting", true); // Update animation to sitting
                 rb.velocity = UpdateVector(rb.velocity, Vector3.zero);
                 npcVelocity = rb.velocity;
             }
@@ -152,6 +162,32 @@ public class SeekEmptyChair : MonoBehaviour
     }
 
     /// <summary>
+    /// Timed function that stuns the NPC when they hit a hazard
+    /// </summary>
+    public IEnumerator StunNPC(float stunDuration)
+    {
+        isStunned = true;
+        yield return new WaitForSeconds(stunDuration);
+        isStunned = false;
+    }
+
+    /// <summary>
+    /// Function that slows the NPC when they hit a hazard
+    /// </summary>
+    public void SlowNPC(float slowPercent)
+    {
+        moveSpeed *= slowPercent;
+    }
+
+    /// <summary>
+    /// Function that unslows the NPC when they leave a hazard
+    /// </summary>
+    public void UnSlowNPC(float slowPercent)
+    {
+        moveSpeed /= slowPercent;
+    }
+
+    /// <summary>
     /// Function to rotate and move towards closest chair object and update state when reached
     /// Stops when distance to target is closer than stopping distance
     /// </summary>
@@ -159,6 +195,7 @@ public class SeekEmptyChair : MonoBehaviour
     /// <param name="stopDistance">The distance at which to stop moving</param>
     private void MoveTowards(GameObject target, Vector3 direction, float stopDistance)
     {
+
         if (target == null) return; // Ensure there is a target
 
         // Calculate the velocity vector towards the target
@@ -167,6 +204,7 @@ public class SeekEmptyChair : MonoBehaviour
         // Check if we are close enough to the target to consider stopping
         if (FlattenVector(target.transform.position - transform.position).magnitude > stopDistance)
         {
+            
             // Preserve the current Y velocity and apply the calculated X and Z velocity
             rb.velocity = UpdateVector(rb.velocity, velocity);
 
@@ -182,9 +220,12 @@ public class SeekEmptyChair : MonoBehaviour
         }
     }
 
-    // Checks if the NPC has reached the chair and update flag
+    /// <summary>
+    /// Collision checks
+    /// </summary>
     private void OnTriggerEnter(Collider collision)
     {
+        // Checks if the NPC has reached the chair and update flag
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Chair")
         {
             if (collision.gameObject.GetComponent<ChairState>().isOccupied == false)
@@ -192,6 +233,26 @@ public class SeekEmptyChair : MonoBehaviour
                 reachedChair = true;
                 closestChair = collision.gameObject;
             }
+        }
+
+        // Movement types depending on what are the NPC is in
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Space"))
+        {
+            animator.SetLayerWeight(2, 1f);
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Pool"))
+        {
+            animator.SetLayerWeight(1, 1f);
+        }
+    }
+
+    // If the NPC leaves space, turn off space movement
+    void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Space") || collision.gameObject.layer == LayerMask.NameToLayer("Pool"))
+        {
+            animator.SetLayerWeight(1, 0f); // Turn off swimming movement
+            animator.SetLayerWeight(2, 0f); // Turn off space movement
         }
     }
 
@@ -387,6 +448,10 @@ public class SeekEmptyChair : MonoBehaviour
         // Calculate angular velocity for facing the origin
         // Determine the target rotation to face the origin
         Quaternion targetRotation = Quaternion.LookRotation(-directionToOrigin, Vector3.up);
+
+        // Add a 270-degree offset to the target rotation
+        Quaternion offsetRotation = Quaternion.Euler(0, 270, 0);
+        targetRotation *= offsetRotation;
 
         // Calculate the angular velocity needed to rotate the NPC towards the target rotation
         Quaternion deltaRotation = targetRotation * Quaternion.Inverse(rb.rotation);

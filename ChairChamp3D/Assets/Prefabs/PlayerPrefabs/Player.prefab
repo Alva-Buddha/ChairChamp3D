@@ -587,6 +587,7 @@ MonoBehaviour:
   showRay: 1
   rayScale: 2
   reachedChair: 0
+  animator: {fileID: 3996825458639612094}
   playerPower: {fileID: 2783129647459190323}
   stoppedMovement: 0
   stopMovementTime: 0.05

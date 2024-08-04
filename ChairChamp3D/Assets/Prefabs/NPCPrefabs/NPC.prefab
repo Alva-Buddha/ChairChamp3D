@@ -152,6 +152,8 @@ MonoBehaviour:
   musicMoveSpeed: 6.5
   stoppingDistance: 0.1
   reachedChair: 0
+  isStunned: 0
+  animator: {fileID: 6133308183123024608}
   checkNearBlockerDistance: 2
   checkFarBlockerDistance: 8
   checkBlockerHeight: 0.5
@@ -246,5 +248,10 @@ PrefabInstance:
 --- !u!4 &287614205185917082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 83de93f732cd24e4d9aa8f4f3f96b755, type: 3}
+  m_PrefabInstance: {fileID: 321856628507535217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6133308183123024608 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 83de93f732cd24e4d9aa8f4f3f96b755, type: 3}
   m_PrefabInstance: {fileID: 321856628507535217}
   m_PrefabAsset: {fileID: 0}

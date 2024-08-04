@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject chairSpawner; // Variable used to track the chair spawner object
     public GameObject pauseMenuUI; // Variable used to track the pause menu ui
     public GameObject roundEndUI; // Variable used to track the round end ui
+    public GameObject tutorial; // Variable used to track the tutorial popup ui
 
     private AudioManager audioManager; // Variable used to track the audio manager object for before the round starts
     private UIManager uiManager; // Variable used to track the UI manager object for before the round starts
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
         }
 
         SetUpLevel();
+        PlayTutorial();
     }
 
     // Function to set up level
@@ -102,6 +104,13 @@ public class GameManager : MonoBehaviour
             Debug.LogError("The script 'UIManager' can't be found on any UI game objects called 'Canvas'.");
         }
         #endregion
+    }
+
+    // Function to play the tutorial popup on the Tutorial level
+    private void PlayTutorial()
+    {
+        PauseGame();
+        tutorial.SetActive(true);
     }
 
     // Coroutine that plays music when the round starts, then stops it at a time range specified in the public variables

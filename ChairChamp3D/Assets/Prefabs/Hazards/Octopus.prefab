@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 4023890575308112309}
   - component: {fileID: 5353775270320858279}
   - component: {fileID: 1832310091879513153}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Octopus
   m_TagString: Untagged
   m_Icon: {fileID: 0}

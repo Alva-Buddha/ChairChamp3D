@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void OnTriggerEnter(Collider other)
     {
+        #region Movement areas
         if (other.gameObject.layer == LayerMask.NameToLayer("Space"))
         {
             animator.SetLayerWeight(2, 1f); // Set the layer weight to 1 if entering the target layer
@@ -112,6 +113,26 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetLayerWeight(1, 1f); // Set the layer weight to 1 if entering the target layer
         }
+        #endregion
+
+        #region Hazards
+        if (other.gameObject.layer == LayerMask.NameToLayer("Puddle"))
+        {
+            AudioManager.instance.PlayPuddleSFX();
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Meteorite"))
+        {
+            AudioManager.instance.PlayMeteoriteSFX();
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Octopus"))
+        {
+            AudioManager.instance.PlayOctopusSFX();
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("BlackHole"))
+        {
+            AudioManager.instance.PlayBlackHoleSFX();
+        }
+        #endregion
     }
     void OnTriggerExit(Collider other)
     {

@@ -25,6 +25,14 @@ public class AudioManager : MonoBehaviour
     public AudioClip playerSoloWinSFX;
     public AudioClip roundEndSFX;
 
+    public AudioClip hazardPuddleSFX;
+    public AudioClip hazardMeteoriteSFX;
+    public AudioClip hazardOctopusSFX;
+    public AudioClip hazardBlackHoleSFX;
+    public AudioClip hazardBlackHoleFormingSFX;
+    public AudioClip movementSwimmingSFX;
+    public AudioClip movementRunningSFX;
+
     [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
 
@@ -123,6 +131,43 @@ public class AudioManager : MonoBehaviour
     public void PlaySwapSFX()
     {
         PlaySFXClip(powerupSwap);
+    }
+
+
+    // Play sound effect clip for the Puddle hazard
+    public void PlayPuddleSFX()
+    {
+        PlaySFXClip(hazardPuddleSFX);
+    }
+    // Play sound effect clip for the Meteorite hazard
+    public void PlayMeteoriteSFX()
+    {
+        PlaySFXClip(hazardMeteoriteSFX);
+    }
+    // Play sound effect clip for the Octopus hazard
+    public void PlayOctopusSFX()
+    {
+        PlaySFXClip(hazardOctopusSFX);
+    }
+    // Play sound effect clip for the Black Hole hazard
+    public void PlayBlackHoleSFX()
+    {
+        PlaySFXClip(hazardBlackHoleSFX);
+    }
+    // Play sound effect clip for the Black Hole hazard forming
+    public void PlayBlackHoleFormingSFX()
+    {
+        PlaySFXClip(hazardBlackHoleFormingSFX);
+    }
+    // Play sound effect clip for the running animation
+    public void PlayRunningSFX()
+    {
+        PlaySFXClip(movementRunningSFX);
+    }
+    // Play sound effect clip for the swimming animation
+    public void PlaySwimmingSFX()
+    {
+        PlaySFXClip(movementSwimmingSFX);
     }
 
     // Play selected sound effect clip

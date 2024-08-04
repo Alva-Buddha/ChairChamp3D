@@ -328,4 +328,11 @@ MonoBehaviour:
   chairGet: {fileID: 8300000, guid: ab27d72e0cc6bdc4d957c9f30e7e119c, type: 3}
   playerSoloWinSFX: {fileID: 8300000, guid: e3e42ad97041bac48bcb13f17349d2d7, type: 3}
   roundEndSFX: {fileID: 8300000, guid: 62014f2e0902f2b4c898d2576cd4a2bc, type: 3}
+  hazardPuddleSFX: {fileID: 8300000, guid: 44605d9ab2758874a906f64f7dbdb946, type: 3}
+  hazardMeteoriteSFX: {fileID: 8300000, guid: 06f04bb1cfbc27a4f8ee6ccc7605f4d9, type: 3}
+  hazardOctopusSFX: {fileID: 8300000, guid: 38bb6fa93e45ef242995ebd3c9e80ac9, type: 3}
+  hazardBlackHoleSFX: {fileID: 8300000, guid: 38bb6fa93e45ef242995ebd3c9e80ac9, type: 3}
+  hazardBlackHoleFormingSFX: {fileID: 8300000, guid: ac92fb1cd1637ec4381a6809ecb676c8, type: 3}
+  movementSwimmingSFX: {fileID: 8300000, guid: d32134bcf4f4972488d3cf470a341ffb, type: 3}
+  movementRunningSFX: {fileID: 8300000, guid: 3097426036323f64799c3bbbcb8d52bd, type: 3}
   audioMixer: {fileID: 24100000, guid: 3cfb55bbb519b4041836c1f8654081bb, type: 2}

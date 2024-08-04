@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         }
 
         // If all chairs are occupied, round is over; pause the game, play round end music, and bring up the round end UI
-        if (unoccupiedChairs == 0 && hasRoundEnded == false)
+        if ((unoccupiedChairs == 0 || playerChairs > 0) && hasRoundEnded == false)
         {
             EndRound();
         }

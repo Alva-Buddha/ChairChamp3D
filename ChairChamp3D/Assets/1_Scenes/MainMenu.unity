@@ -2588,6 +2588,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2755168202344375106, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -8118058845094536712, guid: 3cfb55bbb519b4041836c1f8654081bb, type: 2}
     - target: {fileID: 4237811490805266514, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
       propertyPath: m_LocalScale.x
       value: 42.153
@@ -2643,6 +2647,18 @@ PrefabInstance:
     - target: {fileID: 4746924623966414889, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
       propertyPath: m_Name
       value: Rain
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093443307370052412, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093443307370052412, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
+      propertyPath: simulationSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093443307370052412, guid: fb87bb4ebd6f54c4dba0cc335f36924b, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

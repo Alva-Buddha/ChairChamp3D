@@ -588,6 +588,8 @@ MonoBehaviour:
   rayScale: 2
   reachedChair: 0
   playerPower: {fileID: 2783129647459190323}
+  stoppedMovement: 0
+  stopMovementTime: 0.05
 --- !u!114 &2783129647459190323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,11 +609,11 @@ MonoBehaviour:
   pullVFX: {fileID: 3881145679999665229, guid: 1598c231ca5c5bf49a03d70605c95662, type: 3}
   powerTime: 0.5
   currentPower: 0
-  dashDistance: 5
+  dashDistance: 10
   dashCooldown: 1
-  pullDistance: 5
+  pullDistance: 4
   pullCooldown: 1
-  stunTime: 0.5
+  stunTime: 2
   stunCooldown: 1
   SwapCooldown: 1
   pullMask:

@@ -838,6 +838,8 @@ MonoBehaviour:
   NPCCountChange: 0
   NPCParent: {fileID: 1164767503}
   player: {fileID: 0}
+  musicMoveSpeed: 9
+  moveSpeed: 4
   numberOfNPC: 3
 --- !u!95 &338426241
 Animator:
@@ -1759,6 +1761,14 @@ PrefabInstance:
     - target: {fileID: 2905346464703442543, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.03978694
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358163751797797782, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+      propertyPath: moveSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358163751797797782, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
+      propertyPath: musicMoveSpeed
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3541641615616879595, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.x

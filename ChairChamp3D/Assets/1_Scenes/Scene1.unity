@@ -13790,7 +13790,7 @@ MonoBehaviour:
   playerChairs: 0
   npcChairs: 0
   roundStartTimerFrom: 5
-  roundStartTimerTo: 12
+  roundStartTimerTo: 9
   musicPlaying: 0
   roundStarted: 0
   hasRoundEnded: 0
@@ -15968,7 +15968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.2
+      value: 22.73
       objectReference: {fileID: 0}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalRotation.w

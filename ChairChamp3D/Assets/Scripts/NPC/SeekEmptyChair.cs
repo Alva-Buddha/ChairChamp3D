@@ -214,7 +214,7 @@ public class SeekEmptyChair : MonoBehaviour
         Vector3 velocity = direction.normalized * moveSpeed;
 
         // Check if we are close enough to the target to consider stopping
-        if (direction.magnitude > stoppingDistance)
+        if (direction.magnitude > stoppingDistance && !reachedChair)
         {
             // Preserve the current Y velocity and apply the calculated X and Z velocity
             Vector3 newVelocity = rb.velocity;
@@ -245,6 +245,11 @@ public class SeekEmptyChair : MonoBehaviour
         {
             if (reachedChair)
             {
+                closestChair = collision.gameObject;
+            }
+            else if (collision.gameObject.GetComponent<ChairState>().isOccupied == false)
+            {
+                reachedChair = true;
                 closestChair = collision.gameObject;
             }
         }

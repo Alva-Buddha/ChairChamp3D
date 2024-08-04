@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 7626097881119426959}
   - component: {fileID: 4023890575308112309}
   - component: {fileID: 5353775270320858279}
-  - component: {fileID: 1379473604713993405}
+  - component: {fileID: 1832310091879513153}
   m_Layer: 0
   m_Name: Octopus
   m_TagString: Untagged
@@ -937,7 +937,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.74
+  m_Radius: 2.12
   m_Center: {x: 0.12, y: -3.39, z: 0.04}
 --- !u!114 &4023890575308112309
 MonoBehaviour:
@@ -1048,7 +1048,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1379473604713993405
+--- !u!114 &1832310091879513153
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1057,10 +1057,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5421017740484749297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65bf074e7ae979f419e7340053dd897f, type: 3}
+  m_Script: {fileID: 11500000, guid: 10b8f8ddabdcf9e49ba3ea7100427e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunDuration: 2.1
+  slowPercent: 0.5
 --- !u!1 &6220063165479390199
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         // Get the Power component
         playerPower = GetComponent<Power>();
+        // Player start each round moving
+        animator.SetBool("IsMoving", true);
     }
 
     ///<summary>
@@ -98,6 +100,29 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// Movement functions for when inside Movement objects
+    /// </summary>
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Space"))
+        {
+            animator.SetLayerWeight(2, 1f); // Set the layer weight to 1 if entering the target layer
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Pool"))
+        {
+            animator.SetLayerWeight(1, 1f); // Set the layer weight to 1 if entering the target layer
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Space") || other.gameObject.layer == LayerMask.NameToLayer("Pool"))
+        {
+            animator.SetLayerWeight(1, 0f); // Turn off swimming movement
+            animator.SetLayerWeight(2, 0f); // Turn off space movement
+        }
+    }
+
+    /// <summary>
     /// Timed function that stuns the player when they hit a hazard
     /// </summary>
     public IEnumerator StunPlayer(float stunDuration)
@@ -105,6 +130,22 @@ public class PlayerController : MonoBehaviour
         isStunned = true;
         yield return new WaitForSeconds(stunDuration);
         isStunned = false;
+    }
+
+    /// <summary>
+    /// Function that slows the player when they hit a hazard
+    /// </summary>
+    public void SlowPlayer(float slowPercent)
+    {
+        moveSpeed *= slowPercent;
+    }
+
+    /// <summary>
+    /// Function that unslows the player when they leave a hazard
+    /// </summary>
+    public void UnSlowPlayer(float slowPercent)
+    {
+        moveSpeed /= slowPercent;
     }
 
     // Update is called once per frame
@@ -134,6 +175,10 @@ public class PlayerController : MonoBehaviour
                 // Calculate angular velocity for facing the origin
                 // Determine the target rotation to face the origin
                 Quaternion targetRotation = Quaternion.LookRotation(-directionToOrigin, Vector3.up);
+
+                // Add a 270-degree offset to the target rotation
+                Quaternion offsetRotation = Quaternion.Euler(0, 270, 0);
+                targetRotation *= offsetRotation;
 
                 // Calculate the angular velocity needed to rotate the player towards the target rotation
                 Quaternion deltaRotation = targetRotation * Quaternion.Inverse(rb.rotation);

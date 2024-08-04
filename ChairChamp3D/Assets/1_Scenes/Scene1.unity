@@ -3838,7 +3838,7 @@ MonoBehaviour:
   NPCParent: {fileID: 1164767503}
   player: {fileID: 0}
   musicMoveSpeed: 6.5
-  moveSpeed: 3
+  moveSpeed: 4
   numberOfNPC: 3
 --- !u!1001 &342625106
 PrefabInstance:

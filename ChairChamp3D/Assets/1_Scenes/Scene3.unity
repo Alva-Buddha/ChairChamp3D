@@ -919,7 +919,7 @@ MonoBehaviour:
   NPCParent: {fileID: 1164767503}
   player: {fileID: 0}
   musicMoveSpeed: 9
-  moveSpeed: 4
+  moveSpeed: 5
   numberOfNPC: 3
 --- !u!95 &338426241
 Animator:

@@ -1342,6 +1342,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 954309073}
     m_Modifications:
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket (2)
@@ -1362,6 +1382,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5969210843042162891, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2dd08d68a9cb5df49a4408e1e3db399f, type: 2}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985
@@ -4544,6 +4568,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 954309073}
     m_Modifications:
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket (5)
@@ -4564,6 +4612,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5969210843042162891, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2dd08d68a9cb5df49a4408e1e3db399f, type: 2}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985
@@ -4675,7 +4727,7 @@ MonoBehaviour:
   NPCParent: {fileID: 1164767503}
   player: {fileID: 0}
   musicMoveSpeed: 8
-  moveSpeed: 3.5
+  moveSpeed: 4
   numberOfNPC: 3
 --- !u!1 &366526753
 GameObject:
@@ -6396,6 +6448,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 954309073}
     m_Modifications:
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket (3)
@@ -6416,6 +6488,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5969210843042162891, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2dd08d68a9cb5df49a4408e1e3db399f, type: 2}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985
@@ -8384,6 +8460,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 954309073}
     m_Modifications:
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket (4)
@@ -8404,6 +8500,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5969210843042162891, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2dd08d68a9cb5df49a4408e1e3db399f, type: 2}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985
@@ -13971,6 +14071,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 954309073}
     m_Modifications:
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket (1)
@@ -13991,6 +14111,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5969210843042162891, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2dd08d68a9cb5df49a4408e1e3db399f, type: 2}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985
@@ -20118,7 +20242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8892279492477020122, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.011537297
+      value: 0.011537298
       objectReference: {fileID: 0}
     - target: {fileID: 8892279492477020122, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21561,6 +21685,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 954309073}
     m_Modifications:
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket (6)
@@ -21581,6 +21725,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5969210843042162891, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2dd08d68a9cb5df49a4408e1e3db399f, type: 2}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985
@@ -26365,6 +26513,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 954309073}
     m_Modifications:
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.865423
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 37.299038
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -57.71856
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739981305800659872, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 5350204609338897045, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_Name
       value: Rocket
@@ -26385,6 +26565,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5969210843042162891, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2dd08d68a9cb5df49a4408e1e3db399f, type: 2}
     - target: {fileID: 7481949207836871497, guid: 7c786a1d5cf0ec84a921343d81e35945, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.019999985

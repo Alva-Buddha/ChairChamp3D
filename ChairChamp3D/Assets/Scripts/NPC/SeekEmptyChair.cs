@@ -19,6 +19,9 @@ public class SeekEmptyChair : MonoBehaviour
     [Tooltip("Boolean to check if the NPC has reached the chair")]
     public bool reachedChair = false;
 
+    [Tooltip("Has the NPC been stunned")]
+    public bool isStunned = false;
+
     // The GameManager to read music state from
     private GameManager gameManager;
 
@@ -152,6 +155,16 @@ public class SeekEmptyChair : MonoBehaviour
     }
 
     /// <summary>
+    /// Timed function that stuns the NPC when they hit a hazard
+    /// </summary>
+    public IEnumerator StunNPC(float stunDuration)
+    {
+        isStunned = true;
+        yield return new WaitForSeconds(stunDuration);
+        isStunned = false;
+    }
+
+    /// <summary>
     /// Function to rotate and move towards closest chair object and update state when reached
     /// Stops when distance to target is closer than stopping distance
     /// </summary>
@@ -159,6 +172,8 @@ public class SeekEmptyChair : MonoBehaviour
     /// <param name="stopDistance">The distance at which to stop moving</param>
     private void MoveTowards(GameObject target, Vector3 direction, float stopDistance)
     {
+        if (isStunned) return; //Ensure the NPC is not stunned
+        
         if (target == null) return; // Ensure there is a target
 
         // Calculate the velocity vector towards the target

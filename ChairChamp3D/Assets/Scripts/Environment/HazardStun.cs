@@ -16,7 +16,11 @@ public class HazardStun : MonoBehaviour
         if (LayerMask.LayerToName(collision.gameObject.layer) == "NPC")
         {
             //tell the colliding NPC's SeekEmptyChair script that it has hit the hazard
-                //<<<REFERENCE TO THE SEEKEMPTYCHAIR SCRIPT THAT COPIES THE PLAYER CODE BELOW>>>
+            SeekEmptyChair npcController = collision.gameObject.GetComponent<SeekEmptyChair>();
+            if (npcController != null)
+            {
+                npcController.StartCoroutine(npcController.StunNPC(stunDuration));
+            }
         }
         //check if the object colliding with the hazard is the player
         else if (LayerMask.LayerToName(collision.gameObject.layer) == "Player")

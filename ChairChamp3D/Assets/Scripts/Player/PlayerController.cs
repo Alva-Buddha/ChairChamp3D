@@ -97,6 +97,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Timed function that stuns the player when they hit a hazard
+    /// </summary>
     public IEnumerator StunPlayer(float stunDuration)
     {
         isStunned = true;

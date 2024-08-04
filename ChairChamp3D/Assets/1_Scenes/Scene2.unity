@@ -4770,6 +4770,8 @@ MonoBehaviour:
   NPCCountChange: 0
   NPCParent: {fileID: 1164767503}
   player: {fileID: 0}
+  musicMoveSpeed: 5
+  moveSpeed: 3
   numberOfNPC: 3
 --- !u!1 &366526753
 GameObject:
@@ -5514,8 +5516,8 @@ Transform:
   m_GameObject: {fileID: 473040214}
   serializedVersion: 2
   m_LocalRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 0.40093, y: -1.0916, z: 1.5167}
-  m_LocalScale: {x: 12.484368, y: -0.07021659, z: 12.484368}
+  m_LocalPosition: {x: 0.5, y: -1.37, z: 1.21}
+  m_LocalScale: {x: 12.879348, y: -0.07021659, z: 12.720358}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1576070097721272565}
@@ -7490,7 +7492,7 @@ Transform:
   m_GameObject: {fileID: 629589886}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.99422216, z: 0, w: 0.10734233}
-  m_LocalPosition: {x: 0.001, y: -5.691, z: 17.857}
+  m_LocalPosition: {x: 0.001, y: -5.6982, z: 17.857}
   m_LocalScale: {x: 0.019999985, y: 0.02, z: 0.019999985}
   m_ConstrainProportionsScale: 0
   m_Children:

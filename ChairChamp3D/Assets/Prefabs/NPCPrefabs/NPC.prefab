@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 720
-  musicMoveSpeed: 5
+  musicMoveSpeed: 6.5
   stoppingDistance: 0.1
   reachedChair: 0
   checkNearBlockerDistance: 2

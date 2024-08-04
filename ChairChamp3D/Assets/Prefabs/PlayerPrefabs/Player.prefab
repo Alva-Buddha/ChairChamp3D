@@ -587,6 +587,7 @@ MonoBehaviour:
   showRay: 1
   rayScale: 2
   reachedChair: 0
+  isStunned: 0
   animator: {fileID: 3996825458639612094}
   playerPower: {fileID: 2783129647459190323}
   stoppedMovement: 0
@@ -1318,7 +1319,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 93b9b89e70812e3458f0a9a55d89d190, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

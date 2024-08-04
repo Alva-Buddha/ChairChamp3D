@@ -61,17 +61,14 @@ public class UIManager : MonoBehaviour
         // Set round end text and colour depending on who won
         if (GameManager.Instance.playerChairs == 0)
         {
-            roundEndText.color = Color.yellow;
             roundEndText.text = "Player loses!";
         }
         else if (GameManager.Instance.npcChairs == 0)
         {
-            roundEndText.color = Color.blue;
             roundEndText.text = "NPC loses!";
         }
         else
         {
-            roundEndText.color = Color.white;
             roundEndText.text = "DRAW!!";
         }
     }

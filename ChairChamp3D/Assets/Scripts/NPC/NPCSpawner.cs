@@ -13,6 +13,10 @@ public class NPCSpawner : MonoBehaviour
     public GameObject NPCParent = null;
     [Tooltip("Transform of player spawn")]
     public GameObject player = null;
+    [Tooltip("Music move speed of NPC")]
+    public float musicMoveSpeed = 8.0f;
+    [Tooltip("Move speed of the NPC")]
+    public float moveSpeed = 3.0f;
 
     private Vector3 spawnLocation;
 
@@ -62,6 +66,9 @@ public class NPCSpawner : MonoBehaviour
 
             // Set parent of NPC to NPCParent
             NPC.transform.parent = NPCParent.transform;
+
+            NPC.GetComponent<SeekEmptyChair>().moveSpeed = moveSpeed;
+            NPC.GetComponent<SeekEmptyChair>().musicMoveSpeed = musicMoveSpeed;
         }
     }
 

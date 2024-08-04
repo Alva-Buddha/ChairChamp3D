@@ -329,13 +329,17 @@ public class Power : MonoBehaviour
 
         if (targetRb != null)
         {
-            if (inputManager.targetObject.GetComponent<ChairState>().isOccupied)
+            Debug.Log("Target object has a Rigidbody");
+            //If target object belongs to NPC layer then call coroutine to set target object velocity to zero and lock constraints for stunTime
+            if (targetRb.gameObject.layer == LayerMask.NameToLayer("NPC"))
             {
-                Debug.Log("Target object is an occupied chair");
-                return;
+                // Call coroutine to set target object velocity to zero and lock constraints for stunTime
+                StartCoroutine(StunTargetOverTime(targetRb, stunTime));
             }
-            // Call coroutine to set target object velocity to zero and lock constraints for stunTime
-            StartCoroutine(StunTargetOverTime(targetRb, stunTime));
+            else
+            {
+                Debug.Log("Target object does not belong to NPC layer");
+            }
         }
         else
         {

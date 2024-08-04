@@ -57,11 +57,14 @@ public class NPCSpawner : MonoBehaviour
             // Set spawnLocation for next NPC by rotating the spawnLocation vector around the y-axis away from the player
             spawnLocation = Quaternion.Euler(0, 360 / (numberOfNPC + 1), 0) * spawnLocation;
 
-            // Instantiate NPC prefab
+            // Instantiate NPC prefab with different names and spawn locations
             GameObject NPC = Instantiate(NPCPrefab, spawnLocation, Quaternion.identity);
 
             // Set parent of NPC to NPCParent
             NPC.transform.parent = NPCParent.transform;
+
+            // Set name of NPC to include index
+            NPC.name = "NPC" + i;
         }
     }
 

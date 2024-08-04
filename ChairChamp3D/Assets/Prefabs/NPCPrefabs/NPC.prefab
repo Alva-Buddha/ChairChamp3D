@@ -152,15 +152,20 @@ MonoBehaviour:
   musicMoveSpeed: 5
   stoppingDistance: 0.1
   reachedChair: 0
-  checkBlockerDistance: 2
+  checkNearBlockerDistance: 2
+  checkFarBlockerDistance: 8
   checkBlockerHeight: 0.5
-  lrPreference: 0
+  numNearRays: 5
+  numFarRays: 10
+  checkStuckTime: 0.5
+  checkStuckDistance: 0.5
+  unstuckTime: 3
+  isStuck: 0
+  smoothThreshold: 0.1
   showRay: 1
   rayScale: 2
-  isBlocked: 0
   npcVelocity: {x: 0, y: 0, z: 0}
   debugDir: {x: 0, y: 0, z: 0}
-  hitObject: {fileID: 0}
 --- !u!1001 &321856628507535217
 PrefabInstance:
   m_ObjectHideFlags: 0

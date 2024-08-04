@@ -41,7 +41,7 @@ public class SeekEmptyChair : MonoBehaviour
     public int numFarRays = 10;
 
     [Tooltip("Time to check while avoiding getting stuck")]
-    public float checkStuckTime = 0.5f;
+    public float checkStuckTime = 1f;
     [Tooltip("Distance to check to determine if stuck")]
     public float checkStuckDistance = 0.5f;
 

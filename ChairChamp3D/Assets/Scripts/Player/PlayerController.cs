@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
     //The GameManager to read music state from
     private GameManager gameManager;
 
+    //The Animator to read animation states from
+    public Animator animator;
+
     //The object's rigidbody
     private Rigidbody rb;
 
@@ -58,7 +61,7 @@ public class PlayerController : MonoBehaviour
         // Get the Rigidbody component
         rb = GetComponent<Rigidbody>();
         // Get the Power component
-        playerPower = GetComponent<Power>();    
+        playerPower = GetComponent<Power>();
     }
 
     ///<summary>
@@ -193,6 +196,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="movement">The direction to move the player</param>
     private void MovePlayer(Vector3 movement)
     {
+        animator.SetBool("IsMoving", true);
         // Calculate the velocity vector based on input and move speed
         Vector3 velocity = movement * moveSpeed;
 
@@ -230,6 +234,7 @@ public class PlayerController : MonoBehaviour
         newVelocity.z = 0;
         rb.velocity = newVelocity;
         stoppedMovement = true;
+        animator.SetBool("IsMoving", false);
     }
 
     public void EnablePowerIcon(Power.PowerType powerType)

@@ -29093,6 +29093,7 @@ MonoBehaviour:
   chairSpawner: {fileID: 0}
   pauseMenuUI: {fileID: 1509853659}
   roundEndUI: {fileID: 516224399}
+  tutorial: {fileID: 0}
   NPCCount: 0
 --- !u!4 &1063798619
 Transform:

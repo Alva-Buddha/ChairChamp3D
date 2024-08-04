@@ -45,6 +45,10 @@ public class SeekEmptyChair : MonoBehaviour
     [Tooltip("Distance to check to determine if stuck")]
     public float checkStuckDistance = 0.5f;
 
+    // Flags to check if coroutines are running
+    private bool checkStuckRunning = false;
+    private bool checkUnStuckRunning = false;
+
     [Tooltip("Time to spend getting unstuck")]
     public float unstuckTime = 3f;
 
@@ -210,7 +214,7 @@ public class SeekEmptyChair : MonoBehaviour
             // Calculate the weighted average of the three directions
             weightedDirection = 0.5f * targetDirection + 0.4f * avoidNearbyDirection + 0.1f * avoidFarDirection;
             // Call CheckStuck coroutine to check if NPC is stuck
-            if (!IsInvoking(nameof(CheckStuck)))
+            if (!IsInvoking(nameof(CheckStuck)) && !checkStuckRunning)
             {
                 //Debug.Log(this.name + ": Starting CheckStuck coroutine at: " + Time.time);
                 StartCoroutine(CheckStuck());
@@ -226,7 +230,7 @@ public class SeekEmptyChair : MonoBehaviour
             Vector3 avoidFarDirection = AvoidFarObstacle(perpendicularDirection, target);
             weightedDirection = 0.5f * perpendicularDirection + 0.4f * avoidNearbyDirection + 0.1f * avoidFarDirection;
             // Start coroutine to check passage of time and update isStuck flag
-            if (!IsInvoking(nameof(CheckUnStuck)))
+            if (!IsInvoking(nameof(CheckUnStuck)) && !checkUnStuckRunning)
             {
                 Debug.Log(this.name + ": Starting CheckUnStuck coroutine at: " + Time.time);
                 StartCoroutine(CheckUnStuck());
@@ -251,6 +255,8 @@ public class SeekEmptyChair : MonoBehaviour
     /// </summary>
     IEnumerator CheckStuck()
     {
+        // Set running flag to true
+        checkStuckRunning = true;
         Vector3 initialPosition = transform.position;
         yield return new WaitForSeconds(checkStuckTime);
         Vector3 finalPosition = transform.position;
@@ -260,6 +266,8 @@ public class SeekEmptyChair : MonoBehaviour
             // Log time of changing isStuck flag to true
             Debug.Log(this.name + ": Detected stuck at: " + Time.time);
         }
+        // Set running flag to false
+        checkStuckRunning = false;
         //Debug.Log(this.name + ": CheckStuck coroutine completed at: " + Time.time);
     }
 
@@ -268,10 +276,14 @@ public class SeekEmptyChair : MonoBehaviour
     /// </summary>
     IEnumerator CheckUnStuck()
     {
+        // Set running flag to true
+        checkUnStuckRunning = true;
         yield return new WaitForSeconds(unstuckTime);
         isStuck = false;
         // Log time of changing isStuck flag to false
         Debug.Log(this.name + ": Unstuck at: " + Time.time);
+        // Set running flag to false
+        checkUnStuckRunning = false;
     }
 
     // Function to avoid nearby obstacles

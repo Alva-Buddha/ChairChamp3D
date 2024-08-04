@@ -891,6 +891,8 @@ MonoBehaviour:
   NPCCountChange: 0
   NPCParent: {fileID: 1164767503}
   player: {fileID: 875937817}
+  musicMoveSpeed: 10
+  moveSpeed: 3
   numberOfNPC: 1
 --- !u!1 &340009976
 GameObject:
@@ -3268,8 +3270,8 @@ MonoBehaviour:
   unoccupiedChairs: 0
   playerChairs: 0
   npcChairs: 0
-  roundStartTimerFrom: 1
-  roundStartTimerTo: 2
+  roundStartTimerFrom: 3
+  roundStartTimerTo: 10
   musicPlaying: 0
   roundStarted: 0
   hasRoundEnded: 0
@@ -7321,7 +7323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3358163751797797782, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: musicMoveSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7183413303694227360, guid: d8ec5febf13e6f94e92b8942b261782d, type: 3}
       propertyPath: m_LocalPosition.x

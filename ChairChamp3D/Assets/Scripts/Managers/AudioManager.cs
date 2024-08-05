@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip playerSoloWinMusic;
 
     [Header("Audio Clips - SFX")]
+    public AudioClip powerupCollected;
     public AudioClip powerupDash;
     public AudioClip powerupStun;
     public AudioClip powerupPull;
@@ -114,6 +115,12 @@ public class AudioManager : MonoBehaviour
         musicSource.UnPause();
     }
 
+    // Play sound effect clip for collecting a powerup
+    public void PlayPowerupCollectedSFX()
+    {
+        PlaySFXClip(powerupCollected);
+    }
+
     // Play sound effect clip for the Pull powerup
     public void PlayPullSFX()
     {
@@ -137,7 +144,6 @@ public class AudioManager : MonoBehaviour
     {
         PlaySFXClip(powerupSwap);
     }
-
 
     // Play sound effect clip for the Puddle hazard
     public void PlayPuddleSFX()

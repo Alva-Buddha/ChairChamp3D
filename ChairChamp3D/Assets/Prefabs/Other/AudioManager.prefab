@@ -321,6 +321,7 @@ MonoBehaviour:
   levelThemeMusic: {fileID: 8300000, guid: 5ae470867abce324facbce10a535ad05, type: 3}
   roundEndMusic: {fileID: 8300000, guid: a4cb33760a44aee4583951090d909474, type: 3}
   playerSoloWinMusic: {fileID: 8300000, guid: a4cb33760a44aee4583951090d909474, type: 3}
+  powerupCollected: {fileID: 8300000, guid: a6d3e95433d00164984fe069fb5c87dd, type: 3}
   powerupDash: {fileID: 8300000, guid: f546e63523c5b624d977f2877277ccc3, type: 3}
   powerupStun: {fileID: 8300000, guid: ce6bfca94cb62aa49ba2032d2776b969, type: 3}
   powerupPull: {fileID: 8300000, guid: 662385d0ea2639d46a11ffb7945092e5, type: 3}
@@ -328,6 +329,7 @@ MonoBehaviour:
   chairGet: {fileID: 8300000, guid: ab27d72e0cc6bdc4d957c9f30e7e119c, type: 3}
   playerSoloWinSFX: {fileID: 8300000, guid: d4cdf650db9acd447bc18a918381b06e, type: 3}
   roundEndSFX: {fileID: 8300000, guid: 595f95bf6fee3d84ca4ec6e21a26d798, type: 3}
+  bushPopupSFX: {fileID: 8300000, guid: 5170203af0de84a46ab9cf58b3e7ec70, type: 3}
   hazardPuddleSFX: {fileID: 8300000, guid: 44605d9ab2758874a906f64f7dbdb946, type: 3}
   hazardMeteoriteSFX: {fileID: 8300000, guid: 06f04bb1cfbc27a4f8ee6ccc7605f4d9, type: 3}
   hazardOctopusSFX: {fileID: 8300000, guid: 38bb6fa93e45ef242995ebd3c9e80ac9, type: 3}

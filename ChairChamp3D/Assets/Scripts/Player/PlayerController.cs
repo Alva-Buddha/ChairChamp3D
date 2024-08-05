@@ -132,6 +132,10 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.instance.PlayBlackHoleSFX();
         }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Power"))
+        {
+            AudioManager.instance.PlayPowerupCollectedSFX();
+        }
         #endregion
     }
     void OnTriggerExit(Collider other)

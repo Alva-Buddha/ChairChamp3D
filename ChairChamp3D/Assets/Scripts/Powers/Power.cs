@@ -334,7 +334,7 @@ public class Power : MonoBehaviour
             if (targetRb.gameObject.layer == LayerMask.NameToLayer("NPC"))
             {
                 // Call coroutine to set target object velocity to zero and lock constraints for stunTime
-                StartCoroutine(StunTargetOverTime(targetRb, stunTime));
+                StartCoroutine(StunTargetOverTime(inputManager.targetObject, targetRb, stunTime));
             }
             else
             {
@@ -357,7 +357,7 @@ public class Power : MonoBehaviour
     }
 
     // Coroutine to set target object velocity to zero and lock constraints for stunTime
-    private IEnumerator StunTargetOverTime(Rigidbody targetRbLocal, float duration)
+    private IEnumerator StunTargetOverTime(GameObject model, Rigidbody targetRbLocal, float duration)
     {
         Debug.Log("StunTargetOverTime called");
 
@@ -370,8 +370,17 @@ public class Power : MonoBehaviour
         // Lock all constraints to freeze the target
         targetRbLocal.constraints = RigidbodyConstraints.FreezeAll;
 
+        // Change character model
+        model.transform.GetChild(0).gameObject.SetActive(false);
+        model.transform.GetChild(1).gameObject.SetActive(true);
+
         // Wait for the duration of the stun
         yield return new WaitForSeconds(duration);
+
+        // Change character model back
+        model.transform.GetChild(0).gameObject.SetActive(true);
+        model.transform.GetChild(1).gameObject.SetActive(false);
+
 
         // Restore the original constraints
         targetRbLocal.constraints = originalConstraints;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -53,7 +54,11 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusicClip(titleMusic, true);
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            PlayMusicClip(titleMusic, true);
+        }
+        
     }
 
     // Play the pre round music

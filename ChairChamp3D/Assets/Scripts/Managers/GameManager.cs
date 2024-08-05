@@ -184,13 +184,13 @@ public class GameManager : MonoBehaviour
         GameIsPaused = true;
 
         // Play end round music
-        if (npcChairs == 0)
+        if (playerChairs == 0)
         {
-            audioManager.PlayPlayerSoloWinAudio();
+            audioManager.PlayRoundEndAudio(); 
         }
         else
         {
-            audioManager.PlayRoundEndAudio();
+            audioManager.PlayPlayerSoloWinAudio();
         }
     }
 

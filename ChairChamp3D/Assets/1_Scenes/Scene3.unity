@@ -400,10 +400,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1379516509556156387, guid: 7ded978c6a206024196d52612e828769, type: 3}
-      propertyPath: preRoundMusic
-      value: 
-      objectReference: {fileID: 8300000, guid: bd5cfd25f7a03fa45be5d860b495303d, type: 3}
-    - target: {fileID: 1379516509556156387, guid: 7ded978c6a206024196d52612e828769, type: 3}
       propertyPath: levelThemeMusic
       value: 
       objectReference: {fileID: 8300000, guid: 7c43eaefcb316de4284cbefeb78aef04, type: 3}
